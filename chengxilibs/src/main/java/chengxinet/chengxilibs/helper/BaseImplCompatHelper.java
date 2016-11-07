@@ -65,8 +65,8 @@ public class BaseImplCompatHelper implements BaseImplCompat {
     public void initView() {
         mActionBarContain = findViewByIdToView(R.id.action_bar_layout);
         mCenterTxt = findViewByIdToView(R.id.actionBar_center_txt);
-        mLeftTxt = findViewByIdToView(R.id.actionBar_center_txt);
-        mRightTxt = findViewByIdToView(R.id.actionBar_center_txt);
+        mLeftTxt = findViewByIdToView(R.id.actionBar_left_txt);
+        mRightTxt = findViewByIdToView(R.id.actionBar_right_txt);
         mActionBarBg = findViewByIdToView(R.id.actionBar_bg);
 
         if (mCenterTxt != null)
@@ -216,7 +216,7 @@ public class BaseImplCompatHelper implements BaseImplCompat {
     public void hideActionBar(boolean b) {
         if (mActionBarContain != null) {
             if (b) {
-                mActionBarContain.setVisibility(View.GONE);
+                mActionBarContain.setVisibility(View.INVISIBLE);
             } else {
                 mActionBarContain.setVisibility(View.VISIBLE);
             }

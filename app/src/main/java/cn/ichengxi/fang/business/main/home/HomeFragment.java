@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.business.house_detail.HouseDetailActivity;
 import cn.ichengxi.fang.business.list.ListHouseActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 
@@ -21,6 +22,12 @@ public class HomeFragment extends BaseFrameFragment {
     @Override
     public void initView() {
         super.initView();
+        findViewByIdToView(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(HouseDetailActivity.class);
+            }
+        });
         findViewByIdToView(R.id.home_search).setOnClickListener(this);
     }
 

@@ -9,7 +9,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".business.main.MainActivity">
+        <activity android:name=".business.main.MainActivity"
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +23,8 @@
             android:screenOrientation="portrait"
             android:label="@string/app_list_house"
             android:launchMode="singleTop" />
+
+        <activity android:name=".business.house_detail.HouseDetailActivity"/>
 
     </application>
 

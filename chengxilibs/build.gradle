@@ -71,4 +71,7 @@ dependencies {
 
     /*徽章*/
     compile 'cn.bingoogolapple:bga-badgeview:1.1.3@aar'
+
+    /*依赖注入*/
+    compile 'com.jakewharton:butterknife:7.0.1'
 }

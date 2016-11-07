@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_actionbar"/>
+
+    <cn.ichengxi.fang.view.BaseRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <TextView
+            style="@style/HouseDetailBottomTab"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="@color/grey1"
+            android:drawableTop="@mipmap/ico_star_solid"/>
+
+        <TextView
+            style="@style/HouseDetailBottomTab"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:text="咨询小蜜"
+            android:drawableTop="@mipmap/ico_consult"
+            android:textColor="@color/grey1"/>
+
+        <TextView
+            style="@style/HouseDetailBottomTab"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:drawableTop="@mipmap/ico_online_contact"
+            android:text="在线联系"/>
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:background="@color/green1">
+
+
+            <TextView
+                android:id="@+id/house_master"
+                style="@style/HouseDetailBottomTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_large"
+                android:textColor="@android:color/white"
+                android:text="黄晓晓"
+                android:padding="0dp"
+
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp" />
+
+            <ImageView
+                android:layout_toLeftOf="@id/house_master"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_contact"
+                android:layout_marginRight="@dimen/partition_normal"
+                android:layout_marginEnd="@dimen/partition_normal"
+                android:layout_centerVertical="true"
+
+                android:id="@+id/imageView" />
+
+            <TextView
+                android:padding="0dp"
+                style="@style/HouseDetailBottomTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+
+                android:text="联系业主"
+                android:id="@+id/textView"
+
+                android:layout_below="@+id/house_master"
+                android:layout_toRightOf="@+id/imageView"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_marginTop="1dp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

@@ -18,9 +18,9 @@ package cn.ichengxi.fang.business.list;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.adapter.ListHouseAdapter;
 import cn.ichengxi.fang.adapter.decoration.ItemLine;
@@ -43,7 +43,6 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_list_house);
-        ButterKnife.bind(this);
     }
 
     @Override
@@ -68,6 +67,8 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
     @Override
     public void initListener() {
         super.initListener();
+        findViewByIdToView(R.id.iv_back).setOnClickListener(this);
+
         mSwipeLayout.setPtrHandler(new PtrDefaultHandler2() {
             @Override
             public void onLoadMoreBegin(PtrFrameLayout frame) {
@@ -79,6 +80,16 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                 mSwipeLayout.refreshComplete();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+            case R.id.iv_back:
+                finish();
+                break;
+        }
     }
 
     @Override
