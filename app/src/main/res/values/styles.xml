@@ -58,4 +58,11 @@
         <item name="android:paddingRight">@dimen/partition_normal</item>
         <item name="android:paddingLeft">@dimen/partition_normal</item>
     </style>
+
+    <style name="TranslucentTheme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+    </style>
 </resources>

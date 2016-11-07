@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/personal_background"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/home_bg" />
+
+    <chengxinet.chengxilibs.widget.MySimpleDraweeView
+        android:id="@+id/personal_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="90dp"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/personal_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personal_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/partition_small"
+        android:gravity="center"
+        android:text="请登陆"
+        android:paddingLeft="@dimen/partition_large"
+        android:paddingRight="@dimen/partition_large"
+        android:paddingTop="@dimen/partition_small"
+        android:paddingBottom="@dimen/partition_small"
+        android:background="@drawable/btn_green_corner"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_big" />
+
+</RelativeLayout>
