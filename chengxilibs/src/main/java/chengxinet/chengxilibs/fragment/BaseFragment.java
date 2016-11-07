@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
 import chengxinet.chengxilibs.activity.BaseActivity;
 import chengxinet.chengxilibs.global.BaseImplCompat;
 import chengxinet.chengxilibs.helper.BaseImplCompatHelper;
@@ -51,6 +52,7 @@ public abstract class BaseFragment extends Fragment implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		mHelper = new BaseImplCompatHelper(this);
 		onSetView(savedInstanceState);
+		ButterKnife.bind(this, mContentView);
 		TAG = getClass().getSimpleName();
 		MyLog.i("LifeCycle", getClass().getSimpleName() + " is onCreate()");
 		this.savedInstanceState = savedInstanceState;
@@ -110,6 +112,7 @@ public abstract class BaseFragment extends Fragment implements OnClickListener,
 	public void onDestroy() {
 		MyLog.i("LifeCycle", getClass().getSimpleName() + " is onDestroy()");
 		mContainer = null;
+		ButterKnife.unbind(getActivity());
 		super.onDestroy();
 	}
 

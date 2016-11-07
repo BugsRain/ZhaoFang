@@ -1,6 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include layout="@layout/common_actionbar"/>
-</LinearLayout>
+<cn.ichengxi.fang.view.DampingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/fragment_personal_header" />
+
+        <LinearLayout
+            android:id="@+id/personal_collect_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_collection" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/partition_normal2"
+                android:layout_weight="1"
+                android:alpha="0.8"
+                android:text="我的收藏"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_arrow_right" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_big"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/personal_house_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_house" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/partition_normal2"
+                android:layout_weight="1"
+                android:alpha="0.8"
+                android:text="我的房源"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_arrow_right" />
+
+        </LinearLayout>
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/partition_normal2" />
+
+        <LinearLayout
+            android:id="@+id/personal_about_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_about" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/partition_normal2"
+                android:layout_weight="1"
+                android:alpha="0.8"
+                android:text="关于我们"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_arrow_right" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_big"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/personal_feedback_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_feedback" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/partition_normal2"
+                android:layout_weight="1"
+                android:alpha="0.8"
+                android:text="意见反馈"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_arrow_right" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_big"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/personal_setting_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_setting" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/partition_normal2"
+                android:layout_weight="1"
+                android:alpha="0.8"
+                android:text="设置"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ico_arrow_right" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</cn.ichengxi.fang.view.DampingScrollView>

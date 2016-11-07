@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/colorPrimary"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ico_back"
+        android:paddingEnd="@dimen/partition_normal"
+        android:paddingLeft="@dimen/partition_normal"
+        android:paddingRight="@dimen/partition_normal"
+        android:paddingStart="@dimen/partition_normal"
+        android:contentDescription="@string/app_img"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@drawable/home_search_bg"
+        android:drawableLeft="@mipmap/ico_search"
+        android:drawablePadding="@dimen/partition_normal"
+        android:paddingLeft="@dimen/partition_normal2"
+        android:paddingRight="@dimen/partition_normal2"
+        android:layout_gravity="center_vertical"
+        android:hint="搜索小区、地段"
+        android:textColorHint="@color/grey2"
+        android:textSize="@dimen/textSize_big"
+        android:textColor="@color/grey1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ico_map"
+        android:paddingEnd="@dimen/partition_normal"
+        android:paddingLeft="@dimen/partition_normal"
+        android:paddingRight="@dimen/partition_normal"
+        android:paddingStart="@dimen/partition_normal"
+        android:contentDescription="@string/app_img"/>
+
+
+</LinearLayout>

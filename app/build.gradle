@@ -47,7 +47,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(path: ':chengxilibs')
-
+    compile project(path: ':ptr-lib')
     compile 'com.bigkoo:convenientbanner:2.0.5'
     compile project(path: ':MultipleSectionLibrary')
 }

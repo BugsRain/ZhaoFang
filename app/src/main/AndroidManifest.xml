@@ -17,7 +17,18 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".business.list.ListHouseActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_list_house"
+            android:launchMode="singleTop" />
+
         <activity android:name=".business.house_detail.HouseDetailActivity"/>
+        <activity
+            android:name=".business.location.LocationActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
