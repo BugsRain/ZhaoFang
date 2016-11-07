@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
 import chengxinet.chengxilibs.global.BaseImplCompat;
 import chengxinet.chengxilibs.helper.BaseImplCompatHelper;
 import chengxinet.chengxilibs.utils.MyLog;
@@ -40,6 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
 
         onViewCreate(savedInstanceState);
+        ButterKnife.bind(this);
 
         mHelper = new BaseImplCompatHelper(this);
 
@@ -142,6 +144,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     protected void onDestroy() {
         Log.i("LifeCycle", getClass().getSimpleName() + " is onDestroy()");
+        ButterKnife.unbind(this);
         super.onDestroy();
     }
 
