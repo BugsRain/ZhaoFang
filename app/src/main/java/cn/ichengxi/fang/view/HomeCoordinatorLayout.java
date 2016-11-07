@@ -113,7 +113,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
         mSearchHeight = mSearchView.getMeasuredHeight();
         mSearchWidth = mSearchView.getMeasuredWidth();
 
-        mScroller.startScroll(0, getScrollY(),0 ,mHeaderHeight - mActionBarHeight, 3000);
+//        mScroller.startScroll(0, getScrollY(),0 ,mHeaderHeight - mActionBarHeight, 3000);
     }
 
     @Override
@@ -198,7 +198,6 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     public void fling(int velocityY) {
         mScroller.fling(0, getScrollY(), 0, velocityY, 0, 0, 0, mHeaderHeight - mActionBarHeight);
-//        invalidate();
     }
 
     @Override
