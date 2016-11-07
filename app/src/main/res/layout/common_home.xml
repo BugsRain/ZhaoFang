@@ -1,10 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/home_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/home_content">
-    <TextView
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()11-05 17:11:11.191 8656-8656/cn.ichengxi.fang I/LifeCycle: HomeFragment is onCreateView()"/>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/partition_large"
+            android:paddingBottom="@dimen/partition_large"
+            android:gravity="center">
+
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    style="@style/HomeSaleBuy"
+                    android:drawableLeft="@mipmap/ico_sale_house"
+                    android:drawableStart="@mipmap/ico_sale_house"
+                    android:text="卖房" />
+            </FrameLayout>
+            <View
+                android:id="@+id/cut"
+                android:layout_width="@dimen/line_height"
+                android:layout_height="30dp"
+                android:background="@color/grey2" />
+
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/button"
+                    style="@style/HomeSaleBuy"
+                    android:drawableLeft="@mipmap/ico_buy_house"
+                    android:drawableStart="@mipmap/ico_buy_house"
+                    android:text="买房" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_big"
+            android:layout_marginRight="@dimen/partition_big"
+
+            android:background="@color/grey2"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/partition_large"
+            android:paddingTop="@dimen/partition_large">
+
+            <TextView
+                style="@style/HomeFunction"
+                android:drawableTop="@mipmap/ico_trade"
+                android:text="交易服务" />
+
+            <TextView
+                style="@style/HomeFunction"
+                android:drawableTop="@mipmap/ico_bee"
+                android:text="房小蜜" />
+
+            <TextView
+                style="@style/HomeFunction"
+                android:drawableTop="@mipmap/ico_compute"
+                android:text="计算器" />
+
+        </LinearLayout>
+
+
+        <com.bigkoo.convenientbanner.ConvenientBanner
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/green2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/partition_large"
+            android:gravity="center"
+            android:text="九月份广州行情"
+            android:paddingTop="@dimen/partition_normal"
+            android:textSize="@dimen/textSize_big" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/partition_large"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ico_trade_count"
+                    android:drawablePadding="@dimen/partition_small"
+                    android:drawableStart="@mipmap/ico_trade_count"
+                    android:gravity="center"
+                    android:text="成交类(套)" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/partition_small"
+                    android:gravity="center"
+                    android:text="500"
+                    android:textSize="@dimen/textSize_large" />
+            </LinearLayout>
+
+            <View
+
+                android:layout_width="@dimen/line_height"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/partition_normal"
+                android:layout_marginTop="@dimen/partition_small"
+                android:background="@color/grey2" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ico_trade_money"
+                    android:drawablePadding="@dimen/partition_small"
+                    android:drawableStart="@mipmap/ico_trade_money"
+                    android:gravity="center"
+                    android:text="均价(元/㎡)" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/partition_small"
+                    android:gravity="center"
+                    android:text="500"
+                    android:textSize="@dimen/textSize_large" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

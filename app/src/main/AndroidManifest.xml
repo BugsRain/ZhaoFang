@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".business.house_detail.HouseDetailActivity"/>
     </application>
 
 </manifest>
