@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -132,8 +134,12 @@ public class MainActivity extends BaseFrameActivity {
     private void setStatusBarColor(int res) {
         //状态栏着色
         decorView.removeView(view);
+        if (res == android.R.color.transparent)
+            return;
+
         view.setBackgroundColor(getResources().getColor(res));
-        decorView.addView(view, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(this)));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(this));
+        decorView.addView(view, layoutParams);
     }
 
     public int getStatusBarHeight(Context context) {
