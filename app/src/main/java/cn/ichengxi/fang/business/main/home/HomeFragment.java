@@ -13,7 +13,7 @@ public class HomeFragment extends BaseFrameFragment {
 
     @Override
     public void onSetView(Bundle savedInstanceState) {
-        setmContentView(R.layout.fragment_home);
+        setContentView(R.layout.fragment_home);
     }
 
     @Override
