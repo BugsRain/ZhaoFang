@@ -16,7 +16,7 @@ public class PersonalFragment extends BaseFrameFragment {
 
     @Override
     public void onSetView(Bundle savedInstanceState) {
-        setmContentView(R.layout.fragement_personal);
+        setContentView(R.layout.fragement_personal);
     }
 
     @Override

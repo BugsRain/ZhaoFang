@@ -12,7 +12,7 @@ import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 public class MessageFragment extends BaseFrameFragment {
     @Override
     public void onSetView(Bundle savedInstanceState) {
-        setmContentView(R.layout.fragment_message);
+        setContentView(R.layout.fragment_message);
     }
 
     @Override

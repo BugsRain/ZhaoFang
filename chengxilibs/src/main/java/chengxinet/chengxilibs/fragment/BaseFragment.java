@@ -159,7 +159,7 @@ public abstract class BaseFragment extends Fragment implements OnClickListener,
 	 * @param id
 	 *            视图的资源id
 	 * */
-	public void setmContentView(int id) {
+	public void setContentView(int id) {
 		this.mContentView = getActivity().getLayoutInflater().inflate(id, mContainer, false);
 	}
 
@@ -200,7 +200,7 @@ public abstract class BaseFragment extends Fragment implements OnClickListener,
 		getActivity().finish();
 	}
 
-	public View getmContentView() {
+	public View getContentView() {
 		return mContentView;
 	}
 

@@ -153,8 +153,8 @@ public class BaseImplCompatHelper implements BaseImplCompat {
         if (mode == Mode.ACTIVITY) {
             t = (T) mActivity.findViewById(id);
         } else {
-            if(mFragment.getmContentView() == null)return  null;
-            t = (T) mFragment.getmContentView().findViewById(id);
+            if(mFragment.getContentView() == null)return  null;
+            t = (T) mFragment.getContentView().findViewById(id);
         }
         return t;
     }
