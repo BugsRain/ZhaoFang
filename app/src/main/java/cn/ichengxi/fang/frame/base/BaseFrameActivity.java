@@ -26,7 +26,6 @@ public abstract class BaseFrameActivity<P extends BasePresenter, M extends BaseM
         mModel = TUtil.getT(this, 1);
 
         if (mPresenter != null && mModel != null)
-
             mPresenter.setVM(this, mModel);
     }
 

@@ -58,4 +58,19 @@
         <item name="android:paddingRight">@dimen/partition_normal</item>
         <item name="android:paddingLeft">@dimen/partition_normal</item>
     </style>
+
+    <style name="houseInfoFirstTag">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">@dimen/partition_normal</item>
+        <item name="android:paddingRight">@dimen/partition_normal</item>
+        <item name="android:paddingTop">@dimen/partition_very_small</item>
+        <item name="android:paddingBottom">@dimen/partition_very_small</item>
+        <item name="android:textSize">@dimen/textSize_small</item>
+    </style>
+
+    <style name="houseInfoTag" parent="@style/houseInfoFirstTag">
+        <item name="android:layout_marginLeft">@dimen/partition_small</item>
+    </style>
 </resources>

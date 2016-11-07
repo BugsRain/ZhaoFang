@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MultipleSectionLibrary/MultipleSectionLibrary.iml" filepath="$PROJECT_DIR$/MultipleSectionLibrary/MultipleSectionLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZhaoFang.iml" filepath="$PROJECT_DIR$/ZhaoFang.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/chengxilibs/chengxilibs.iml" filepath="$PROJECT_DIR$/chengxilibs/chengxilibs.iml" />

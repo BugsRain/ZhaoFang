@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/partition_big">
+
+    <chengxinet.chengxilibs.widget.MySimpleDraweeView
+        android:id="@+id/house_img"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="@dimen/partition_normal"
+        android:layout_marginRight="@dimen/partition_normal"/>
+
+    <TextView
+        android:id="@+id/house_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/house_img"
+        android:layout_toEndOf="@id/house_img"
+        android:text="华景新城"
+        android:textSize="@dimen/textSize_large"
+        android:layout_marginBottom="@dimen/partition_small"/>
+
+    <TextView
+        android:id="@+id/house_local_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/house_location"
+        android:layout_toRightOf="@id/house_img"
+        android:layout_toEndOf="@id/house_img"
+        android:text="华景新城"
+        android:textColor="@color/grey2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="300万\n50000元/m²"
+        android:textColor="@color/grey2"
+        android:layout_marginTop="@dimen/partition_small"
+        android:gravity="end"/>
+
+    <LinearLayout
+        android:layout_toRightOf="@id/house_img"
+        android:layout_toEndOf="@id/house_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@id/house_img">
+        <TextView
+            style="@style/houseInfoFirstTag"
+            android:background="@drawable/house_tag1"
+            android:text="学位" />
+        <TextView
+            style="@style/houseInfoTag"
+            android:background="@drawable/house_tag1"
+            android:text="学位" />
+        <TextView
+            style="@style/houseInfoTag"
+            android:background="@drawable/house_tag1"
+            android:text="学位" />
+        <TextView
+            style="@style/houseInfoTag"
+            android:background="@drawable/house_tag1"
+            android:text="学位" />
+    </LinearLayout>
+</RelativeLayout>
