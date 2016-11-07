@@ -12,8 +12,6 @@ import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 
 public class HouseDetailActivity extends BaseFrameActivity {
 
-
-
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_house_detail);
