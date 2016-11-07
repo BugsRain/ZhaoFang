@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/main_frame_contain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey2"/>
+
+    <LinearLayout
+        android:id="@+id/main_tab_contain"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+        <TextView
+            style="@style/MainTabFocus"
+            android:drawableTop="@mipmap/ico_home_focus"
+            android:text="首页"/>
+        <TextView
+            style="@style/MainTab"
+            android:drawableTop="@mipmap/ico_message"
+            android:text="消息"
+            />
+
+        <TextView
+            style="@style/MainTab"
+            android:drawableTop="@mipmap/ico_personal"
+            android:text="我的"/>
+    </LinearLayout>
+</LinearLayout>
