@@ -47,4 +47,6 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(path: ':chengxilibs')
+    compile project(path: ':ptr-lib')
+    compile 'com.jakewharton:butterknife:7.0.1'
 }

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <chengxinet.chengxilibs.widget.MySimpleDraweeView
+            android:id="@+id/house_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:backgroundImage="@color/font1"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_img"/>
+
+        <TextView
+            android:id="@+id/tv_house_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天河区 东圃"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_big"
+            android:drawableLeft="@mipmap/ico_location"
+            android:drawablePadding="@dimen/partition_small"
+            android:paddingLeft="@dimen/partition_large"
+            android:paddingBottom="@dimen/partition_normal"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/tv_house_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:paddingRight="@dimen/partition_large"
+            android:paddingBottom="@dimen/partition_normal"
+            android:text="300万"
+            android:textSize="@dimen/textSize_normal_large"
+            android:textColor="@color/red2" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/partition_large"
+        android:paddingRight="@dimen/partition_large"
+        android:paddingBottom="@dimen/partition_normal"
+        android:paddingTop="@dimen/partition_normal">
+
+        <TextView
+            android:id="@+id/tv_house_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="华景新城 3房 1 厅"
+            android:textColor="@color/font1"
+            android:textSize="@dimen/textSize_normal_large"/>
+
+        <TextView
+            android:id="@+id/tv_house_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="90㎡"
+            android:textColor="@color/grey1"
+            android:textSize="@dimen/textSize_big"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/partition_large"
+        android:paddingBottom="@dimen/partition_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学位"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@android:color/white"
+            android:background="@drawable/tag_bg_red"
+            android:paddingRight="@dimen/partition_normal"
+            android:paddingLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="满二"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@android:color/white"
+            android:background="@drawable/tag_bg_green"
+            android:paddingRight="@dimen/partition_normal"
+            android:paddingLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地铁"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@android:color/white"
+            android:background="@drawable/tag_bg_grey"
+            android:paddingRight="@dimen/partition_normal"
+            android:paddingLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电梯"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@android:color/white"
+            android:background="@drawable/tag_bg_blue"
+            android:paddingRight="@dimen/partition_normal"
+            android:paddingLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"/>
+
+    </LinearLayout>
+
+</LinearLayout>
