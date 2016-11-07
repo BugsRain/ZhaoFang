@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/location_tv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="广州"
+    android:textSize="@dimen/textSize_big"
+    android:textColor="@color/font1"
+    android:padding="@dimen/partition_big"
+    android:background="@android:color/white"/>

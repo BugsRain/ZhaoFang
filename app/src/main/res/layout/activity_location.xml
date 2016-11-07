@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <include layout="@layout/common_actionbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/partition_big"
+        android:paddingTop="@dimen/partition_normal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ico_location_big"
+            android:contentDescription="@string/app_img"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前城市：广州"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_big"
+            android:paddingBottom="@dimen/partition_normal"
+            android:paddingTop="@dimen/partition_normal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_location"
+            android:text="重新定位"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@android:color/white"
+            android:paddingLeft="@dimen/partition_normal"
+            android:paddingRight="@dimen/partition_normal"
+            android:paddingTop="@dimen/partition_small"
+            android:paddingBottom="@dimen/partition_small"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已开通城市"
+        android:textColor="@color/font1"
+        android:textSize="@dimen/textSize_normal"
+        android:padding="@dimen/partition_big"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_location_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

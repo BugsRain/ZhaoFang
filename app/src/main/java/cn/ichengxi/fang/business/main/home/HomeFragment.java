@@ -6,6 +6,7 @@ import android.view.View;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.business.house_detail.HouseDetailActivity;
 import cn.ichengxi.fang.business.list.ListHouseActivity;
+import cn.ichengxi.fang.business.location.LocationActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 
 /**
@@ -29,6 +30,7 @@ public class HomeFragment extends BaseFrameFragment {
             }
         });
         findViewByIdToView(R.id.home_search).setOnClickListener(this);
+        findViewByIdToView(R.id.home_location).setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +39,9 @@ public class HomeFragment extends BaseFrameFragment {
         switch (v.getId()) {
             case R.id.home_search:
                 openActivity(ListHouseActivity.class);
+                break;
+            case R.id.home_location:
+                openActivity(LocationActivity.class);
                 break;
         }
     }
