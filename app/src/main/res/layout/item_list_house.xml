@@ -51,7 +51,8 @@
         android:paddingLeft="@dimen/partition_large"
         android:paddingRight="@dimen/partition_large"
         android:paddingBottom="@dimen/partition_normal"
-        android:paddingTop="@dimen/partition_normal">
+        android:paddingTop="@dimen/partition_normal"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/tv_house_desc"
@@ -77,7 +78,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/partition_large"
-        android:paddingBottom="@dimen/partition_normal">
+        android:paddingBottom="@dimen/partition_normal"
+        android:background="@android:color/white">
 
         <TextView
             android:layout_width="wrap_content"

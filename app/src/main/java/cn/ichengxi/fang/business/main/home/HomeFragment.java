@@ -18,12 +18,17 @@ import cn.ichengxi.fang.business.house_detail.HouseDetailActivity;
 import cn.ichengxi.fang.business.list.ListHouseActivity;
 import cn.ichengxi.fang.business.location.LocationActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
+import cn.ichengxi.fang.view.HomeCoordinatorLayout;
 
 /**
  * Created by quan on 16/11/4.
  */
 
 public class HomeFragment extends BaseFrameFragment {
+
+    private ConvenientBanner<String> mBanner;
+
+    private HomeCoordinatorLayout mHomeCoordinatorLayout;
 
     @Override
     public void onSetView(Bundle savedInstanceState) {
@@ -42,6 +47,34 @@ public class HomeFragment extends BaseFrameFragment {
         findViewByIdToView(R.id.home_search).setOnClickListener(this);
         findViewByIdToView(R.id.home_location).setOnClickListener(this);
 
+
+
+        mBanner = findViewByIdToView(R.id.home_banner);
+
+        mHomeCoordinatorLayout = findViewByIdToView(R.id.home_container);
+    }
+
+    @Override
+    public void initListener() {
+        super.initListener();
+
+        mHomeCoordinatorLayout.setOnScrollListener(new HomeCoordinatorLayout.OnScrollListener() {
+            @Override
+            public void onStart() {
+                mBanner.stopTurning();
+            }
+
+            @Override
+            public void onStop() {
+                mBanner.startTurning(8000);
+            }
+        });
+    }
+
+    @Override
+    public void initLoad() {
+        super.initLoad();
+
         List<String> colors = new ArrayList<>();
         colors.add("http://pic.90sjimg.com/design/00/23/04/59/561768662e08b.jpg");
         colors.add("http://pic.90sjimg.com/design/00/23/04/59/561768662e08b.jpg");
@@ -50,7 +83,6 @@ public class HomeFragment extends BaseFrameFragment {
         colors.add("http://pic.90sjimg.com/design/00/23/04/59/561768662e08b.jpg");
         colors.add("http://pic.90sjimg.com/design/00/23/04/59/561768662e08b.jpg");
 
-        ConvenientBanner<String> mBanner = findViewByIdToView(R.id.home_banner);
         mBanner.setPages(
                 new CBViewHolderCreator<LocalImageHolderView>() {
                     @Override
@@ -61,10 +93,8 @@ public class HomeFragment extends BaseFrameFragment {
                 //设置两个点图片作为翻页指示器，不设置则没有指示器，可以根据自己需求自行配合自己的指示器,不需要圆点指示器可用不设
                 .setPageIndicator(new int[]{R.drawable.banner_dot, R.drawable.banner_dot_focus});
 
-//        mBanner.setScrollDuration(800);
-//        mBanner.startTurning(10000);
-
-
+        mBanner.setScrollDuration(1000);
+        mBanner.startTurning(8000);
     }
 
     @Override
@@ -105,4 +135,7 @@ public class HomeFragment extends BaseFrameFragment {
             imageView.setImageURI(Uri.parse(data));
         }
     }
+
+
+
 }

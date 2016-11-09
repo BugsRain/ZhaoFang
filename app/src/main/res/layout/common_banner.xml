@@ -7,8 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/partition_big"
-        card_view:cardElevation ="2dp"
-        card_view:cardCornerRadius = "7dp"
+        card_view:cardElevation ="0dp"
+        card_view:cardCornerRadius = "3dp"
         >
         <chengxinet.chengxilibs.widget.MySimpleDraweeView
             android:tag="img"

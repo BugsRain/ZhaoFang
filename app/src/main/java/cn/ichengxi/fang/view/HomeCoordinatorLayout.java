@@ -13,7 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,9 +57,11 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     private OverScroller mScroller;
 
-    private boolean isMoreKitkat, isInitLayout = true;
+    private boolean isMoreKitkat;
 
     private int mStatusBarHeight;
+
+    private OnScrollListener mOnScrollListener;
 
     public HomeCoordinatorLayout(Context context) {
         this(context, null);
@@ -80,15 +82,13 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
-        mScroller = new OverScroller(getContext(), new AccelerateDecelerateInterpolator());
+        mScroller = new OverScroller(getContext(), new DecelerateInterpolator());
 
         isMoreKitkat = MyApplication.isMoreKitkat();
 
         mStatusBarHeight = MyApplication.getStatusBarHeight();
 
         setOrientation(LinearLayout.VERTICAL);
-
-
     }
 
     @Override
@@ -127,16 +127,15 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        if (isInitLayout) {
-            if (isMoreKitkat) {
-                isInitLayout = false;
-                mLocationView.layout(
-                        mLocationView.getLeft(),
-                        mLocationView.getTop() + mStatusBarHeight,
-                        mLocationView.getRight(),
-                        mLocationView.getTop() + mStatusBarHeight + mLocationView.getMeasuredHeight());
-            }
+
+        if (isMoreKitkat) {
+            mLocationView.layout(
+                    mLocationMargin,
+                    getScrollY() + mStatusBarHeight + mLocationMargin,
+                    mLocationMargin + mLocationWidth,
+                    getScrollY() + mStatusBarHeight + mLocationHeight + mLocationMargin);
         }
+
     }
 
     @Override
@@ -150,18 +149,21 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
         mSearchHeight = mSearchView.getMeasuredHeight();
         mSearchWidth = mSearchView.getMeasuredWidth();
 
-//        mScroller.startScroll(0, getScrollY(),0 ,mHeaderHeight - mActionBarHeight, 3000);
     }
+
+    int startScrollY;
 
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
-//        Log.d(TAG, "onStartNestedScroll() called with: target = [" + target + "], nestedScrollAxes = [" + nestedScrollAxes + "]");
+        Log.d(TAG, "onStartNestedScroll() called with: nestedScrollAxes = [" + nestedScrollAxes + "]");
+        startScrollY = getScrollY();
+        mScroller.abortAnimation();
         return true;
     }
 
     @Override
     public void onNestedScrollAccepted(View child, View target, int axes) {
-
+        if (mOnScrollListener != null) mOnScrollListener.onStart();
     }
 
     @Override
@@ -187,7 +189,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
 //        Log.e(TAG, "onNestedPreScroll: dy = " + dy + ", mScroller.getCurrY() = " + mScroller.getCurrY());
 
-        scrollAnimation();
+//        scrollAnimation();
     }
 
     @Override
@@ -196,9 +198,11 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     @Override
     public boolean onNestedPreFling(View target, float velocityX, float velocityY) {
-//        if (getScrollY() >= mHeaderHeight - mActionBarHeight) return false;
-//        fling((int) velocityY);
+//        if (getScrollY() > mHeaderHeight - mActionBarHeight - mStatusBarHeight) return false;
+//        fling((int) (velocityY));
         Log.e(TAG, "onNestedPreFling: velocityY = " + velocityY);
+
+        inertia();
 
         return false;
     }
@@ -211,22 +215,13 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     @Override
     public void onStopNestedScroll(View child) {
 
-//        if (getScrollY() > mHeaderHeight / 5) {
-//            mScroller.startScroll(0, getScrollY(), mHeaderHeight - mActionBarHeight, 3000);
-//        }
-        Log.d(TAG, "onStopNestedScroll() called with: mHeaderHeight - mActionBarHeight - getScrollY() = [" + (mHeaderHeight - mActionBarHeight - getScrollY()) + "] , getScrollY() = [" + getScrollY() + "]");
+        if (getScrollY() == startScrollY) return;
 
+        if (mOnScrollListener != null) mOnScrollListener.onStop();
 
-        switch (mScrollStatus) {
-            case UP:
-                System.out.println("UP!!!!");
-                mScroller.startScroll(0, mHeaderHeight - mActionBarHeight - getScrollY(), 0, 50);
-                break;
+        Log.d(TAG, "onStopNestedScroll() called with: startScrollY = [" + (startScrollY) + "] , getScrollY() = [" + getScrollY() + "]");
 
-            case DOWN:
-                System.out.println("DOWN!!!!");
-                break;
-        }
+        inertia();
     }
 
     public void fling(int velocityY) {
@@ -235,7 +230,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     @Override
     public void scrollTo(int x, int y) {
-//        Log.e(TAG, "scrollTo: y = " + y);
+
 
         y = Math.max(Math.min(y, mHeaderHeight - mActionBarHeight), 0);
 
@@ -248,7 +243,31 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     public void computeScroll() {
         if (mScroller.computeScrollOffset()) {
             scrollTo(0, mScroller.getCurrY());
-            scrollAnimation();
+            Log.d(TAG, "computeScroll() called");
+            postInvalidate();
+            ViewCompat.postInvalidateOnAnimation(this);
+        }
+
+        scrollAnimation();
+    }
+
+    private void inertia(){
+        int offset = (int) ((mHeaderHeight - mActionBarHeight - mStatusBarHeight));
+        Log.d(TAG, "inertia() called with: getScrollY() = [" + getScrollY() + "]");
+        if(!mScroller.computeScrollOffset()) {
+            switch (mScrollStatus) {
+                case UP:
+                    System.out.println("UP!!!!startScroll!!!!");
+                    mScroller.startScroll(0, getScrollY(), 0, offset, 300);
+                    break;
+
+                case DOWN:
+                    System.out.println("DOWN!!!!startScroll!!!!");
+                    mScroller.startScroll(0, getScrollY(), 0, -offset, 300);
+                    break;
+            }
+
+            invalidate();
         }
     }
 
@@ -303,6 +322,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
         mSearchView.layout(searchLeft, searchTop, searchRight, searchBottom);
     }
 
+
     private int evaluate(float fraction, int startValue, int endValue) {
         int startA = (startValue >> 24) & 0xff;
         int startR = (startValue >> 16) & 0xff;
@@ -320,4 +340,15 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
                 | (startB + (int) (fraction * (endB - startB)));
 
     }
+
+    public interface OnScrollListener {
+        void onStart();
+
+        void onStop();
+    }
+
+    public void setOnScrollListener(HomeCoordinatorLayout.OnScrollListener mOnScrollListener) {
+        this.mOnScrollListener = mOnScrollListener;
+    }
+
 }
