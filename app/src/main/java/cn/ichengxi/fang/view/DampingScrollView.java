@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.animation.TranslateAnimation;
 import android.widget.ScrollView;
 
@@ -31,6 +32,8 @@ public class DampingScrollView extends ScrollView {
     private int initTop, initbottom;// 初始高度
     private int top, bottom;// 拖动时时高度。
 
+    private int mTouchSlop;
+
     public DampingScrollView(Context context) {
         super(context);
     }
@@ -41,6 +44,7 @@ public class DampingScrollView extends ScrollView {
 
     public DampingScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     /***
@@ -52,6 +56,26 @@ public class DampingScrollView extends ScrollView {
         if (getChildCount() > 0) {
             inner = getChildAt(0);
         }
+    }
+
+
+    int dy;
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+
+        int action = ev.getAction();
+        if (action == MotionEvent.ACTION_DOWN) {
+            dy = (int) ev.getY();
+        } else if (action == MotionEvent.ACTION_MOVE) {
+            dy -= ev.getY();
+            if(Math.abs(dy) > mTouchSlop){
+                return true;
+            }
+        } else {
+            dy = 0;
+        }
+
+        return super.onInterceptTouchEvent(ev);
     }
 
     /**

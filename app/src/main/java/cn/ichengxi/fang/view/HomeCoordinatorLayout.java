@@ -28,6 +28,12 @@ import cn.ichengxi.fang.R;
 
 public class HomeCoordinatorLayout extends LinearLayout implements NestedScrollingParent {
 
+    enum ScrollStatus {
+        UP, DOWN, NONE
+    }
+
+    private ScrollStatus mScrollStatus = ScrollStatus.NONE;
+
     private static final String TAG = "HomeCoordinatorLayout";
 
     private View mHeaderView;
@@ -47,6 +53,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     private int mLocationMargin, mSearchHeight, mSearchWidth, mSearchMarginBottom, mSearchMarginWidth;
 
     private int mTouchSlop;
+
 
     private OverScroller mScroller;
 
@@ -73,7 +80,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
-        mScroller = new OverScroller(getContext(),new AccelerateDecelerateInterpolator());
+        mScroller = new OverScroller(getContext(), new AccelerateDecelerateInterpolator());
 
         isMoreKitkat = MyApplication.isMoreKitkat();
 
@@ -159,6 +166,15 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
+
+        if (dy > 0) {
+            mScrollStatus = ScrollStatus.UP;
+        } else if (dy < 0) {
+            mScrollStatus = ScrollStatus.DOWN;
+        } else {
+            mScrollStatus = ScrollStatus.NONE;
+        }
+
         boolean hiddenHeader = dy > 0 && getScrollY() < mHeaderHeight - mActionBarHeight;
         //用来判断view在竖直方向上能不能向上或者向下滑动
         //direction 方向    负数代表向上滑动 ，正数则反之
@@ -184,7 +200,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 //        fling((int) velocityY);
         Log.e(TAG, "onNestedPreFling: velocityY = " + velocityY);
 
-        return true;
+        return false;
     }
 
     @Override
@@ -198,8 +214,19 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 //        if (getScrollY() > mHeaderHeight / 5) {
 //            mScroller.startScroll(0, getScrollY(), mHeaderHeight - mActionBarHeight, 3000);
 //        }
+        Log.d(TAG, "onStopNestedScroll() called with: mHeaderHeight - mActionBarHeight - getScrollY() = [" + (mHeaderHeight - mActionBarHeight - getScrollY()) + "] , getScrollY() = [" + getScrollY() + "]");
 
-        Log.d(TAG, "onStopNestedScroll() called with: child = [" + System.currentTimeMillis() + "]");
+
+        switch (mScrollStatus) {
+            case UP:
+                System.out.println("UP!!!!");
+                mScroller.startScroll(0, mHeaderHeight - mActionBarHeight - getScrollY(), 0, 50);
+                break;
+
+            case DOWN:
+                System.out.println("DOWN!!!!");
+                break;
+        }
     }
 
     public void fling(int velocityY) {
