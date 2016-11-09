@@ -12,36 +12,22 @@
 
         <include layout="@layout/fragment_personal_header" />
 
-        <LinearLayout
-            android:id="@+id/personal_collect_layout"
+        <TextView
+            android:id="@+id/personal_collect_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             android:background="@drawable/item_style"
+            android:drawableEnd="@mipmap/ico_arrow_right"
+            android:drawableLeft="@mipmap/ico_collection"
+            android:drawablePadding="@dimen/partition_normal"
+            android:drawableRight="@mipmap/ico_arrow_right"
+            android:drawableStart="@mipmap/ico_collection"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/partition_normal2">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_collection" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/partition_normal2"
-                android:layout_weight="1"
-                android:alpha="0.8"
-                android:text="我的收藏"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_arrow_right" />
-
-        </LinearLayout>
+            android:padding="@dimen/partition_normal2"
+            android:text="我的收藏"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize_big" />
 
         <View
             android:layout_width="match_parent"
@@ -50,110 +36,70 @@
             android:layout_marginStart="@dimen/partition_big"
             android:background="@color/bg" />
 
-        <LinearLayout
-            android:id="@+id/personal_house_layout"
+        <TextView
+            android:id="@+id/personal_house_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             android:background="@drawable/item_style"
+            android:drawableEnd="@mipmap/ico_arrow_right"
+            android:drawableLeft="@mipmap/ico_house"
+            android:drawablePadding="@dimen/partition_normal"
+            android:drawableRight="@mipmap/ico_arrow_right"
+            android:drawableStart="@mipmap/ico_house"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/partition_normal2">
+            android:padding="@dimen/partition_normal2"
+            android:text="我的房源"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize_big" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_house" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/partition_normal2"
-                android:layout_weight="1"
-                android:alpha="0.8"
-                android:text="我的房源"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_arrow_right" />
-
-        </LinearLayout>
 
         <android.support.v4.widget.Space
             android:layout_width="match_parent"
             android:layout_height="@dimen/partition_normal2" />
 
-        <LinearLayout
-            android:id="@+id/personal_about_layout"
+        <TextView
+            android:id="@+id/personal_about_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             android:background="@drawable/item_style"
+            android:drawableEnd="@mipmap/ico_arrow_right"
+            android:drawableLeft="@mipmap/ico_about"
+            android:drawablePadding="@dimen/partition_normal"
+            android:drawableRight="@mipmap/ico_arrow_right"
+            android:drawableStart="@mipmap/ico_about"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/partition_normal2">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_about" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/partition_normal2"
-                android:layout_weight="1"
-                android:alpha="0.8"
-                android:text="关于我们"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_arrow_right" />
-
-        </LinearLayout>
+            android:padding="@dimen/partition_normal2"
+            android:text="关于我们"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize_big" />
 
         <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height"
             android:layout_marginLeft="@dimen/partition_big"
             android:layout_marginStart="@dimen/partition_big"
-            android:background="@color/bg"
-            android:id="@+id/view" />
+            android:background="@color/bg" />
 
-        <LinearLayout
-            android:id="@+id/personal_feedback_layout"
+        <TextView
+            android:id="@+id/personal_feedback_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             android:background="@drawable/item_style"
+            android:drawableEnd="@mipmap/ico_arrow_right"
+            android:drawableLeft="@mipmap/ico_feedback"
+            android:drawablePadding="@dimen/partition_normal"
+            android:drawableRight="@mipmap/ico_arrow_right"
+            android:drawableStart="@mipmap/ico_feedback"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/partition_normal2">
+            android:padding="@dimen/partition_normal2"
+            android:text="意见反馈"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize_big" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_feedback" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/partition_normal2"
-                android:layout_weight="1"
-                android:alpha="0.8"
-                android:text="意见反馈"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_arrow_right" />
-
-        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -162,36 +108,22 @@
             android:layout_marginStart="@dimen/partition_big"
             android:background="@color/bg" />
 
-        <LinearLayout
-            android:id="@+id/personal_setting_layout"
+        <TextView
+            android:id="@+id/personal_setting_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             android:background="@drawable/item_style"
+            android:drawableEnd="@mipmap/ico_arrow_right"
+            android:drawableLeft="@mipmap/ico_setting"
+            android:drawablePadding="@dimen/partition_normal"
+            android:drawableRight="@mipmap/ico_arrow_right"
+            android:drawableStart="@mipmap/ico_setting"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/partition_normal2">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_setting" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/partition_normal2"
-                android:layout_weight="1"
-                android:alpha="0.8"
-                android:text="设置"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ico_arrow_right" />
-
-        </LinearLayout>
+            android:padding="@dimen/partition_normal2"
+            android:text="设置"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize_big" />
 
     </LinearLayout>
 

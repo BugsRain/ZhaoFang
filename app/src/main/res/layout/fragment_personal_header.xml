@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <chengxinet.chengxilibs.widget.MySimpleDraweeView
         android:id="@+id/personal_background"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/home_bg" />
+        android:scaleType="fitXY" />
 
     <chengxinet.chengxilibs.widget.MySimpleDraweeView
         android:id="@+id/personal_avatar"
