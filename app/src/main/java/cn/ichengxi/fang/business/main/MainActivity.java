@@ -33,13 +33,9 @@ public class MainActivity extends BaseFrameActivity {
 
     private TextView[] mTabs;
     private Fragment[] mFragment;
-    private int mStatusBarHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         if (MyApplication.isMoreKitkat()) {
@@ -78,7 +74,6 @@ public class MainActivity extends BaseFrameActivity {
                             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(tab, 0, ICO_FOCUS[j], 0, 0);
                             int tag = (int) tab.getTag();
                             toFragment(mFragment[tag]);
-//                            switchState(mFragment[tag]);
                         } else {
                             TextViewCompat.setTextAppearance(tab, R.style.MainTab);
                             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(tab, 0, ICO[j], 0, 0);
@@ -114,27 +109,5 @@ public class MainActivity extends BaseFrameActivity {
     public void onRequestEnd() {
 
     }
-
-//    private void switchState(Fragment fragment) {
-//        if (fragment instanceof HomeFragment) {
-//            setStatusBarColor(android.R.color.transparent);
-//        } else if (fragment instanceof MessageFragment) {
-//            setStatusBarColor(R.color.green1);
-//        } else if (fragment instanceof PersonalFragment) {
-//            setStatusBarColor(android.R.color.transparent);
-//        }
-//    }
-//
-//    private void setStatusBarColor(int res) {
-//        //状态栏着色
-//        decorView.removeView(view);
-//        if (res == android.R.color.transparent)
-//            return;
-//
-//        view.setBackgroundColor(getResources().getColor(res));
-//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(this));
-//        decorView.addView(view, layoutParams);
-//    }
-
 
 }
