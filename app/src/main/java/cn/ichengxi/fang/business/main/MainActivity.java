@@ -44,8 +44,6 @@ public class MainActivity extends BaseFrameActivity {
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-
-
         super.onCreate(savedInstanceState);
     }
 

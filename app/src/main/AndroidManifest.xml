@@ -26,10 +26,8 @@
             android:launchMode="singleTop" />
 
         <activity android:name=".business.house_detail.HouseDetailActivity"/>
-        <activity
-            android:name=".business.location.LocationActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
+        <activity android:name=".business.login.LoginActivity"/>
+        <activity android:name=".business.location.LocationActivity" />
 
     </application>
 
