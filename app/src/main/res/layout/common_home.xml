@@ -8,7 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/partition_large">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,11 +33,12 @@
                     android:drawableStart="@mipmap/ico_sale_house"
                     android:text="卖房" />
             </FrameLayout>
+            
             <View
                 android:id="@+id/cut"
                 android:layout_width="@dimen/line_height"
                 android:layout_height="30dp"
-                android:background="@color/grey2" />
+                android:background="@color/bg" />
 
 
 
@@ -60,7 +63,7 @@
             android:layout_marginLeft="@dimen/partition_big"
             android:layout_marginRight="@dimen/partition_big"
 
-            android:background="@color/grey2"
+            android:background="@color/bg"
 
             />
 
@@ -89,10 +92,10 @@
         </LinearLayout>
 
 
-        <com.bigkoo.convenientbanner.ConvenientBanner
+        <cn.ichengxi.fang.view.MyBanner
+            android:id="@+id/home_banner"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@color/green2" />
+            android:layout_height="130dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -100,13 +103,12 @@
             android:layout_margin="@dimen/partition_large"
             android:gravity="center"
             android:text="九月份广州行情"
-            android:paddingTop="@dimen/partition_normal"
+
             android:textSize="@dimen/textSize_big" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/partition_large"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -143,7 +145,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="@dimen/partition_normal"
                 android:layout_marginTop="@dimen/partition_small"
-                android:background="@color/grey2" />
+                android:background="@color/bg" />
 
             <LinearLayout
                 android:layout_width="0dp"

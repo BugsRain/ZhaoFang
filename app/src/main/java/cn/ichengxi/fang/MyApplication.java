@@ -2,6 +2,7 @@ package cn.ichengxi.fang;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 
 import chengxinet.chengxilibs.global.ChengXiApplication;
@@ -14,9 +15,13 @@ public class MyApplication extends ChengXiApplication {
 
     private static MyApplication mMyApplication;
 
+    private static int mStatusBarHeight;
+
     @Override
     public void init() {
         mMyApplication = this;;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        mStatusBarHeight = getResources().getDimensionPixelSize(resourceId);
     }
 
     @Override
@@ -49,4 +54,13 @@ public class MyApplication extends ChengXiApplication {
         return mMyApplication;
     }
 
+
+    public static int getStatusBarHeight() {
+
+        return mStatusBarHeight;
+    }
+
+    public static boolean isMoreKitkat() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
 }

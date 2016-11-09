@@ -1,22 +1,16 @@
 package cn.ichengxi.fang.business.main;
 
-import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.TextViewCompat;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.business.main.Message.MessageFragment;
 import cn.ichengxi.fang.business.main.home.HomeFragment;
@@ -29,8 +23,6 @@ import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 
 public class MainActivity extends BaseFrameActivity {
 
-    @Bind(android.R.id.content)
-    ViewGroup decorView;
 
     private static final int[] ICO = {
             R.mipmap.ico_home, R.mipmap.ico_message, R.mipmap.ico_personal
@@ -39,23 +31,25 @@ public class MainActivity extends BaseFrameActivity {
             R.mipmap.ico_home_focus, R.mipmap.ico_message_focus, R.mipmap.ico_personal_focus
     };
 
-    private View view;
     private TextView[] mTabs;
     private Fragment[] mFragment;
+    private int mStatusBarHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (MyApplication.isMoreKitkat()) {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            WindowManager.LayoutParams params = getWindow().getAttributes();
-            params.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | params.flags);
         }
+
+
         super.onCreate(savedInstanceState);
     }
 
@@ -63,7 +57,6 @@ public class MainActivity extends BaseFrameActivity {
     protected void onViewCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         setFrameId(R.id.main_frame_contain);
-        view = new View(this);
     }
 
     @Override
@@ -85,7 +78,7 @@ public class MainActivity extends BaseFrameActivity {
                             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(tab, 0, ICO_FOCUS[j], 0, 0);
                             int tag = (int) tab.getTag();
                             toFragment(mFragment[tag]);
-                            switchState(mFragment[tag]);
+//                            switchState(mFragment[tag]);
                         } else {
                             TextViewCompat.setTextAppearance(tab, R.style.MainTab);
                             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(tab, 0, ICO[j], 0, 0);
@@ -102,6 +95,7 @@ public class MainActivity extends BaseFrameActivity {
                 new MessageFragment(),
                 new PersonalFragment()
         };
+
     }
 
     @Override
@@ -121,29 +115,26 @@ public class MainActivity extends BaseFrameActivity {
 
     }
 
-    private void switchState(Fragment fragment) {
-        if (fragment instanceof HomeFragment) {
-            setStatusBarColor(android.R.color.transparent);
-        } else if (fragment instanceof MessageFragment) {
-            setStatusBarColor(R.color.green1);
-        } else if (fragment instanceof PersonalFragment) {
-            setStatusBarColor(android.R.color.transparent);
-        }
-    }
+//    private void switchState(Fragment fragment) {
+//        if (fragment instanceof HomeFragment) {
+//            setStatusBarColor(android.R.color.transparent);
+//        } else if (fragment instanceof MessageFragment) {
+//            setStatusBarColor(R.color.green1);
+//        } else if (fragment instanceof PersonalFragment) {
+//            setStatusBarColor(android.R.color.transparent);
+//        }
+//    }
+//
+//    private void setStatusBarColor(int res) {
+//        //状态栏着色
+//        decorView.removeView(view);
+//        if (res == android.R.color.transparent)
+//            return;
+//
+//        view.setBackgroundColor(getResources().getColor(res));
+//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(this));
+//        decorView.addView(view, layoutParams);
+//    }
 
-    private void setStatusBarColor(int res) {
-        //状态栏着色
-        decorView.removeView(view);
-        if (res == android.R.color.transparent)
-            return;
 
-        view.setBackgroundColor(getResources().getColor(res));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(this));
-        decorView.addView(view, layoutParams);
-    }
-
-    public int getStatusBarHeight(Context context) {
-        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        return context.getResources().getDimensionPixelSize(resourceId);
-    }
 }

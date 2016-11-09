@@ -15,12 +15,16 @@
  */
 package cn.ichengxi.fang.business.location;
 
+import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.Window;
 
 import butterknife.Bind;
+import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.adapter.ListLocationAdapter;
 import cn.ichengxi.fang.adapter.decoration.ItemLine;
@@ -35,6 +39,12 @@ public class LocationActivity extends BaseFrameActivity<LocationPresenter, Locat
     RecyclerView mListLocationRv;
 
     private ListLocationAdapter mAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {

@@ -1,12 +1,23 @@
 package cn.ichengxi.fang.business.house_detail;
 
+import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.BaseRecyclerView;
@@ -19,11 +30,39 @@ public class HouseDetailActivity extends BaseFrameActivity {
 
     private HouseAdapter mAdapter;
     private BaseRecyclerView mContentView;
+    private View mStateBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        if (MyApplication.isMoreKitkat()) {
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_house_detail);
 
+        if(MyApplication.isMoreKitkat()) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.activity_house_detail, null);
+            mStateBar = new View(this);
+            mStateBar.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, MyApplication.getStatusBarHeight()));
+            mStateBar.setBackgroundColor(ContextCompat.getColor(this, R.color.green1));
+            ViewCompat.setAlpha(mStateBar, 0);
+            viewGroup.addView(mStateBar);
+            View actionBar = viewGroup.findViewById(R.id.action_bar_layout);
+            FrameLayout.LayoutParams p = (FrameLayout.LayoutParams) actionBar.getLayoutParams();
+            p.setMargins(0, MyApplication.getStatusBarHeight(), 0, 0);
+            actionBar.setLayoutParams(p);
+            setContentView(viewGroup);
+        }else{
+            setContentView(R.layout.activity_house_detail);
+        }
     }
 
     @Override
@@ -54,7 +93,15 @@ public class HouseDetailActivity extends BaseFrameActivity {
         mContentView.setCallBack(new BaseRecyclerView.OnScrollYChangeCallBack() {
             @Override
             public void onScrollYChange(int d) {
+                Log.d("TAG", "onScrollYChange() called with:  mContentView.getChildAt(0).getMeasuredHeight() = [" + mContentView.getChildAt(0).getMeasuredHeight() + "]");
 
+
+                float p = 1.0f * d / (mContentView.getChildAt(0).getMeasuredHeight() / 6);
+                p = Math.max(Math.min(p, 1), 0);
+
+                Log.d("TAG", "onScrollYChange() called with:  p = [" + p + "]" + ", d = " + d + ", mContentView.getChildAt(0).getMeasuredHeight() / 10 = " + (mContentView.getChildAt(0).getMeasuredHeight() / 10));
+                ViewCompat.setAlpha(getActionBarBg(), p);
+                if(mStateBar != null)ViewCompat.setAlpha(mStateBar, p);
             }
         });
 //        mContentView.addOnScrollListener(new RecyclerView.OnScrollListener() {

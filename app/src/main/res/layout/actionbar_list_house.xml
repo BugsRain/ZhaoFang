@@ -20,7 +20,7 @@
 
     <EditText
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:layout_weight="1"
         android:background="@drawable/home_search_bg"
         android:drawableLeft="@mipmap/ico_search"

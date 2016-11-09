@@ -7,7 +7,7 @@
     <com.bigkoo.convenientbanner.ConvenientBanner
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/green1"
+        android:background="@color/blue"
         android:visibility="visible" />
 
     <View
@@ -124,7 +124,7 @@
         android:layout_marginLeft="@dimen/partition_big"
         android:layout_marginRight="@dimen/partition_big"
         android:layout_marginTop="@dimen/partition_big"
-        android:background="@color/grey2" />
+        android:background="@color/bg" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -161,7 +161,7 @@
         android:layout_height="@dimen/line_height"
         android:layout_marginLeft="@dimen/partition_big"
         android:layout_marginRight="@dimen/partition_big"
-        android:background="@color/grey2" />
+        android:background="@color/bg" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -214,7 +214,7 @@
         android:layout_height="@dimen/line_height"
         android:layout_marginLeft="@dimen/partition_big"
         android:layout_marginRight="@dimen/partition_big"
-        android:background="@color/grey2" />
+        android:background="@color/bg" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -240,6 +240,6 @@
         android:layout_height="@dimen/line_height"
         android:layout_marginLeft="@dimen/partition_big"
         android:layout_marginRight="@dimen/partition_big"
-        android:background="@color/grey2" />
+        android:background="@color/bg" />
 
 </LinearLayout>

@@ -2,7 +2,7 @@
 <cn.ichengxi.fang.view.DampingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F8F8"
+    android:background="@color/bg"
     android:scrollbars="none">
 
     <LinearLayout
@@ -47,7 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height"
             android:layout_marginLeft="@dimen/partition_big"
-            android:background="@android:color/darker_gray" />
+            android:layout_marginStart="@dimen/partition_big"
+            android:background="@color/bg" />
 
         <LinearLayout
             android:id="@+id/personal_house_layout"
@@ -119,7 +120,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height"
             android:layout_marginLeft="@dimen/partition_big"
-            android:background="@android:color/darker_gray" />
+            android:layout_marginStart="@dimen/partition_big"
+            android:background="@color/bg"
+            android:id="@+id/view" />
 
         <LinearLayout
             android:id="@+id/personal_feedback_layout"
@@ -156,7 +159,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height"
             android:layout_marginLeft="@dimen/partition_big"
-            android:background="@android:color/darker_gray" />
+            android:layout_marginStart="@dimen/partition_big"
+            android:background="@color/bg" />
 
         <LinearLayout
             android:id="@+id/personal_setting_layout"

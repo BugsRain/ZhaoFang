@@ -13,10 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.OverScroller;
 
+import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
 
 /**
@@ -28,8 +31,6 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     private static final String TAG = "HomeCoordinatorLayout";
 
     private View mHeaderView;
-
-    private ImageView mBackGroundView;
 
     private View mLocationView;
 
@@ -49,6 +50,9 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     private OverScroller mScroller;
 
+    private boolean isMoreKitkat, isInitLayout = true;
+
+    private int mStatusBarHeight;
 
     public HomeCoordinatorLayout(Context context) {
         this(context, null);
@@ -60,11 +64,21 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     public HomeCoordinatorLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
         mLocationMargin = (int) getResources().getDimension(R.dimen.partition_normal);
+
         mSearchMarginBottom = (int) getResources().getDimension(R.dimen.partition_big);
+
         mSearchMarginWidth = (int) getResources().getDimension(R.dimen.partition_very_large);
+
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-        mScroller = new OverScroller(getContext());
+
+        mScroller = new OverScroller(getContext(),new AccelerateDecelerateInterpolator());
+
+        isMoreKitkat = MyApplication.isMoreKitkat();
+
+        mStatusBarHeight = MyApplication.getStatusBarHeight();
+
         setOrientation(LinearLayout.VERTICAL);
 
 
@@ -75,12 +89,18 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
         super.onFinishInflate();
         mHeaderView = findViewById(R.id.home_header);
         mContentView = (NestedScrollView) findViewById(R.id.home_content);
-        mBackGroundView = (ImageView) mHeaderView.findViewById(R.id.home_bg);
         mActionBarView = mHeaderView.findViewById(R.id.home_actionBar);
         mLocationView = mHeaderView.findViewById(R.id.home_location);
         mSearchView = mHeaderView.findViewById(R.id.home_search);
+        ImageView mBackGroundView = (ImageView) mHeaderView.findViewById(R.id.home_bg);
         Uri bg = Uri.parse("res:///" + R.mipmap.home_bg);
         mBackGroundView.setImageURI(bg);
+
+        if (isMoreKitkat) {
+            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mActionBarView.getLayoutParams();
+            params.height += mStatusBarHeight;
+            mActionBarView.setLayoutParams(params);
+        }
     }
 
     @Override
@@ -91,7 +111,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         ViewGroup.LayoutParams params = mContentView.getLayoutParams();
-        params.height = getMeasuredHeight() + 100;
+        params.height = getMeasuredHeight();
         setMeasuredDimension(getMeasuredWidth(), mHeaderView.getMeasuredHeight() + mContentView.getMeasuredHeight());
 
 
@@ -100,6 +120,16 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        if (isInitLayout) {
+            if (isMoreKitkat) {
+                isInitLayout = false;
+                mLocationView.layout(
+                        mLocationView.getLeft(),
+                        mLocationView.getTop() + mStatusBarHeight,
+                        mLocationView.getRight(),
+                        mLocationView.getTop() + mStatusBarHeight + mLocationView.getMeasuredHeight());
+            }
+        }
     }
 
     @Override
@@ -118,82 +148,58 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
+//        Log.d(TAG, "onStartNestedScroll() called with: target = [" + target + "], nestedScrollAxes = [" + nestedScrollAxes + "]");
         return true;
     }
 
     @Override
-    public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
+    public void onNestedScrollAccepted(View child, View target, int axes) {
 
+    }
+
+    @Override
+    public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
         boolean hiddenHeader = dy > 0 && getScrollY() < mHeaderHeight - mActionBarHeight;
         //用来判断view在竖直方向上能不能向上或者向下滑动
         //direction 方向    负数代表向上滑动 ，正数则反之
         boolean showHeader = dy < 0 && getScrollY() >= 0 && !ViewCompat.canScrollVertically(target, -1);
 
-        float p = (float) (1.0 * getScrollY() / (mHeaderHeight - mActionBarHeight));
-
-        Log.e(TAG, "onNestedPreScroll: dy = " + dy + ", p = " + (p) + ", getScrollY() = " + getScrollY());
-
-
-
         if (hiddenHeader || showHeader) {
-
-
             scrollBy(0, dy);
             consumed[1] = dy;
         }
 
-        ViewCompat.setAlpha(mActionBarView, p);
+//        Log.e(TAG, "onNestedPreScroll: dy = " + dy + ", mScroller.getCurrY() = " + mScroller.getCurrY());
 
-
-        mActionBarView.layout(0, getScrollY(), mActionBarWidth, getScrollY() + mActionBarHeight);
-        mLocationView.layout(mLocationMargin, getScrollY() + mLocationMargin, mLocationMargin + mLocationWidth, getScrollY() + mLocationHeight + mLocationMargin);
-        mLocationView.getBackground().setColorFilter(
-                evaluate(Math.max(Math.min(p, 1), 0), Color.parseColor("#FF2A2D2F"), ContextCompat.getColor(getContext(), R.color.green1)),
-                PorterDuff.Mode.SRC_OVER);
-
-
-        int offset = (int) (p * (mLocationView.getRight() - mLocationMargin));
-        int searchTop = mHeaderHeight - mSearchHeight - offset - mSearchMarginBottom;
-        int searchBottom = searchTop + mSearchHeight;
-        int searchLeft = offset + mSearchMarginWidth;
-        int searchRight = (int) (mSearchWidth + mSearchMarginWidth + (mSearchMarginWidth / 2 * p));
-        int padding = (mActionBarHeight - mSearchHeight) / 2;
-
-        if (getScrollY() > searchTop - padding) {
-            searchTop = getScrollY() + padding;
-            searchBottom = searchTop + mSearchHeight;
-        }
-
-
-        mSearchView.layout(searchLeft, searchTop, searchRight, searchBottom);
-
+        scrollAnimation();
     }
 
     @Override
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
-
     }
 
     @Override
     public boolean onNestedPreFling(View target, float velocityX, float velocityY) {
-        if (getScrollY() >= mHeaderHeight - mActionBarHeight) return false;
-        fling((int) velocityY);
-//        Log.e(TAG, "onNestedPreFling: velocityY = " + velocityY);
+//        if (getScrollY() >= mHeaderHeight - mActionBarHeight) return false;
+//        fling((int) velocityY);
+        Log.e(TAG, "onNestedPreFling: velocityY = " + velocityY);
 
         return true;
     }
 
     @Override
     public boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed) {
-        return true;
+        return false;
     }
 
     @Override
     public void onStopNestedScroll(View child) {
-        super.onStopNestedScroll(child);
 
+//        if (getScrollY() > mHeaderHeight / 5) {
+//            mScroller.startScroll(0, getScrollY(), mHeaderHeight - mActionBarHeight, 3000);
+//        }
 
-
+        Log.d(TAG, "onStopNestedScroll() called with: child = [" + System.currentTimeMillis() + "]");
     }
 
     public void fling(int velocityY) {
@@ -215,8 +221,59 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     public void computeScroll() {
         if (mScroller.computeScrollOffset()) {
             scrollTo(0, mScroller.getCurrY());
-           postInvalidate();
+            scrollAnimation();
         }
+    }
+
+    private void scrollAnimation() {
+        float p = 1.0f * getScrollY() / (mHeaderHeight - mActionBarHeight);
+
+        ViewCompat.setAlpha(mActionBarView, p);
+
+        if (isMoreKitkat) {
+            mLocationView.layout(
+                    mLocationMargin,
+                    getScrollY() + mStatusBarHeight + mLocationMargin,
+                    mLocationMargin + mLocationWidth,
+                    getScrollY() + mStatusBarHeight + mLocationHeight + mLocationMargin);
+        } else {
+            mLocationView.layout(
+                    mLocationMargin,
+                    getScrollY() + mLocationMargin,
+                    mLocationMargin + mLocationWidth,
+                    getScrollY() + mLocationHeight + mLocationMargin);
+        }
+
+        mActionBarView.layout(
+                0,
+                getScrollY(),
+                mActionBarWidth,
+                getScrollY() + mActionBarHeight);
+
+        mLocationView.getBackground().setColorFilter(
+                evaluate(Math.max(Math.min(p, 1), 0), Color.parseColor("#FF2A2D2F"), ContextCompat.getColor(getContext(), R.color.green1)),
+                PorterDuff.Mode.SRC_OVER);
+
+        int offset = (int) (p * (mLocationView.getRight() - mLocationMargin));
+        int searchTop = mHeaderHeight - mSearchHeight - mSearchMarginBottom;
+        int searchBottom = searchTop + mSearchHeight;
+        int searchLeft = offset + mSearchMarginWidth;
+        int searchRight = (int) (mSearchWidth + mSearchMarginWidth + (mSearchMarginWidth / 2 * p));
+        int padding = (mActionBarHeight - mSearchHeight) / 2;
+
+        if (isMoreKitkat) {
+            if (getScrollY() > searchTop - padding - mStatusBarHeight / 2) {
+                searchTop = getScrollY() + padding + mStatusBarHeight / 2;
+                searchBottom = searchTop + mSearchHeight;
+            }
+        } else {
+            if (getScrollY() > searchTop - padding) {
+                searchTop = getScrollY() + padding;
+                searchBottom = searchTop + mSearchHeight;
+            }
+        }
+
+        mSearchView.layout(searchLeft, searchTop, searchRight, searchBottom);
     }
 
     private int evaluate(float fraction, int startValue, int endValue) {
