@@ -57,6 +57,7 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
         mListHouseRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mListHouseRv.addItemDecoration(new ItemLine(this, R.drawable.item_line));
         mListHouseRv.setAdapter(mAdapter);
+
     }
 
     @Override

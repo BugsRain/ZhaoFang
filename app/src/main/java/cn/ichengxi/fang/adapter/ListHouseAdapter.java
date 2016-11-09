@@ -15,34 +15,42 @@
  */
 package cn.ichengxi.fang.adapter;
 
-import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import chengxinet.chengxilibs.global.BaseImplCompat;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.adapter.holder.ListHouseViewHolder;
+import cn.ichengxi.fang.business.house_detail.HouseDetailActivity;
 
 /**
  * Created by Jun on 2016/11/7.
  */
 public class ListHouseAdapter extends RecyclerView.Adapter<ListHouseViewHolder> {
 
-    private Context mContext;
+    private BaseImplCompat mCompat;
 
-    public ListHouseAdapter(Context context) {
-        this.mContext = context;
+    public ListHouseAdapter(BaseImplCompat compat) {
+        this.mCompat = compat;
     }
 
     @Override
     public ListHouseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ListHouseViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_list_house, parent, false));
+        return new ListHouseViewHolder(LayoutInflater.from(mCompat.getContext()).inflate(R.layout.item_list_house, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ListHouseViewHolder holder, int position) {
-        holder.mHouseImg.setImageURI(Uri.parse("res://cn.ichengxi.fang/" + R.mipmap.home_bg));
+        holder.mHouseImg.setImageURI(Uri.parse("res:///" + R.mipmap.home_bg));
+        holder.mHouseImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCompat.openActivity(HouseDetailActivity.class);
+            }
+        });
     }
 
     @Override
