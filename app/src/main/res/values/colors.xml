@@ -21,4 +21,6 @@
     <color name="grey2">#cccccc</color>
 
     <color name="tag">#9ea8b6</color>
+    <color name="gray_bg">#f0f0f0</color>
+
 </resources>

@@ -45,6 +45,7 @@ public class MainActivity extends BaseFrameActivity {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
 
+
         super.onCreate(savedInstanceState);
     }
 

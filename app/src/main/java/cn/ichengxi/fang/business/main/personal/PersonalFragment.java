@@ -12,6 +12,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import chengxinet.chengxilibs.widget.MySimpleDraweeView;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.business.login.LoginActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 
 /**
@@ -38,6 +39,9 @@ public class PersonalFragment extends BaseFrameFragment{
     @Bind(R.id.personal_setting_txt)
     TextView mSettingLayout;
 
+    @Bind(R.id.personal_username)
+    TextView mUsernameTxt;
+
 
     @Override
     public void onSetView(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class PersonalFragment extends BaseFrameFragment{
         mAboutLayout.setOnClickListener(this);
         mFeedbackLayout.setOnClickListener(this);
         mSettingLayout.setOnClickListener(this);
+        mUsernameTxt.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +66,7 @@ public class PersonalFragment extends BaseFrameFragment{
         super.onClick(v);
         switch (v.getId()) {
             case R.id.personal_collect_txt:
+                showShortToast("我的收藏");
                 break;
 
             case R.id.personal_house_txt:
@@ -73,6 +79,10 @@ public class PersonalFragment extends BaseFrameFragment{
                 break;
 
             case R.id.personal_setting_txt:
+                break;
+
+            case R.id.personal_username:
+                openActivity(LoginActivity.class);
                 break;
         }
     }
