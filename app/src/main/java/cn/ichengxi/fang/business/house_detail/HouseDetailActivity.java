@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,11 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import chengxinet.chengxilibs.utils.MyLog;
 import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
+import cn.ichengxi.fang.view.BackgroundView;
 import cn.ichengxi.fang.view.BaseRecyclerView;
 
 /**
@@ -30,6 +31,7 @@ public class HouseDetailActivity extends BaseFrameActivity {
 
     private HouseAdapter mAdapter;
     private BaseRecyclerView mContentView;
+    private BackgroundView mBackgroundView;
     private View mStateBar;
 
     @Override
@@ -85,6 +87,16 @@ public class HouseDetailActivity extends BaseFrameActivity {
 
         mContentView.setAdapter(mAdapter);
 
+        mBackgroundView = findViewByIdToView(R.id.bg_contain);
+        mBackgroundView.loading();
+
+        mBackgroundView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mBackgroundView.success("加载。。。");
+            }
+        }, 2000);
+
     }
 
     @Override
@@ -93,29 +105,17 @@ public class HouseDetailActivity extends BaseFrameActivity {
         mContentView.setCallBack(new BaseRecyclerView.OnScrollYChangeCallBack() {
             @Override
             public void onScrollYChange(int d) {
-                Log.d("TAG", "onScrollYChange() called with:  mContentView.getChildAt(0).getMeasuredHeight() = [" + mContentView.getChildAt(0).getMeasuredHeight() + "]");
+                MyLog.d("TAG", "onScrollYChange() called with:  mContentView.getChildAt(0).getMeasuredHeight() = [" + mContentView.getChildAt(0).getMeasuredHeight() + "]");
 
 
                 float p = 1.0f * d / (mContentView.getChildAt(0).getMeasuredHeight() / 6);
                 p = Math.max(Math.min(p, 1), 0);
 
-                Log.d("TAG", "onScrollYChange() called with:  p = [" + p + "]" + ", d = " + d + ", mContentView.getChildAt(0).getMeasuredHeight() / 10 = " + (mContentView.getChildAt(0).getMeasuredHeight() / 10));
+                MyLog.d("TAG", "onScrollYChange() called with:  p = [" + p + "]" + ", d = " + d + ", mContentView.getChildAt(0).getMeasuredHeight() / 10 = " + (mContentView.getChildAt(0).getMeasuredHeight() / 10));
                 ViewCompat.setAlpha(getActionBarBg(), p);
                 if(mStateBar != null)ViewCompat.setAlpha(mStateBar, p);
             }
         });
-//        mContentView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//            }
-//
-//            @Override
-//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//                Log.d("TAG", "onScrolled() called with: recyclerView = [" + recyclerView + "], dx = [" + dx + "], dy = [" + dy + "]");
-//            }
-//        });
     }
 
     @Override

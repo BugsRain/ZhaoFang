@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,46 +13,45 @@
             android:id="@+id/house_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:backgroundImage="@color/font1"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/app_img"/>
+            android:contentDescription="@string/app_img"
+            android:scaleType="centerCrop"/>
 
         <TextView
             android:id="@+id/tv_house_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="天河区 东圃"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/textSize_big"
+            android:layout_alignParentBottom="true"
             android:drawableLeft="@mipmap/ico_location"
             android:drawablePadding="@dimen/partition_small"
-            android:paddingLeft="@dimen/partition_large"
             android:paddingBottom="@dimen/partition_normal"
-            android:layout_alignParentBottom="true"/>
+            android:paddingLeft="@dimen/partition_large"
+            android:text="天河区 东圃"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_big" />
 
         <TextView
             android:id="@+id/tv_house_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:paddingRight="@dimen/partition_large"
+            android:layout_alignParentRight="true"
             android:paddingBottom="@dimen/partition_normal"
+            android:paddingRight="@dimen/partition_large"
             android:text="300万"
-            android:textSize="@dimen/textSize_normal_large"
-            android:textColor="@color/red2" />
+            android:textColor="@color/red2"
+            android:textSize="@dimen/textSize_normal_large" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
         android:orientation="horizontal"
+        android:paddingBottom="@dimen/partition_normal"
         android:paddingLeft="@dimen/partition_large"
         android:paddingRight="@dimen/partition_large"
-        android:paddingBottom="@dimen/partition_normal"
-        android:paddingTop="@dimen/partition_normal"
-        android:background="@android:color/white">
+        android:paddingTop="@dimen/partition_normal">
 
         <TextView
             android:id="@+id/tv_house_desc"
@@ -61,7 +60,7 @@
             android:layout_weight="1"
             android:text="华景新城 3房 1 厅"
             android:textColor="@color/font1"
-            android:textSize="@dimen/textSize_normal_large"/>
+            android:textSize="@dimen/textSize_normal_large" />
 
         <TextView
             android:id="@+id/tv_house_area"
@@ -69,62 +68,62 @@
             android:layout_height="wrap_content"
             android:text="90㎡"
             android:textColor="@color/grey1"
-            android:textSize="@dimen/textSize_big"/>
+            android:textSize="@dimen/textSize_big" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/partition_large"
         android:paddingBottom="@dimen/partition_normal"
-        android:background="@android:color/white">
+        android:paddingLeft="@dimen/partition_large">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="学位"
-            android:textSize="@dimen/textSize_normal"
-            android:textColor="@android:color/white"
+            android:layout_marginRight="@dimen/partition_small"
             android:background="@drawable/tag_bg_red"
-            android:paddingRight="@dimen/partition_normal"
             android:paddingLeft="@dimen/partition_normal"
-            android:layout_marginRight="@dimen/partition_small"/>
+            android:paddingRight="@dimen/partition_normal"
+            android:text="学位"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="满二"
-            android:textSize="@dimen/textSize_normal"
-            android:textColor="@android:color/white"
+            android:layout_marginRight="@dimen/partition_small"
             android:background="@drawable/tag_bg_green"
-            android:paddingRight="@dimen/partition_normal"
             android:paddingLeft="@dimen/partition_normal"
-            android:layout_marginRight="@dimen/partition_small"/>
+            android:paddingRight="@dimen/partition_normal"
+            android:text="满二"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="地铁"
-            android:textSize="@dimen/textSize_normal"
-            android:textColor="@android:color/white"
+            android:layout_marginRight="@dimen/partition_small"
             android:background="@drawable/tag_bg_grey"
-            android:paddingRight="@dimen/partition_normal"
             android:paddingLeft="@dimen/partition_normal"
-            android:layout_marginRight="@dimen/partition_small"/>
+            android:paddingRight="@dimen/partition_normal"
+            android:text="地铁"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="电梯"
-            android:textSize="@dimen/textSize_normal"
-            android:textColor="@android:color/white"
+            android:layout_marginRight="@dimen/partition_small"
             android:background="@drawable/tag_bg_blue"
-            android:paddingRight="@dimen/partition_normal"
             android:paddingLeft="@dimen/partition_normal"
-            android:layout_marginRight="@dimen/partition_small"/>
+            android:paddingRight="@dimen/partition_normal"
+            android:text="电梯"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
 
     </LinearLayout>
 

@@ -9,7 +9,6 @@ import android.support.v4.view.NestedScrollingParent;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
@@ -19,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.OverScroller;
 
+import chengxinet.chengxilibs.utils.MyLog;
 import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
 
@@ -155,7 +155,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
-        Log.d(TAG, "onStartNestedScroll() called with: nestedScrollAxes = [" + nestedScrollAxes + "]");
+        MyLog.d(TAG, "onStartNestedScroll() called with: nestedScrollAxes = [" + nestedScrollAxes + "]");
         startScrollY = getScrollY();
         mScroller.abortAnimation();
         return true;
@@ -187,7 +187,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
             consumed[1] = dy;
         }
 
-//        Log.e(TAG, "onNestedPreScroll: dy = " + dy + ", mScroller.getCurrY() = " + mScroller.getCurrY());
+//        MyLog.e(TAG, "onNestedPreScroll: dy = " + dy + ", mScroller.getCurrY() = " + mScroller.getCurrY());
 
 //        scrollAnimation();
     }
@@ -200,7 +200,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     public boolean onNestedPreFling(View target, float velocityX, float velocityY) {
 //        if (getScrollY() > mHeaderHeight - mActionBarHeight - mStatusBarHeight) return false;
 //        fling((int) (velocityY));
-        Log.e(TAG, "onNestedPreFling: velocityY = " + velocityY);
+        MyLog.e(TAG, "onNestedPreFling: velocityY = " + velocityY);
 
         inertia();
 
@@ -219,7 +219,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
 
         if (mOnScrollListener != null) mOnScrollListener.onStop();
 
-        Log.d(TAG, "onStopNestedScroll() called with: startScrollY = [" + (startScrollY) + "] , getScrollY() = [" + getScrollY() + "]");
+        MyLog.d(TAG, "onStopNestedScroll() called with: startScrollY = [" + (startScrollY) + "] , getScrollY() = [" + getScrollY() + "]");
 
         inertia();
     }
@@ -243,7 +243,7 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     public void computeScroll() {
         if (mScroller.computeScrollOffset()) {
             scrollTo(0, mScroller.getCurrY());
-            Log.d(TAG, "computeScroll() called");
+            MyLog.d(TAG, "computeScroll() called");
             postInvalidate();
             ViewCompat.postInvalidateOnAnimation(this);
         }
@@ -252,8 +252,8 @@ public class HomeCoordinatorLayout extends LinearLayout implements NestedScrolli
     }
 
     private void inertia(){
-        int offset = (int) ((mHeaderHeight - mActionBarHeight - mStatusBarHeight));
-        Log.d(TAG, "inertia() called with: getScrollY() = [" + getScrollY() + "]");
+        int offset = mHeaderHeight - mActionBarHeight - mStatusBarHeight;
+        MyLog.d(TAG, "inertia() called with: getScrollY() = [" + getScrollY() + "]");
         if(!mScroller.computeScrollOffset()) {
             switch (mScrollStatus) {
                 case UP:

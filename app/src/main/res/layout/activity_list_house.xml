@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
+    android:background="@color/bg"
+    android:orientation="vertical">
 
     <include layout="@layout/actionbar_list_house" />
 
@@ -14,116 +14,123 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_down"
                 android:gravity="center"
                 android:padding="@dimen/partition_normal2"
                 android:text="区域"
-                android:textSize="@dimen/textSize_big"
                 android:textColor="@color/font1"
-                android:drawableRight="@mipmap/ico_down"
-                android:drawablePadding="@dimen/partition_normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textSize="@dimen/textSize_big" />
 
         </LinearLayout>
 
         <View
             android:layout_width="@dimen/line_height"
             android:layout_height="match_parent"
-            android:background="@color/grey2"
+            android:layout_marginBottom="@dimen/partition_normal"
             android:layout_marginTop="@dimen/partition_normal"
-            android:layout_marginBottom="@dimen/partition_normal"/>
+            android:background="@color/grey2" />
 
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center">
 
             <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_down"
                 android:gravity="center"
                 android:padding="@dimen/partition_normal2"
                 android:text="总价"
-                android:textSize="@dimen/textSize_big"
                 android:textColor="@color/font1"
-                android:drawableRight="@mipmap/ico_down"
-                android:drawablePadding="@dimen/partition_normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"/>
+                android:textSize="@dimen/textSize_big" />
 
         </LinearLayout>
 
         <View
             android:layout_width="@dimen/line_height"
             android:layout_height="match_parent"
-            android:background="@color/grey2"
+            android:layout_marginBottom="@dimen/partition_normal"
             android:layout_marginTop="@dimen/partition_normal"
-            android:layout_marginBottom="@dimen/partition_normal"/>
+            android:background="@color/grey2" />
 
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_down"
                 android:gravity="center"
                 android:padding="@dimen/partition_normal2"
                 android:text="房型"
-                android:textSize="@dimen/textSize_big"
                 android:textColor="@color/font1"
-                android:drawableRight="@mipmap/ico_down"
-                android:drawablePadding="@dimen/partition_normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textSize="@dimen/textSize_big" />
 
         </LinearLayout>
 
         <View
             android:layout_width="@dimen/line_height"
             android:layout_height="match_parent"
-            android:background="@color/grey2"
+            android:layout_marginBottom="@dimen/partition_normal"
             android:layout_marginTop="@dimen/partition_normal"
-            android:layout_marginBottom="@dimen/partition_normal"/>
+            android:background="@color/grey2" />
 
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_down"
                 android:gravity="center"
                 android:padding="@dimen/partition_normal2"
                 android:text="更多"
-                android:textSize="@dimen/textSize_big"
                 android:textColor="@color/font1"
-                android:drawableRight="@mipmap/ico_down"
-                android:drawablePadding="@dimen/partition_normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textSize="@dimen/textSize_big" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <cn.ichengxi.fang.widget.MySwipeRefreshLayout
-        android:id="@+id/swipe_layout"
+    <cn.ichengxi.fang.view.BackgroundView
+        android:id="@+id/bg_contain"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/list_house_rv"
+        <cn.ichengxi.fang.view.MySwipeRefreshLayout
+            android:id="@+id/swipe_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@null"/>
+            android:layout_height="match_parent">
 
-    </cn.ichengxi.fang.widget.MySwipeRefreshLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_house_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null" />
+
+        </cn.ichengxi.fang.view.MySwipeRefreshLayout>
+    </cn.ichengxi.fang.view.BackgroundView>
 
 </LinearLayout>

@@ -14,7 +14,6 @@ import java.util.List;
 
 import chengxinet.chengxilibs.widget.MySimpleDraweeView;
 import cn.ichengxi.fang.R;
-import cn.ichengxi.fang.business.house_detail.HouseDetailActivity;
 import cn.ichengxi.fang.business.list.ListHouseActivity;
 import cn.ichengxi.fang.business.location.LocationActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
@@ -38,12 +37,7 @@ public class HomeFragment extends BaseFrameFragment {
     @Override
     public void initView() {
         super.initView();
-        findViewByIdToView(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity(HouseDetailActivity.class);
-            }
-        });
+
         findViewByIdToView(R.id.home_search).setOnClickListener(this);
         findViewByIdToView(R.id.home_location).setOnClickListener(this);
 

@@ -13,28 +13,22 @@ public class BaseRecyclerView extends RecyclerView {
 
     private static final String TAG = "BaseRecyclerView";
 
+    private AdapterDataObserver observer;
+
     private int d;
 
     private OnScrollYChangeCallBack callBack;
 
     public BaseRecyclerView(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public BaseRecyclerView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public BaseRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-    }
-
-
-    @Override
-    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-        super.onScrollChanged(l, t, oldl, oldt);
-
-//        Log.d(TAG, "onScrollChanged() called with: l = [" + l + "], t = [" + t + "], oldl = [" + oldl + "], getScrollY() = [" + getScrollY() + "]");
     }
 
     @Override
@@ -44,18 +38,11 @@ public class BaseRecyclerView extends RecyclerView {
 
 
     @Override
-    protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
-        super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
-//        Log.d(TAG, "onOverScrolled() called with: scrollX = [" + scrollX + "], scrollY = [" + scrollY + "], clampedX = [" + clampedX + "], clampedY = [" + clampedY + "]");
-    }
-
-    @Override
     public void onScrolled(int dx, int dy) {
         d += dy;
-        if(callBack != null){
+        if (callBack != null) {
             callBack.onScrollYChange(d);
         }
-//        Log.d(TAG, "onScrolled() called with: d = [" + d + "], dy = [" + dy + "]");
     }
 
     public void setCallBack(OnScrollYChangeCallBack callBack) {
@@ -65,4 +52,8 @@ public class BaseRecyclerView extends RecyclerView {
     public interface OnScrollYChangeCallBack {
         void onScrollYChange(int d);
     }
+
+
+
+
 }

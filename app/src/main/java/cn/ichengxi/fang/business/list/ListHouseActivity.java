@@ -25,7 +25,8 @@ import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.adapter.ListHouseAdapter;
 import cn.ichengxi.fang.adapter.decoration.ItemLine;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
-import cn.ichengxi.fang.widget.MySwipeRefreshLayout;
+import cn.ichengxi.fang.view.BackgroundView;
+import cn.ichengxi.fang.view.MySwipeRefreshLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
@@ -37,6 +38,8 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
     RecyclerView mListHouseRv;
     @Bind(R.id.swipe_layout)
     MySwipeRefreshLayout mSwipeLayout;
+    @Bind(R.id.bg_contain)
+    BackgroundView mBackgroundView;
 
     private ListHouseAdapter mAdapter;
 
@@ -77,10 +80,27 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
             }
 
             @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                mSwipeLayout.refreshComplete();
+            public void onRefreshBegin(final PtrFrameLayout frame) {
+
+                frame.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        frame.refreshComplete();
+                    }
+                }, 2000);
+
             }
         });
+
+        mBackgroundView = findViewByIdToView(R.id.bg_contain);
+        mBackgroundView.loading();
+
+        mBackgroundView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mBackgroundView.success();
+            }
+        }, 2000);
     }
 
     @Override

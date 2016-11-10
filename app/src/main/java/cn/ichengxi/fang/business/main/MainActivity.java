@@ -45,14 +45,20 @@ public class MainActivity extends BaseFrameActivity {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
 
-
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.exit(0);
     }
 
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         setFrameId(R.id.main_frame_contain);
+        setExit(true);
     }
 
     @Override
@@ -110,4 +116,13 @@ public class MainActivity extends BaseFrameActivity {
 
     }
 
+    @Override
+    public void onRequestError(String msg) {
+        super.onRequestError(msg);
+    }
+
+    @Override
+    public void onInternetError() {
+        super.onInternetError();
+    }
 }
