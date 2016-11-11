@@ -36,7 +36,7 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseViewH
     //最小遮罩
     private final static int ITEM_MASK_MIN = ITEM_FOOTER_MASK_MIN;
 
-    private RecyclerView mView;
+//    private RecyclerView mView;
 
     private ArrayList<Section> mSections;
 
@@ -93,7 +93,7 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseViewH
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        int type = getItemViewType(position);
+        final int type = getItemViewType(position);
         Section section = mSections.get(getTypeCompat(type));
 
         if (section.isHasHeader() && section.getStart() == position) {
@@ -162,30 +162,30 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseViewH
         super.onViewDetachedFromWindow(holder);
         Log.d("haha", "onViewAttachedToWindow() called with: holder.getType() = [" + holder.getType() + "]");
         int type = getTypeCompat(holder.getType());
-        if(!isSectionEmpty()) {
-            Section section = mSections.get(type);
-            section.getItemViewProvider().onDetachedFromWindow(holder, section);
-        }
+//        if(!isSectionEmpty()) {
+//            Section section = mSections.get(type);
+//            section.getItemViewProvider().onDetachedFromWindow(holder, section);
+//        }
     }
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        mView = recyclerView;
+//        mView = recyclerView;
         super.onAttachedToRecyclerView(recyclerView);
     }
 
     @Override
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
-        mContext = null;
-        mView = null;
-        mInflater = null;
-        if (mSections != null) {
-            for (Section section : mSections) {
-                if (section != null) section.release();
-            }
-            mSections.clear();
-            mSections = null;
-        }
+//        mContext = null;
+//        mView = null;
+//        mInflater = null;
+//        if (mSections != null) {
+//            for (Section section : mSections) {
+//                if (section != null) section.release();
+//            }
+//            mSections.clear();
+//            mSections = null;
+//        }
         super.onDetachedFromRecyclerView(recyclerView);
     }
 
@@ -216,11 +216,11 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseViewH
         return mContext;
     }
 
-    protected RecyclerView getView() {
-        return mView;
-    }
+
 
     public ArrayList<Section> getSections() {
         return mSections;
     }
+
+
 }

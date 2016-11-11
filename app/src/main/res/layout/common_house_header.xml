@@ -6,7 +6,7 @@
 
     <com.bigkoo.convenientbanner.ConvenientBanner
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:background="@color/blue"
         android:visibility="visible" />
 
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="中山公园"
-            android:textColor="@color/green1"
+            android:textColor="@color/font1"
             android:textSize="@dimen/textSize_very_large" />
 
         <TextView
@@ -35,15 +35,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/house_local_name"
-            android:layout_marginTop="@dimen/partition_small"
+            android:layout_marginTop="@dimen/partition_normal2"
             android:text="天河-东圃"
-            android:textColor="@color/font1" />
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@color/grey1" />
 
         <LinearLayout
+            android:id="@+id/house_info_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/house_location"
-            android:layout_marginTop="@dimen/partition_normal"
+            android:layout_marginTop="@dimen/partition_big"
             android:orientation="horizontal">
 
             <TextView
@@ -55,20 +57,55 @@
                 style="@style/houseInfoTag"
                 android:background="@drawable/house_tag2"
                 android:text="满二" />
-
-
         </LinearLayout>
 
         <TextView
             android:id="@+id/house_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+
             android:gravity="end"
-            android:text="300万\n5500/㎡" />
+            android:text="300万"
+            android:textColor="@color/red1"
+            android:textSize="@dimen/textSize_normal_large"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/house_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey1"
+            android:text="5000元/m²"
+            android:textSize="@dimen/textSize_normal"
+
+            android:layout_alignBottom="@+id/house_location"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+        <TextView
+            android:id="@+id/house_compute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey1"
+            android:text="计算器"
+            android:textSize="@dimen/textSize_normal"
+            android:layout_alignBottom="@+id/house_info_container"
+            android:drawablePadding="@dimen/partition_small"
+            android:drawableLeft="@mipmap/ico_compute2"
+            android:drawableStart="@mipmap/ico_compute2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:layout_marginLeft="@dimen/partition_big"
+        android:layout_marginRight="@dimen/partition_big"
+        android:background="@color/bg" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -120,126 +157,132 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_height"
-        android:layout_marginLeft="@dimen/partition_big"
-        android:layout_marginRight="@dimen/partition_big"
+        android:layout_height="@dimen/partition_big"
         android:layout_marginTop="@dimen/partition_big"
         android:background="@color/bg" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/partition_big">
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/line_height"-->
+    <!--android:layout_marginLeft="@dimen/partition_big"-->
+    <!--android:layout_marginRight="@dimen/partition_big"-->
+    <!--android:layout_marginTop="@dimen/partition_big"-->
+    <!--android:background="@color/bg" />-->
 
-        <TextView
-            android:id="@+id/title1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="业主说"
-            android:textColor="@color/green1" />
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="@dimen/partition_big">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="举报资源"
-            android:textColor="@color/grey2" />
+    <!--<TextView-->
+    <!--android:id="@+id/title1"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="业主说"-->
+    <!--android:textColor="@color/green1" />-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title1"
-            android:layout_marginTop="@dimen/partition_normal"
-            android:text="千米符号,单字符㎡,不是M和2组成的两个字符表示方法,只占一个字符位置,看起来更舒适无歧义。-符号大全网(fuhaodaquan.org)是特殊符号、符号图案、符号网名等符号..."
-            android:textColor="@color/font1" />
-    </RelativeLayout>
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:text="举报资源"-->
+    <!--android:textColor="@color/grey2" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/title1"-->
+    <!--android:layout_marginTop="@dimen/partition_normal"-->
+    <!--android:text="千米符号,单字符㎡,不是M和2组成的两个字符表示方法,只占一个字符位置,看起来更舒适无歧义。-符号大全网(fuhaodaquan.org)是特殊符号、符号图案、符号网名等符号..."-->
+    <!--android:textColor="@color/font1" />-->
+    <!--</RelativeLayout>-->
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_height"
-        android:layout_marginLeft="@dimen/partition_big"
-        android:layout_marginRight="@dimen/partition_big"
-        android:background="@color/bg" />
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/line_height"-->
+    <!--android:layout_marginLeft="@dimen/partition_big"-->
+    <!--android:layout_marginRight="@dimen/partition_big"-->
+    <!--android:background="@color/bg" />-->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/partition_big">
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="@dimen/partition_big">-->
 
-        <TextView
-            android:id="@+id/title2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/partition_normal"
-            android:text="房小蜜为您服务"
-            android:textColor="@color/green1" />
+    <!--<TextView-->
+    <!--android:id="@+id/title2"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/partition_normal"-->
+    <!--android:text="房小蜜为您服务"-->
+    <!--android:textColor="@color/green1" />-->
 
-        <chengxinet.chengxilibs.widget.MySimpleDraweeView
-            android:id="@+id/house_master_img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/title2"
-            android:layout_marginEnd="@dimen/partition_normal"
-            android:layout_marginRight="@dimen/partition_normal"
-            android:src="@mipmap/ic_launcher" />
+    <!--<chengxinet.chengxilibs.widget.MySimpleDraweeView-->
+    <!--android:id="@+id/house_master_img"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_below="@id/title2"-->
+    <!--android:layout_marginEnd="@dimen/partition_normal"-->
+    <!--android:layout_marginRight="@dimen/partition_normal"-->
+    <!--android:src="@mipmap/ic_launcher" />-->
 
-        <TextView
-            android:id="@+id/house_master"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title2"
-            android:layout_marginBottom="@dimen/partition_normal"
-            android:layout_toEndOf="@id/house_master_img"
-            android:layout_toRightOf="@id/house_master_img"
-            android:text="王晓峰"
-            android:textColor="@color/blue"
-            android:textSize="@dimen/textSize_big" />
+    <!--<TextView-->
+    <!--android:id="@+id/house_master"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/title2"-->
+    <!--android:layout_marginBottom="@dimen/partition_normal"-->
+    <!--android:layout_toEndOf="@id/house_master_img"-->
+    <!--android:layout_toRightOf="@id/house_master_img"-->
+    <!--android:text="王晓峰"-->
+    <!--android:textColor="@color/blue"-->
+    <!--android:textSize="@dimen/textSize_big" />-->
 
-        <TextView
-            android:id="@+id/house_master_introduce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/house_master"
-            android:layout_toEndOf="@id/house_master_img"
-            android:layout_toRightOf="@id/house_master_img"
-            android:text="目前阿沃科在他的经纪人的陪同下已经来到了米兰，准备参加体检，他的经纪人介绍(Introduction)：“国际米兰给我们安排了很好的旅馆，还有私人司机，我得说，国际米兰在这方面真的很职业，我们绝顶满意。"
-            android:textColor="@color/font1"
-            android:textSize="@dimen/textSize_big" />
-    </RelativeLayout>
+    <!--<TextView-->
+    <!--android:id="@+id/house_master_introduce"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/house_master"-->
+    <!--android:layout_toEndOf="@id/house_master_img"-->
+    <!--android:layout_toRightOf="@id/house_master_img"-->
+    <!--android:text="目前阿沃科在他的经纪人的陪同下已经来到了米兰，准备参加体检，他的经纪人介绍(Introduction)：“国际米兰给我们安排了很好的旅馆，还有私人司机，我得说，国际米兰在这方面真的很职业，我们绝顶满意。"-->
+    <!--android:textColor="@color/font1"-->
+    <!--android:textSize="@dimen/textSize_big" />-->
+    <!--</RelativeLayout>-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_height"
-        android:layout_marginLeft="@dimen/partition_big"
-        android:layout_marginRight="@dimen/partition_big"
-        android:background="@color/bg" />
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/line_height"-->
+    <!--android:layout_marginLeft="@dimen/partition_big"-->
+    <!--android:layout_marginRight="@dimen/partition_big"-->
+    <!--android:background="@color/bg" />-->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/partition_big">
-        <TextView
-            android:id="@+id/title3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/partition_normal"
-            android:text="地图"
-            android:textColor="@color/green1" />
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="@dimen/partition_big">-->
+    <!--<TextView-->
+    <!--android:id="@+id/title3"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/partition_normal"-->
+    <!--android:text="地图"-->
+    <!--android:textColor="@color/green1" />-->
 
-        <ImageView
-            android:layout_below="@id/title3"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:src="@color/blue"/>
-    </RelativeLayout>
+    <!--<ImageView-->
+    <!--android:layout_below="@id/title3"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="120dp"-->
+    <!--android:src="@color/blue"/>-->
+    <!--</RelativeLayout>-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_height"
-        android:layout_marginLeft="@dimen/partition_big"
-        android:layout_marginRight="@dimen/partition_big"
-        android:background="@color/bg" />
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/line_height"-->
+    <!--android:layout_marginLeft="@dimen/partition_big"-->
+    <!--android:layout_marginRight="@dimen/partition_big"-->
+    <!--android:background="@color/bg" />-->
 
 </LinearLayout>

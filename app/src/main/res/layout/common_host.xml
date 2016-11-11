@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/partition_big"
+
+    android:paddingLeft="@dimen/partition_so_large"
+    android:paddingRight="@dimen/partition_so_large"
+    >
+    <chengxinet.chengxilibs.widget.MySimpleDraweeView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        fresco:roundAsCircle="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mySimpleDraweeView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize_large"
+        android:text="胡王晓"
+        android:layout_below="@+id/mySimpleDraweeView"
+        android:layout_alignRight="@+id/mySimpleDraweeView"
+        android:layout_alignEnd="@+id/mySimpleDraweeView"
+        android:layout_marginRight="25dp"
+        android:id="@+id/textView3"
+        android:textColor="@color/font1"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:textColor="@color/font1"
+        android:layout_marginTop="@dimen/partition_normal2"
+        android:textSize="@dimen/textSize_large"
+        android:lineSpacingExtra="@dimen/partition_normal"
+        android:text="做Android布局是件很享受的事，这得益于他良好的xml方式。使用xml可以快速有效的为软件定义界面。"/>
+
+
+    <View
+        android:layout_below="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:layout_marginTop="@dimen/partition_large"
+        android:background="@color/bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize_normal"
+        android:text="业主"
+        android:id="@+id/textView2"
+        android:textColor="@color/grey1"
+        android:paddingLeft="@dimen/partition_small"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/mySimpleDraweeView"
+        android:layout_alignStart="@+id/mySimpleDraweeView"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp" />
+</RelativeLayout>

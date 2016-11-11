@@ -98,17 +98,17 @@ public class BackgroundView extends FrameLayout {
 
     @Override
     protected void onDetachedFromWindow() {
-        mLoadingDrawable = null;
+//        mLoadingDrawable = null;
 
         if (mContentView != null) {
             for (View v : mContentView) {
                 v.clearAnimation();
             }
-            mContentView.clear();
+//            mContentView.clear();
         }
 
 
-        mContentView = null;
+//        mContentView = null;
         super.onDetachedFromWindow();
     }
 

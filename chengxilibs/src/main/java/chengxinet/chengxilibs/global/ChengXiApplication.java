@@ -6,9 +6,7 @@ import android.os.Environment;
 import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 
-import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
 
 import java.io.File;
 
@@ -28,17 +26,17 @@ public abstract class ChengXiApplication extends MultiDexApplication {
         init();
 
 
-        DiskCacheConfig diskCacheConfig = DiskCacheConfig.newBuilder(this)
-                .setBaseDirectoryPath(cacheDir)
-                .build();
+//        DiskCacheConfig diskCacheConfig = DiskCacheConfig.newBuilder(this)
+//                .setBaseDirectoryPath(cacheDir)
+//                .build();
+//
+//        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+//                .setMainDiskCacheConfig(diskCacheConfig)
+//                .setSmallImageDiskCacheConfig(diskCacheConfig)
+//                .build();
 
-        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
-                .setMainDiskCacheConfig(diskCacheConfig)
-                .setSmallImageDiskCacheConfig(diskCacheConfig)
-                .build();
 
-
-        Fresco.initialize(this, config);
+        Fresco.initialize(this);
 
     }
 

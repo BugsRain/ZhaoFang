@@ -14,14 +14,11 @@
         android:orientation="horizontal"
         android:background="@android:color/white">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
+
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/partition_normal"
                 android:drawableRight="@mipmap/ico_down"
@@ -31,7 +28,7 @@
                 android:textColor="@color/font1"
                 android:textSize="@dimen/textSize_big" />
 
-        </LinearLayout>
+
 
         <View
             android:layout_width="@dimen/line_height"

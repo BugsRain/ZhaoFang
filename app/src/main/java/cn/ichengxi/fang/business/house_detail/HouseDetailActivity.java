@@ -79,7 +79,7 @@ public class HouseDetailActivity extends BaseFrameActivity {
             list.add(i);
         }
 
-        mAdapter = new HouseAdapter(this, new Object(), list);
+        mAdapter = new HouseAdapter(this, new Object(), list.subList(0,3) ,new Object(),list);
 
         mContentView = findViewByIdToView(R.id.house_content);
 
@@ -93,9 +93,9 @@ public class HouseDetailActivity extends BaseFrameActivity {
         mBackgroundView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mBackgroundView.success("加载。。。");
+                mBackgroundView.success("加载...");
             }
-        }, 2000);
+        }, 1000);
 
     }
 
@@ -108,7 +108,7 @@ public class HouseDetailActivity extends BaseFrameActivity {
                 MyLog.d("TAG", "onScrollYChange() called with:  mContentView.getChildAt(0).getMeasuredHeight() = [" + mContentView.getChildAt(0).getMeasuredHeight() + "]");
 
 
-                float p = 1.0f * d / (mContentView.getChildAt(0).getMeasuredHeight() / 6);
+                float p = 1.0f * d / (mContentView.getChildAt(0).getMeasuredHeight() / 2);
                 p = Math.max(Math.min(p, 1), 0);
 
                 MyLog.d("TAG", "onScrollYChange() called with:  p = [" + p + "]" + ", d = " + d + ", mContentView.getChildAt(0).getMeasuredHeight() / 10 = " + (mContentView.getChildAt(0).getMeasuredHeight() / 10));

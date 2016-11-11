@@ -7,6 +7,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <declare-styleable name="PictureTableView">
+        <attr name="column" format="integer" />
+        <attr name="spec" format="dimension" />
+    </declare-styleable>
 
     <style name="MainTab">
         <item name="android:layout_height">match_parent</item>
@@ -51,21 +56,22 @@
     <style name="HouseDetailBottomTab">
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center</item>
-        <item name="android:drawablePadding">@dimen/partition_small</item>
+        <!--<item name="android:drawablePadding">@dimen/partition_very_small</item>-->
         <item name="android:textSize">@dimen/textSize_normal</item>
-        <item name="android:paddingTop">@dimen/partition_small</item>
-        <item name="android:paddingBottom">@dimen/partition_small</item>
+        <item name="android:paddingTop">@dimen/partition_very_small</item>
+        <item name="android:paddingBottom">@dimen/partition_very_small</item>
         <item name="android:paddingRight">@dimen/partition_normal</item>
         <item name="android:paddingLeft">@dimen/partition_normal</item>
     </style>
     <style name="houseInfoFirstTag">
+        <item name="android:gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:paddingLeft">@dimen/partition_normal</item>
-        <item name="android:paddingRight">@dimen/partition_normal</item>
-        <item name="android:paddingTop">@dimen/partition_very_small</item>
-        <item name="android:paddingBottom">@dimen/partition_very_small</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <!--<item name="android:paddingTop">@dimen/partition_very_small</item>-->
+        <!--<item name="android:paddingBottom">@dimen/partition_very_small</item>-->
         <item name="android:textSize">@dimen/textSize_small</item>
     </style>
 

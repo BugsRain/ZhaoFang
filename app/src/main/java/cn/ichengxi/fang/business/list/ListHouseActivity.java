@@ -101,7 +101,7 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                 if (mBackgroundView != null)
                     mBackgroundView.success();
             }
-        }, 2000);
+        }, 1000);
     }
 
     @Override

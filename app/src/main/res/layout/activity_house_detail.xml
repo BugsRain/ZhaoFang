@@ -14,11 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:layout_marginBottom="56dp" />
+            android:layout_marginBottom="48dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="48dp"
             android:layout_gravity="bottom"
             android:orientation="horizontal">
 
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="5dp"
                     android:padding="0dp"
 
                     android:text="黄晓晓"
