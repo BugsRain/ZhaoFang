@@ -29,8 +29,9 @@
 
                 <Button
                     style="@style/HomeSaleBuy"
-                    android:drawableLeft="@mipmap/ico_sale_house"
-                    android:drawableStart="@mipmap/ico_sale_house"
+
+                    android:drawableLeft="@mipmap/ico_buy_house"
+                    android:drawableStart="@mipmap/ico_buy_house"
                     android:text="卖房" />
             </FrameLayout>
             
@@ -50,8 +51,8 @@
                 <Button
                     android:id="@+id/button"
                     style="@style/HomeSaleBuy"
-                    android:drawableLeft="@mipmap/ico_buy_house"
-                    android:drawableStart="@mipmap/ico_buy_house"
+                    android:drawableLeft="@mipmap/ico_sale_house"
+                    android:drawableStart="@mipmap/ico_sale_house"
                     android:text="买房" />
             </FrameLayout>
 

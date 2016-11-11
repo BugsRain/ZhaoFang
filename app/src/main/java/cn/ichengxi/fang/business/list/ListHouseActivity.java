@@ -98,7 +98,8 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
         mBackgroundView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mBackgroundView.success();
+                if (mBackgroundView != null)
+                    mBackgroundView.success();
             }
         }, 2000);
     }
