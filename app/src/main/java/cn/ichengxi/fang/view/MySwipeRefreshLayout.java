@@ -82,6 +82,13 @@ public class MySwipeRefreshLayout extends PtrClassicFrameLayout {
     }
 
     private void initConfig() {
+
+        /**
+         * 拦截水平滑动监听
+         * 默认为false，mPagingTouchSlop获得系统最少滑动距离原来为 系统参数*2
+         * 为了配合侧滑item,系统最少滑动距离改为 系统参数/2
+         * */
+        disableWhenHorizontalMove(true);
         /**
          * 阻尼系数
          * 默认: 1.7f，越大，感觉下拉时越吃力

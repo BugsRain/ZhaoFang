@@ -2,6 +2,7 @@
     package="cn.ichengxi.fang">
 
     <uses-permission android:name="android.permission.INRNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApplication"
