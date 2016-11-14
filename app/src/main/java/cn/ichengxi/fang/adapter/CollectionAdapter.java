@@ -30,11 +30,17 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectViewHolder> {
 
     @Override
     public void onBindViewHolder(CollectViewHolder holder, int position) {
-        holder.image.setImageURI(Uri.parse("res:///" + R.mipmap.home_bg));
+        if (position % 2 == 0) {
+            holder.image.setImageURI(Uri.parse("http://img3.cache.netease.com/photo/0007/2014-08-29/A4QDMDQ15LOC0007.jpg"));
+        } else if (position % 3 == 0) {
+            holder.image.setImageURI(Uri.parse("http://www.zjgzf.cn/vip/center/uploads/20140313140941011.jpg"));
+        } else {
+            holder.image.setImageURI(Uri.parse("http://pic.ihk.cn/first/ihk/2015/07/17/172432442.jpg"));
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 15;
     }
 }
