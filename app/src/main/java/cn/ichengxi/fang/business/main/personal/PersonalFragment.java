@@ -12,6 +12,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import chengxinet.chengxilibs.widget.MySimpleDraweeView;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.business.collect.CollectionActivity;
 import cn.ichengxi.fang.business.login.LoginActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 
@@ -66,7 +67,7 @@ public class PersonalFragment extends BaseFrameFragment{
         super.onClick(v);
         switch (v.getId()) {
             case R.id.personal_collect_txt:
-                showShortToast("我的收藏");
+                openActivity(CollectionActivity.class);
                 break;
 
             case R.id.personal_house_txt:
