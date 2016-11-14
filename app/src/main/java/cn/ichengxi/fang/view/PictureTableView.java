@@ -51,7 +51,7 @@ public class PictureTableView extends ViewGroup {
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.PictureTableView);
 
-        mSpec = (int) ta.getDimension(R.styleable.PictureTableView_spec, 5);
+        mSpec = (int) ta.getDimension(R.styleable.PictureTableView_spec, 10);
 
         ta.recycle();
 
@@ -63,7 +63,7 @@ public class PictureTableView extends ViewGroup {
             mData.add(Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
         }
 
-        int dataSize = Math.max(Math.min(mData.size(), 7), 0);
+        int dataSize = Math.max(Math.min(mData.size(), 5), 0);
 
 
         for (int i = 0; i < dataSize; i++) {
@@ -88,8 +88,12 @@ public class PictureTableView extends ViewGroup {
             case FLOW:
                 switch (getChildCount()) {
                     case 1:
+                        heightSize = getHeightWithFLowWidth(widthSize, 1);
+                        break;
                     case 2:
                     case 4:
+                        heightSize = getHeightWithFLowWidth(widthSize, 2);
+                        break;
                     case 5:
                         heightSize = getHeightWithFLowWidth(widthSize, getChildCount());
                         break;
@@ -150,7 +154,7 @@ public class PictureTableView extends ViewGroup {
 
     private int getHeightWithFLowWidth(int widthSize, int columnCount) {
         if (columnCount == 5) {
-            return measurePictureView(widthSize, 2, 2) + measurePictureView(widthSize, 3, 3);
+            return measurePictureView(widthSize, 2, 2) + measurePictureView(widthSize, 3, 3) - mSpec;
         } else {
             return measurePictureView(widthSize, columnCount, getChildCount());
         }

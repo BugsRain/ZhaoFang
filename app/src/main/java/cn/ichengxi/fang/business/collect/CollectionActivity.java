@@ -62,24 +62,24 @@ public class CollectionActivity extends BaseFrameActivity {
     @Override
     public void initListener() {
         super.initListener();
-//        mSwipeRefreshLayout.setPtrHandler(new PtrDefaultHandler2() {
-//            @Override
-//            public void onLoadMoreBegin(PtrFrameLayout frame) {
-//                mSwipeRefreshLayout.refreshComplete();
-//            }
-//
-//            @Override
-//            public void onRefreshBegin(final PtrFrameLayout frame) {
-//
-//                frame.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        frame.refreshComplete();
-//                    }
-//                }, 2000);
-//
-//            }
-//        });
+        mSwipeRefreshLayout.setPtrHandler(new PtrDefaultHandler2() {
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                mSwipeRefreshLayout.refreshComplete();
+            }
+
+            @Override
+            public void onRefreshBegin(final PtrFrameLayout frame) {
+
+                frame.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        frame.refreshComplete();
+                    }
+                }, 2000);
+
+            }
+        });
     }
 
     @Override

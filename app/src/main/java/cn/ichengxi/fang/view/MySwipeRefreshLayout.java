@@ -82,6 +82,9 @@ public class MySwipeRefreshLayout extends PtrClassicFrameLayout {
     }
 
     private void initConfig() {
+
+        disableWhenHorizontalMove(true);
+
         /**
          * 阻尼系数
          * 默认: 1.7f，越大，感觉下拉时越吃力
