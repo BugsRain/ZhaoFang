@@ -1,6 +1,5 @@
 package cn.ichengxi.fang.business.login;
 
-import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -113,8 +111,8 @@ public class LoginActivity extends BaseFrameActivity<LoginPresenter, LoginModel>
             View v = getCurrentFocus();
             hideKeyboard(v);
             if (!isShouldHideKeyboard(mPhoneEdt, ev) || !isShouldHideKeyboard(mCodeEdt, ev)) {
-                mPhoneEdt.clearFocus();
-                mCodeEdt.clearFocus();
+//                mPhoneEdt.clearFocus();
+//                mCodeEdt.clearFocus();
             }
         }
         return super.dispatchTouchEvent(ev);

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/partition_normal">
+
+    <chengxinet.chengxilibs.widget.MySimpleDraweeView
+        android:id="@+id/item_image"
+        android:layout_width="100dp"
+        android:layout_height="80dp" />
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/partition_normal"
+        android:layout_marginStart="@dimen/partition_normal"
+        android:layout_toEndOf="@id/item_image"
+        android:layout_toRightOf="@id/item_image"
+        android:alpha="0.7"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="保利心语花园 繁华地段 景观好"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/textSize_big" />
+
+    <TextView
+        android:id="@+id/item_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_title"
+        android:layout_marginLeft="@dimen/partition_normal"
+        android:layout_marginStart="@dimen/partition_normal"
+        android:layout_marginTop="@dimen/partition_small"
+        android:layout_toEndOf="@id/item_image"
+        android:layout_toRightOf="@id/item_image"
+        android:alpha="0.7"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="心语花园 3房1厅 88m"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/textSize_normal" />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_describe"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="300万"
+        android:textColor="@color/red1"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_image"
+        android:layout_marginLeft="@dimen/partition_normal"
+        android:layout_marginStart="@dimen/partition_normal"
+        android:layout_toEndOf="@id/item_image"
+        android:layout_toRightOf="@id/item_image"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"
+            android:background="@drawable/tag_bg_red"
+            android:paddingLeft="@dimen/partition_normal"
+            android:paddingRight="@dimen/partition_normal"
+            android:text="学位"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"
+            android:background="@drawable/tag_bg_green"
+            android:paddingLeft="@dimen/partition_normal"
+            android:paddingRight="@dimen/partition_normal"
+            android:text="满二"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"
+            android:background="@drawable/tag_bg_grey"
+            android:paddingLeft="@dimen/partition_normal"
+            android:paddingRight="@dimen/partition_normal"
+            android:text="地铁"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_small"
+            android:background="@drawable/tag_bg_blue"
+            android:paddingLeft="@dimen/partition_normal"
+            android:paddingRight="@dimen/partition_normal"
+            android:text="电梯"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal" />
+
+    </LinearLayout>
+
+</RelativeLayout>
