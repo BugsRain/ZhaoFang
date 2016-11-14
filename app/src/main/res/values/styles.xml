@@ -9,7 +9,6 @@
     </style>
     
     <declare-styleable name="PictureTableView">
-        <attr name="column" format="integer" />
         <attr name="spec" format="dimension" />
     </declare-styleable>
 

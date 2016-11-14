@@ -20,11 +20,21 @@ import cn.ichengxi.fang.R;
 
 public class PictureTableView extends ViewGroup {
 
+    private static final int MaxColumnCount = 3;
+
+
+    private enum LayoutType {
+        NORMAL,
+        FLOW,
+        NONE
+    }
+
+    private LayoutType mLayoutType = LayoutType.FLOW;
+
     private List<Integer> mData;
 
     private int mSingleItemSize;
 
-    private int mColumnCount;
 
     private int mSpec;
 
@@ -41,8 +51,7 @@ public class PictureTableView extends ViewGroup {
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.PictureTableView);
 
-        mColumnCount = ta.getInt(R.styleable.PictureTableView_column, 3);
-        mSpec = (int) ta.getDimension(R.styleable.PictureTableView_spec, 20);
+        mSpec = (int) ta.getDimension(R.styleable.PictureTableView_spec, 5);
 
         ta.recycle();
 
@@ -54,12 +63,17 @@ public class PictureTableView extends ViewGroup {
             mData.add(Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
         }
 
-        for (int i = 0; i < mData.size(); i++) {
+        int dataSize = Math.max(Math.min(mData.size(), 7), 0);
+
+
+        for (int i = 0; i < dataSize; i++) {
 
             ImageView picView = new ImageView(context);
             picView.setImageDrawable(new ColorDrawable(mData.get(i)));
             addView(picView);
         }
+
+        setBackgroundColor(Color.YELLOW);
     }
 
     @Override
@@ -70,50 +84,148 @@ public class PictureTableView extends ViewGroup {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
 
 
-        if (mColumnCount != 0) {
+        switch (mLayoutType) {
+            case FLOW:
+                switch (getChildCount()) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 5:
+                        heightSize = getHeightWithFLowWidth(widthSize, getChildCount());
+                        break;
 
-
-            mSingleItemSize = (widthSize - mSpec * (mColumnCount + 1)) / mColumnCount;
-            for (int i = 0; i < mData.size(); i++) {
-                if (i % mColumnCount == 0) {
-                    heightSize += mSpec + mSingleItemSize;
+                    default:
+                        heightSize = getHeightWithNormalWidth(widthSize);
+                        break;
                 }
-            }
-            heightSize += mSpec;
+                break;
 
-
-            setMeasuredDimension(widthSize, heightSize);
-
-        } else {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            case NORMAL:
+                heightSize = getHeightWithNormalWidth(widthSize);
+                break;
         }
+
+
+        setMeasuredDimension(widthSize, heightSize);
+
     }
+
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         if (changed) {
-            if (mColumnCount != 0) {
-                int columnOffset = 0;
-                int rowOffset = 0;
-                int column = 0;
-                int row = 0;
+            switch (mLayoutType) {
+                case FLOW:
 
-                for (int i = 0; i < getChildCount(); i++) {
-                    ImageView picView = (ImageView) getChildAt(i);
+                    switch (getChildCount()) {
+                        case 1:
+                            layoutPictureViewWithCount(1);
+                            break;
+                        case 2:
+                        case 4:
+                            layoutPictureViewWithCount(2);
+                            break;
 
-                    if (i % mColumnCount == 0) {
-                        columnOffset = mSpec;
-                        column = 1;
-                        row++;
-                        rowOffset = mSpec * row + (row - 1) * mSingleItemSize;
-                    } else {
-                        column++;
-                        columnOffset = mSpec * column + mSingleItemSize * (column - 1);
+                        case 5:
+                            layoutPictureViewWith5();
+                            break;
+
+                        default:
+                            layoutPictureViewWithCount(MaxColumnCount);
                     }
 
-                    picView.layout(columnOffset, rowOffset, columnOffset + mSingleItemSize, rowOffset + mSingleItemSize);
-                }
+                    break;
+
+                case NORMAL:
+                    layoutPictureViewWithCount(MaxColumnCount);
+                    break;
             }
         }
+    }
+
+    public void setLayoutType(LayoutType mLayoutType) {
+        this.mLayoutType = mLayoutType;
+    }
+
+
+    private int getHeightWithFLowWidth(int widthSize, int columnCount) {
+        if (columnCount == 5) {
+            return measurePictureView(widthSize, 2, 2) + measurePictureView(widthSize, 3, 3);
+        } else {
+            return measurePictureView(widthSize, columnCount, getChildCount());
+        }
+    }
+
+
+    private int getHeightWithNormalWidth(int widthSize) {
+        return measurePictureView(widthSize, MaxColumnCount, getChildCount());
+    }
+
+    private int measurePictureView(int widthSize, int columnCount, int childCount) {
+
+        int heightSize = 0;
+
+        mSingleItemSize = getItemSize(widthSize, columnCount);
+        for (int i = 0; i < childCount; i++) {
+            if (i % columnCount == 0) {
+                heightSize += mSpec + mSingleItemSize;
+            }
+        }
+        heightSize += mSpec;
+
+        return heightSize;
+    }
+
+    private void layoutPictureViewWithCount(int columnCount) {
+        int columnOffset = 0;
+        int rowOffset = 0;
+        int column = 0;
+        int row = 0;
+
+        for (int i = 0; i < getChildCount(); i++) {
+            ImageView picView = (ImageView) getChildAt(i);
+
+            if (i % columnCount == 0) {
+                columnOffset = mSpec;
+                column = 1;
+                row++;
+                rowOffset = mSpec * row + (row - 1) * mSingleItemSize;
+            } else {
+                column++;
+                columnOffset = mSpec * column + mSingleItemSize * (column - 1);
+            }
+
+            picView.layout(columnOffset, rowOffset, columnOffset + mSingleItemSize, rowOffset + mSingleItemSize);
+        }
+    }
+
+    private void layoutPictureViewWith5() {
+        int columnOffset = 0;
+        int rowOffset = 0;
+        int column = 0;
+        int row = 0;
+
+        ImageView lastRowView = null;
+        for (int i = 0; i < getChildCount(); i++) {
+            ImageView picView = (ImageView) getChildAt(i);
+
+            if (i < 2) {
+                int itemSize = getItemSize(getMeasuredWidth(), 2);
+                columnOffset = (i + 1) * mSpec + i * itemSize;
+                picView.layout(columnOffset, mSpec, columnOffset + itemSize, mSpec + itemSize);
+                lastRowView = picView;
+            } else {
+                int newI = i % MaxColumnCount;
+                columnOffset = (newI + 1) * mSpec + newI * mSingleItemSize;
+                rowOffset = lastRowView.getBottom() + mSpec;
+                picView.layout(columnOffset, rowOffset, columnOffset + mSingleItemSize, rowOffset + mSingleItemSize);
+            }
+
+
+        }
+    }
+
+    private int getItemSize(int widthSize, int columnCount) {
+        return (widthSize - mSpec * (columnCount + 1)) / columnCount;
     }
 }
