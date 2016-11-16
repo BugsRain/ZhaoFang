@@ -28,7 +28,7 @@ public class ItemViewHouseIdentificationTitleProvider extends ItemViewProvider<I
 
     }
 
-    public static class ViewHolder extends BaseViewHolder {
+    public class ViewHolder extends BaseViewHolder {
 
         ViewHolder(View itemView, int type) {
             super(itemView, type);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 /**
  * Created by quan on 16/11/7.
@@ -18,6 +19,7 @@ public class BaseRecyclerView extends RecyclerView {
     private int d;
 
     private OnScrollYChangeCallBack callBack;
+
 
     public BaseRecyclerView(Context context) {
         this(context, null);
@@ -54,6 +56,15 @@ public class BaseRecyclerView extends RecyclerView {
     }
 
 
+    @Override
+    public boolean onTouchEvent(MotionEvent e) {
 
+        return super.onTouchEvent(e);
 
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
 }

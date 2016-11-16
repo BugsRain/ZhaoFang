@@ -216,4 +216,14 @@ public class BackgroundView extends FrameLayout {
                 mMessageView.setVisibility(GONE);
             }
     }
+
+    public boolean isLoading(){
+        if (mBgContain != null){
+            if(mBgContain.getVisibility() == VISIBLE){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

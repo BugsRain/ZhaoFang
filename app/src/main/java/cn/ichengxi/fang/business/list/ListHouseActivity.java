@@ -15,10 +15,14 @@
  */
 package cn.ichengxi.fang.business.list;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 
 import butterknife.Bind;
 import cn.ichengxi.fang.R;
@@ -27,21 +31,37 @@ import cn.ichengxi.fang.adapter.decoration.ItemLine;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.BackgroundView;
 import cn.ichengxi.fang.view.MySwipeRefreshLayout;
+import cn.ichengxi.fang.view.popup.BasePopup;
+import cn.ichengxi.fang.view.popup.SearchRangePopup;
+import cn.ichengxi.fang.view.popup.SearchTypePopup;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * Created by Jun on 2016/11/7.
  */
-public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, ListHouseModel> {
+public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, ListHouseModel> implements  BasePopup.OnPopupWindowListener {
     @Bind(R.id.list_house_rv)
     RecyclerView mListHouseRv;
     @Bind(R.id.swipe_layout)
     MySwipeRefreshLayout mSwipeLayout;
     @Bind(R.id.bg_contain)
     BackgroundView mBackgroundView;
+    @Bind(R.id.search_range)
+    LinearLayout mSearchRange;
+    @Bind(R.id.search_price)
+    LinearLayout mSearchPrice;
+    @Bind(R.id.search_type)
+    LinearLayout mSearchType;
+    @Bind(R.id.search_more)
+    LinearLayout mSearchMore;
+
 
     private ListHouseAdapter mAdapter;
+
+    private SearchTypePopup mSearchTypePopup;
+
+    private SearchRangePopup mSearchRangePopup;
 
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
@@ -60,7 +80,10 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
         mListHouseRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mListHouseRv.addItemDecoration(new ItemLine(this, R.drawable.item_line));
         mListHouseRv.setAdapter(mAdapter);
+        mBackgroundView = findViewByIdToView(R.id.bg_contain);
 
+        mSearchTypePopup = new SearchTypePopup(this);
+        mSearchRangePopup = new SearchRangePopup(this);
     }
 
     @Override
@@ -92,7 +115,11 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
             }
         });
 
-        mBackgroundView = findViewByIdToView(R.id.bg_contain);
+        mSearchRange.setOnClickListener(this);
+        mSearchPrice.setOnClickListener(this);
+        mSearchType.setOnClickListener(this);
+        mSearchMore.setOnClickListener(this);
+
         mBackgroundView.loading();
 
         mBackgroundView.postDelayed(new Runnable() {
@@ -102,16 +129,44 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                     mBackgroundView.success();
             }
         }, 1000);
+
+        mSearchTypePopup.setListener(this);
+        mSearchRangePopup.setListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        super.onClick(v);
         switch (v.getId()) {
             case R.id.iv_back:
                 finish();
+
+                break;
+
+            case R.id.search_more:
+                break;
+
+            case R.id.search_price:
+                if(!mBackgroundView.isLoading()) {
+                    int offset = (int) getResources().getDimension(R.dimen.line_height);
+                    mSearchRangePopup.showAsDropDown(v, 0, offset);
+                }
+                break;
+
+            case R.id.search_range:
+
+                break;
+
+            case R.id.search_type:
+//                mSearchTypePopup.showAtLocation(v, Gravity.BOTTOM, 0,0);
+                if(!mBackgroundView.isLoading()) {
+                    int offset = (int) getResources().getDimension(R.dimen.line_height);
+                    mSearchTypePopup.showAsDropDown(v, 0, offset);
+                }
                 break;
         }
+
+        super.onClick(v);
+
     }
 
     @Override
@@ -122,5 +177,17 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
     @Override
     public void onRequestEnd() {
 
+    }
+
+    @Override
+    public void show(PopupWindow window) {
+        mBackgroundView.setBackgroundColor(Color.BLACK);
+        ViewCompat.setAlpha(mListHouseRv, 0.5f);
+    }
+
+    @Override
+    public void dismiss(PopupWindow window) {
+        mBackgroundView.setBackgroundResource(R.color.bg);
+        ViewCompat.setAlpha(mListHouseRv, 1f);
     }
 }

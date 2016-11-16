@@ -8,7 +8,8 @@ package cn.ichengxi.fang.view.swipe;
  */
 public class SwipeLayoutManager {
 
-    private SwipeLayoutManager(){}
+    private SwipeLayoutManager() {
+    }
 
     // 静态内部类模式单例
     private static class LazyHolder {
@@ -19,12 +20,29 @@ public class SwipeLayoutManager {
         return LazyHolder.INSTANCE;
     }
 
-    /** 记录当前打开的SwipeLayout */
+    /**
+     * 记录当前打开的SwipeLayout
+     */
     private SwipeLayout openInstance;
 
-    /** 设置当前打开的SwipeLayout */
+    /**
+     * 设置当前打开的SwipeLayout
+     */
     public void setOpenInstance(SwipeLayout swipeLayout) {
         openInstance = swipeLayout;
+
+        if (openInstance != null) {
+            openInstance.setOpenListener(new SwipeLayout.OpenListener() {
+                @Override
+                public void close() {
+                    openInstance = null;
+                }
+
+                @Override
+                public void open() {
+                }
+            });
+        }
     }
 
     /**
@@ -33,12 +51,12 @@ public class SwipeLayoutManager {
     public boolean isCouldSwipe(SwipeLayout swipeLayout) {
 
         // 已经打开。可以侧滑
-        if(isOpenInstance(swipeLayout)) {
+        if (isOpenInstance(swipeLayout)) {
             return true;
         }
 
         // 都没有打开也可以侧滑
-        return  openInstance == null;
+        return openInstance == null;
     }
 
     /**
@@ -49,12 +67,19 @@ public class SwipeLayoutManager {
         return swipeLayout == openInstance;
     }
 
-    /** 关闭打开的条目 */
+    public boolean isSetOpenInstance(){
+        return openInstance != null;
+    }
+
+    /**
+     * 关闭打开的条目
+     */
     public void closeOpenInstance() {
-        if(openInstance != null) {
+        if (openInstance != null) {
             openInstance.closeDeleteMenu();
             openInstance = null;
         }
     }
+
 
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/partition_normal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义租金"/>
+
+    <TextView
+        android:id="@id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="元/月"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000-0000元"
+        android:textColor="@color/red2"
+        android:layout_marginRight="@dimen/partition_small"
+        android:layout_marginEnd="@dimen/partition_small"
+        android:layout_toStartOf="@id/textView"
+        android:layout_toLeftOf="@id/textView"/>
+
+    <cn.ichengxi.fang.view.RangeView
+        android:id="@id/textView3"
+        android:layout_below="@id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:minWidth="100dp"
+        android:minHeight="40dp"
+        android:padding="2dp"
+        android:gravity="center"
+        android:background="@drawable/btn_sure"
+        android:textColor="@color/red2"
+        android:layout_below="@id/textView3"
+        android:textSize="@dimen/textSize_large"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
