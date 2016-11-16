@@ -1,6 +1,12 @@
-package cn.ichengxi.fang.business.house_detail;
+package cn.ichengxi.fang.adapter;
 
 import chengxinet.chengxilibs.global.BaseImplCompat;
+import cn.ichengxi.fang.adapter.provider.ItemViewHouseHeaderProvider;
+import cn.ichengxi.fang.adapter.provider.ItemViewHouseHostProvider;
+import cn.ichengxi.fang.adapter.provider.ItemViewHouseIdentificationTitleProvider;
+import cn.ichengxi.fang.adapter.provider.ItemViewHouseMapProvider;
+import cn.ichengxi.fang.adapter.provider.ItemViewHouseRecommendProvider;
+import cn.ichengxi.fang.adapter.provider.ItemViewHouseTitleIProvider;
 import me.bugsrain.library.adapter.base.BaseRecyclerAdapter;
 import me.bugsrain.library.adapter.base.Section;
 
