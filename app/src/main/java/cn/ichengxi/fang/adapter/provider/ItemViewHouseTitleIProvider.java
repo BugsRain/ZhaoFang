@@ -1,4 +1,4 @@
-package cn.ichengxi.fang.business.house_detail;
+package cn.ichengxi.fang.adapter.provider;
 
 
 import android.support.annotation.NonNull;

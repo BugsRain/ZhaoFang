@@ -1,4 +1,4 @@
-package cn.ichengxi.fang.business.house_detail;
+package cn.ichengxi.fang.adapter.provider;
 
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -14,13 +14,13 @@ import me.bugsrain.library.adapter.provider.base.ItemViewProvider;
  * Created by quan on 16/11/7.
  */
 
-public class ItemViewHouseIdentificationTitleProvider extends ItemViewProvider<ItemViewHouseIdentificationTitleProvider.ViewHolder, Object> {
+public class ItemViewHouseMapProvider extends ItemViewProvider<ItemViewHouseMapProvider.ViewHolder, Object> {
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(layoutInflater.inflate(R.layout.common_house_identification_title, viewGroup, false), i);
+        return new ViewHolder(layoutInflater.inflate(R.layout.common_map, viewGroup, false), i);
     }
 
     @Override

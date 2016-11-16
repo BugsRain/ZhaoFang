@@ -19,6 +19,7 @@ import java.util.List;
 import chengxinet.chengxilibs.utils.MyLog;
 import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.adapter.HouseAdapter;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.BackgroundView;
 import cn.ichengxi.fang.view.BaseRecyclerView;
