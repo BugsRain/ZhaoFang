@@ -1,4 +1,4 @@
-package cn.ichengxi.fang.view.popup;
+package cn.ichengxi.fang.view.popup.provider;
 
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;

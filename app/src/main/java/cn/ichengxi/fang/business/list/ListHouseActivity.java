@@ -18,8 +18,10 @@ package cn.ichengxi.fang.business.list;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.PopupWindowCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -148,7 +150,8 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
             case R.id.search_price:
                 if(!mBackgroundView.isLoading()) {
                     int offset = (int) getResources().getDimension(R.dimen.line_height);
-                    mSearchRangePopup.showAsDropDown(v, 0, offset);
+                    PopupWindowCompat.setOverlapAnchor(mSearchRangePopup, false);
+                    PopupWindowCompat.showAsDropDown(mSearchRangePopup, v, 0, offset, Gravity.BOTTOM);
                 }
                 break;
 
@@ -160,7 +163,12 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
 //                mSearchTypePopup.showAtLocation(v, Gravity.BOTTOM, 0,0);
                 if(!mBackgroundView.isLoading()) {
                     int offset = (int) getResources().getDimension(R.dimen.line_height);
-                    mSearchTypePopup.showAsDropDown(v, 0, offset);
+//                    PopupWindowCompat.setWindowLayoutType(mSearchTypePopup, WindowManager.LayoutParams.FIRST_SYSTEM_WINDOW );
+                    PopupWindowCompat.setOverlapAnchor(mSearchTypePopup, true);
+                    PopupWindowCompat.showAsDropDown(mSearchTypePopup, mBackgroundView, 0, -1000, Gravity.BOTTOM);
+//                    mSearchTypePopup.showAtLocation(mBackgroundView, Gravity.TOP, 0,-300);
+
+
                 }
                 break;
         }

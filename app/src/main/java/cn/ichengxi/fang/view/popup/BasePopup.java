@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
 import chengxinet.chengxilibs.global.BaseImplCompat;
+import cn.ichengxi.fang.R;
+
 
 /**
  * Created by quan on 16/11/15.
@@ -25,9 +27,11 @@ public class BasePopup extends PopupWindow {
         setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
 
         setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
         setOutsideTouchable(true);
         setFocusable(true);
+        setAnimationStyle(R.style.popupWindow_anim_style);
+
+        update();
     }
 
 

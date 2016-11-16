@@ -10,13 +10,13 @@
 
         <include layout="@layout/include_item_collect" />
 
-        <TextView
+        <ImageView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:background="@android:color/holo_red_light"
             android:gravity="center"
-            android:text="删除"
-            android:textColor="@android:color/white" />
+            android:src="@mipmap/ico_delete"
+            android:scaleType="centerInside"/>
 
     </cn.ichengxi.fang.view.swipe.SwipeLayout>
 

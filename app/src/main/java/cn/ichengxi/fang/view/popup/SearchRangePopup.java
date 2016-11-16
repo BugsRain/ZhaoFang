@@ -11,6 +11,8 @@ import java.util.List;
 
 import chengxinet.chengxilibs.global.BaseImplCompat;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.view.popup.provider.ItemViewSearchFooterProvider;
+import cn.ichengxi.fang.view.popup.provider.ItemViewSearchProvider;
 import me.bugsrain.library.adapter.base.BaseRecyclerAdapter;
 import me.bugsrain.library.adapter.base.Section;
 

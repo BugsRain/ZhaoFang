@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.ViewConfiguration;
 
 /**
  * Created by quan on 16/11/7.
@@ -16,10 +17,11 @@ public class BaseRecyclerView extends RecyclerView {
 
     private AdapterDataObserver observer;
 
-    private int d;
+    private int d, x;
 
     private OnScrollYChangeCallBack callBack;
 
+    private int touchSlop;
 
     public BaseRecyclerView(Context context) {
         this(context, null);
@@ -31,6 +33,7 @@ public class BaseRecyclerView extends RecyclerView {
 
     public BaseRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override
@@ -55,6 +58,28 @@ public class BaseRecyclerView extends RecyclerView {
         void onScrollYChange(int d);
     }
 
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e) {
+        boolean b = false;
+        int action = e.getAction();
+        switch (action){
+            case MotionEvent.ACTION_DOWN:
+                x = (int) e.getX();
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                int dx = (int) Math.abs(x - e.getX());
+                if(dx > touchSlop/2){
+                    return false;
+                }
+                break;
+
+            case MotionEvent.ACTION_UP:
+                x = 0;
+                break;
+        }
+        return super.onInterceptTouchEvent(e);
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {

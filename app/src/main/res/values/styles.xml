@@ -80,7 +80,7 @@
     <style name="TranslucentTheme" parent="AppTheme">
     </style>
 
-    <style name="popupWindow_anim_style">
+    <style name="popupWindow_anim_style" >
         <item name="android:windowEnterAnimation">@anim/popup_enter</item>
         <item name="android:windowExitAnimation">@anim/popup_exit</item>
     </style>
