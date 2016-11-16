@@ -43,4 +43,5 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectViewHolder> {
     public int getItemCount() {
         return 15;
     }
+
 }

@@ -15,7 +15,6 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
  */
 public class MySwipeRefreshLayout extends PtrClassicFrameLayout {
 
-
     private float mPrevX;
 
     public MySwipeRefreshLayout(Context context) {
