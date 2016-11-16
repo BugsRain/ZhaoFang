@@ -30,6 +30,9 @@
         <activity android:name=".business.location.LocationActivity" />
         <activity android:name=".TempActivity"/>
         <activity android:name=".business.collect.CollectionActivity"/>
+        <activity android:name=".business.about.AboutActivity"/>
+        <activity android:name=".business.feedback.FeedbackActivity"/>
+        <activity android:name=".business.setting.SettingActivity"/>
     </application>
 
 </manifest>

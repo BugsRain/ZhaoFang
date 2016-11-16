@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_actionbar" />
+
+    <cn.ichengxi.fang.view.JellyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/setting_message_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_style"
+                android:gravity="center_vertical"
+                android:padding="@dimen/partition_normal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="消息开关"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textSize_big" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_marginLeft="@dimen/partition_normal"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:id="@+id/setting_cache_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_style"
+                android:gravity="center_vertical"
+                android:padding="@dimen/partition_normal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="清除缓存"
+                    android:paddingTop="@dimen/partition_small"
+                    android:paddingBottom="@dimen/partition_small"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textSize_big" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:text="125.2Mb"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textSize_normal" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/partition_so_large"
+                android:background="@drawable/btn_red_conner_style"
+                android:text="退出"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize_big" />
+
+        </LinearLayout>
+
+    </cn.ichengxi.fang.view.JellyScrollView>
+
+</LinearLayout>
