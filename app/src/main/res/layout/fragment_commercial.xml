@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.ichengxi.fang.view.JellyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/partition_large">
+
+            <TextView
+                android:id="@+id/total_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/partition_normal"
+                android:text="还款总额 (元)"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:id="@+id/total_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/total_tag"
+                android:layout_marginBottom="@dimen/partition_normal"
+                android:layout_marginLeft="@dimen/partition_normal"
+                android:layout_marginTop="@dimen/partition_normal"
+                android:text="84000.0"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/textSize_normal_large" />
+
+            <View
+                android:id="@+id/horizontal_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@id/total_txt"
+                android:alpha="0.5"
+                android:background="@android:color/white" />
+
+            <TextView
+                android:id="@+id/month_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/horizontal_line"
+                android:layout_marginLeft="@dimen/partition_normal"
+                android:layout_marginTop="@dimen/partition_normal"
+                android:text="月供参考 (元)"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:id="@+id/month_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/month_tag"
+                android:layout_marginBottom="@dimen/partition_normal"
+                android:layout_marginLeft="@dimen/partition_normal"
+                android:layout_marginTop="@dimen/partition_normal"
+                android:text="6476.6"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/textSize_normal_large" />
+
+            <View
+                android:id="@+id/vertical_line"
+                android:layout_width="0.4dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/horizontal_line"
+                android:layout_centerHorizontal="true"
+                android:alpha="0.5"
+                android:background="@android:color/white" />
+
+
+            <TextView
+                android:id="@+id/interest_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/horizontal_line"
+                android:layout_margin="@dimen/partition_normal"
+                android:layout_toRightOf="@id/vertical_line"
+                android:text="支付利息 (元)"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:id="@+id/interest_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/interest_tag"
+                android:layout_marginLeft="@dimen/partition_normal"
+                android:layout_toRightOf="@id/vertical_line"
+                android:text="276.6"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/textSize_normal_large" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="还款方式"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_arrow_right"
+                android:gravity="right"
+                android:text="等额本息"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_normal"
+            android:alpha="0.5"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商贷金额(万)"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="输入贷款总额"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_normal"
+            android:alpha="0.5"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="贷款总额(万)"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="输入贷款总额"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_normal"
+            android:alpha="0.5"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="期限(年)"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_arrow_right"
+                android:gravity="right"
+                android:text="5"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_normal"
+            android:alpha="0.5"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商贷利率(%)"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_arrow_right"
+                android:gravity="right"
+                android:text="4.75"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_normal"
+            android:alpha="0.5"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
+            android:orientation="horizontal"
+            android:padding="@dimen/partition_normal2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公积金利率(%)"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_arrow_right"
+                android:gravity="right"
+                android:text="2.75"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="@dimen/partition_normal"
+            android:layout_marginRight="@dimen/partition_normal"
+            android:alpha="0.5"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/partition_normal"
+            android:text="以上为2016央行最新利率，计算结果仅供参考"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/textSize_small" />
+
+
+    </LinearLayout>
+
+
+</cn.ichengxi.fang.view.JellyScrollView>

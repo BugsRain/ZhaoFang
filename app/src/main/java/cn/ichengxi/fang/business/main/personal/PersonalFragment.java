@@ -13,6 +13,7 @@ import butterknife.Bind;
 import chengxinet.chengxilibs.widget.MySimpleDraweeView;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.business.about.AboutActivity;
+import cn.ichengxi.fang.business.calc.CalcActivity;
 import cn.ichengxi.fang.business.collect.CollectionActivity;
 import cn.ichengxi.fang.business.feedback.FeedbackActivity;
 import cn.ichengxi.fang.business.login.LoginActivity;
@@ -74,6 +75,7 @@ public class PersonalFragment extends BaseFrameFragment{
                 break;
 
             case R.id.personal_house_txt:
+                openActivity(CalcActivity.class);
                 break;
 
             case R.id.personal_about_txt:

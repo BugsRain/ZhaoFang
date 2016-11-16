@@ -33,6 +33,7 @@
         <activity android:name=".business.about.AboutActivity"/>
         <activity android:name=".business.feedback.FeedbackActivity"/>
         <activity android:name=".business.setting.SettingActivity"/>
+        <activity android:name=".business.calc.CalcActivity"/>
     </application>
 
 </manifest>
