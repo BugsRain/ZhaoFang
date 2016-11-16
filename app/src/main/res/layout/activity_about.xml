@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_actionbar" />
+
+    <cn.ichengxi.fang.view.JellyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/partition_so_large"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/partition_normal"
+                android:gravity="center"
+                android:text="小蜜找房\nv1.0"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.4"
+                android:padding="@dimen/partition_big"
+                android:text="\u3000\u3000小蜜找房客观存在的物质形态，房地产是指房地产和地产的总称，包括土地和土地上永久建筑及其所衍生的权利。\n\u3000\u3000房产是指建筑在土地上的各种房屋，包括住宅、厂房、仓库和商业、服务、文化、教育、卫生、体育以及办公用房等。地产是指土地及其上下一定的空间，包括地下的各种基础设施、地面道路等。房地产由于其自己的特点即位置的固定性和不可移动性，在经济学上又被称为不动产。"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_marginLeft="@dimen/partition_big"
+                android:layout_marginRight="@dimen/partition_big"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal"
+                android:text="联系我们"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="020-32294903"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/partition_normal"
+                android:padding="@dimen/partition_small"
+                android:text="新浪微博：小蜜找房"
+                android:textSize="@dimen/textSize_normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_small"
+                android:text="QQ讨论组：1245649"
+                android:textSize="@dimen/textSize_normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_small"
+                android:text="客服QQ：98616546"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:alpha="0.6"
+                android:text="广州橙希"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_small" />
+        </LinearLayout>
+
+    </cn.ichengxi.fang.view.JellyScrollView>
+</LinearLayout>
+

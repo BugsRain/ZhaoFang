@@ -12,8 +12,12 @@ import android.widget.TextView;
 import butterknife.Bind;
 import chengxinet.chengxilibs.widget.MySimpleDraweeView;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.business.about.AboutActivity;
+import cn.ichengxi.fang.business.calc.CalcActivity;
 import cn.ichengxi.fang.business.collect.CollectionActivity;
+import cn.ichengxi.fang.business.feedback.FeedbackActivity;
 import cn.ichengxi.fang.business.login.LoginActivity;
+import cn.ichengxi.fang.business.setting.SettingActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 
 /**
@@ -71,15 +75,19 @@ public class PersonalFragment extends BaseFrameFragment{
                 break;
 
             case R.id.personal_house_txt:
+                openActivity(CalcActivity.class);
                 break;
 
             case R.id.personal_about_txt:
+                openActivity(AboutActivity.class);
                 break;
 
             case R.id.personal_feedback_txt:
+                openActivity(FeedbackActivity.class);
                 break;
 
             case R.id.personal_setting_txt:
+                openActivity(SettingActivity.class);
                 break;
 
             case R.id.personal_username:

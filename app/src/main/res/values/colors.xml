@@ -23,4 +23,8 @@
     <color name="tag">#9ea8b6</color>
     <color name="gray_bg">#f0f0f0</color>
 
+    <color name="text_select">#EAF9F6</color>
+    <color name="text_normal">#A1E6D7</color>
+    <color name="text_yellow">#FDEB41</color>
+
 </resources>
