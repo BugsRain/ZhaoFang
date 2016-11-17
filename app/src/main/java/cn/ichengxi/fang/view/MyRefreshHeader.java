@@ -81,7 +81,7 @@ public class MyRefreshHeader extends RelativeLayout implements PtrUIHandler {
     @Override
     public void onUIRefreshBegin(PtrFrameLayout frame) {
         Log.d(TAG, "onUIRefreshBegin() called");
-        mMessageView.setText("正在加载...");
+        mMessageView.setText("正在刷新...");
         mImgView.setImageDrawable(mAnimationDrawable);
         mAnimationDrawable.start();
     }
@@ -114,7 +114,7 @@ public class MyRefreshHeader extends RelativeLayout implements PtrUIHandler {
             mImgView.setImageResource(IMG[index]);
 
             if (status == PtrFrameLayout.PTR_STATUS_COMPLETE) {
-                mMessageView.setText("加载完成");
+                mMessageView.setText("刷新完成");
             } else {
 
                 if (currentPos >= mOffsetToRefresh) {
