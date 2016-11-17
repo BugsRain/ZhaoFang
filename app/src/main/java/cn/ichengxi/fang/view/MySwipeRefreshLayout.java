@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * 刷新控件
@@ -13,7 +13,7 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
  * PtrFrameLayout: 使用自定义头布局或者尾布局
  * PtrClassicFrameLayout：使用默认样式
  */
-public class MySwipeRefreshLayout extends PtrClassicFrameLayout {
+public class MySwipeRefreshLayout extends PtrFrameLayout {
 
     private float mPrevX;
 
@@ -145,7 +145,7 @@ public class MySwipeRefreshLayout extends PtrClassicFrameLayout {
          * 显示距离上次刷新时间
          * 默认不显示
          */
-        setLastUpdateTimeRelateObject(this);
+//        setLastUpdateTimeRelateObject(this);
     }
 
 }
