@@ -72,9 +72,7 @@ public class RangeView extends View {
         mThumbSize = mProgressHeight * 6;
 
         mPaint = new Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
-
-        mMin = 0;
-        mMax = 12000;
+        
     }
 
     @Override

@@ -34,9 +34,12 @@ public class MySwipeRefreshLayout extends PtrClassicFrameLayout {
 //        this.initFooter(context);
 
         MyRefreshHeader header = new MyRefreshHeader(context);
-        addPtrUIHandler(header);
         setHeaderView(header);
+        addPtrUIHandler(header);
 
+        MyRefreshFooter footer = new MyRefreshFooter(context);
+        setFooterView(footer);
+        addPtrUIHandler(footer);
     }
 
 //    private void initFooter(Context context) {
