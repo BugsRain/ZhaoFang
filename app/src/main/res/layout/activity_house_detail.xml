@@ -14,7 +14,6 @@
             android:id="@+id/house_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_marginBottom="48dp" />
 
         <LinearLayout
@@ -65,7 +64,6 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:padding="0dp"
-
                     android:text="黄晓晓"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/textSize_large" />
@@ -78,7 +76,6 @@
                     android:layout_marginEnd="@dimen/partition_normal"
                     android:layout_marginRight="@dimen/partition_normal"
                     android:layout_toLeftOf="@id/house_master"
-
                     android:src="@mipmap/ico_contact" />
 
                 <TextView
@@ -87,10 +84,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/house_master"
-
                     android:layout_marginTop="1dp"
                     android:layout_toEndOf="@+id/imageView"
-
                     android:layout_toRightOf="@+id/imageView"
                     android:padding="0dp"
                     android:text="联系业主"

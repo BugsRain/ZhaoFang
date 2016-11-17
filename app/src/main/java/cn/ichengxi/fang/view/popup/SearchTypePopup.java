@@ -24,6 +24,7 @@ public class SearchTypePopup extends BasePopup {
     private Context context;
     public SearchTypePopup(BaseImplCompat compat) {
         super(compat);
+        setAnimationStyle(-1);
         context = compat.getContext();
 
         data = new ArrayList<>();

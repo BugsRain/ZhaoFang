@@ -141,10 +141,9 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
         switch (v.getId()) {
             case R.id.iv_back:
                 finish();
-
                 break;
 
-            case R.id.search_more:
+            case R.id.search_range:
                 break;
 
             case R.id.search_price:
@@ -155,26 +154,14 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                 }
                 break;
 
-            case R.id.search_range:
-
+            case R.id.search_type:
+                mSearchTypePopup.showAsDropDown(v);
                 break;
 
-            case R.id.search_type:
-//                mSearchTypePopup.showAtLocation(v, Gravity.BOTTOM, 0,0);
-                if(!mBackgroundView.isLoading()) {
-                    int offset = (int) getResources().getDimension(R.dimen.line_height);
-//                    PopupWindowCompat.setWindowLayoutType(mSearchTypePopup, WindowManager.LayoutParams.FIRST_SYSTEM_WINDOW );
-                    PopupWindowCompat.setOverlapAnchor(mSearchTypePopup, true);
-                    PopupWindowCompat.showAsDropDown(mSearchTypePopup, mBackgroundView, 0, -1000, Gravity.BOTTOM);
-//                    mSearchTypePopup.showAtLocation(mBackgroundView, Gravity.TOP, 0,-300);
-
-
-                }
+            case R.id.search_more:
                 break;
         }
-
         super.onClick(v);
-
     }
 
     @Override
