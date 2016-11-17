@@ -28,7 +28,7 @@
         android:layout_toLeftOf="@id/textView"/>
 
     <cn.ichengxi.fang.view.RangeView
-        android:id="@id/textView3"
+        android:id="@+id/rangeView"
         android:layout_below="@id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -43,7 +43,7 @@
         android:gravity="center"
         android:background="@drawable/btn_sure"
         android:textColor="@color/red2"
-        android:layout_below="@id/textView3"
+        android:layout_below="@+id/rangeView"
         android:textSize="@dimen/textSize_large"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>

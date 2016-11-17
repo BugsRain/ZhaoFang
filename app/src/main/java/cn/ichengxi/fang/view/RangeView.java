@@ -24,6 +24,7 @@ public class RangeView extends View {
     private final static String TAG = "RangeView";
 
     private enum MoveThumb {
+        INTERSECT,
         LEFT,
         RIGHT,
         NONE
@@ -33,9 +34,9 @@ public class RangeView extends View {
 
     private Rect mBarLeft, mBarRight, mBarCenter, mThumbLeft, mThumbRight;
 
-    private int mProgressHeight, mHeight, mThumbSize;
+    private int mProgressHeight, mHeight, mThumbSize, mBarWidth;
 
-    private int mMax, mMin, mProgress;
+    private int mMax, mMin;
 
     private int mDx;
 
@@ -44,6 +45,8 @@ public class RangeView extends View {
     private Paint mPaint;
 
     private MoveThumb mMoveThumb = MoveThumb.NONE;
+
+    private OnComputeProgressListener mOnComputeProgressListener;
 
     public RangeView(Context context) {
         this(context, null);
@@ -66,19 +69,12 @@ public class RangeView extends View {
 
         mHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
         mProgressHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
-        mThumbSize = mProgressHeight * 5;
-
-        mBarCenter = new Rect();
-        mBarLeft = new Rect();
-        mBarRight = new Rect();
-        mThumbLeft = new Rect();
-        mThumbRight = new Rect();
+        mThumbSize = mProgressHeight * 6;
 
         mPaint = new Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
 
         mMin = 0;
-        mMax = 100;
-        mProgress = mMin;
+        mMax = 12000;
     }
 
     @Override
@@ -86,8 +82,8 @@ public class RangeView extends View {
 
         int width = MeasureSpec.getSize(widthMeasureSpec);
 
-        invalidatePosition(0, width);
-
+        updatePosition(0, width);
+        mBarWidth = mBarCenter.width();
         setMeasuredDimension(width, mHeight);
     }
 
@@ -97,6 +93,9 @@ public class RangeView extends View {
         mPaint.setColor(mProgressColor);
         canvas.drawRect(mBarCenter, mPaint);
 
+        mPaint.setColor(mProgressBgColor);
+        canvas.drawRect(mBarLeft, mPaint);
+        canvas.drawRect(mBarRight, mPaint);
         canvas.drawBitmap(mThumbBitmap, null, mThumbLeft, mPaint);
         canvas.drawBitmap(mThumbBitmap, null, mThumbRight, mPaint);
 
@@ -112,50 +111,95 @@ public class RangeView extends View {
         switch (action) {
             case MotionEvent.ACTION_DOWN:
 
-                if (mThumbRight.contains(x, y)) {
-                    mDx = x;
-                    mMoveThumb = MoveThumb.RIGHT;
 
-                } else if (mThumbLeft.contains(x, y)) {
-                    mDx = x;
-                    mMoveThumb = MoveThumb.LEFT;
+                if (mThumbLeft.equals(mThumbRight) && mThumbRight.contains(x, y)) {
+                    mMoveThumb = MoveThumb.INTERSECT;
+                } else {
+
+                    if (mThumbRight.contains(x, y)) {
+                        mMoveThumb = MoveThumb.RIGHT;
+
+                    } else if (mThumbLeft.contains(x, y)) {
+                        mMoveThumb = MoveThumb.LEFT;
+                    }
                 }
+
+
+                mDx = x;
                 Log.d(TAG, "onTouchEvent() called with: event = [ MotionEvent.ACTION_DOWN ], mDx = " + mDx + ", x = " + x);
                 break;
 
             case MotionEvent.ACTION_MOVE:
-
+                int tempLeftDx = 0;
+                int tempRightDx = 0;
                 int dx = (int) (event.getX() - mDx);
-                Log.d(TAG, "onTouchEvent() called with: event = [ MotionEvent.ACTION_MOVE ], mDx = " + mDx + ", x = " + x);
+                Log.d(TAG, "onTouchEvent() called with: event = [ MotionEvent.ACTION_MOVE ], mDx = " + mDx + ", dx = " + dx);
 
-                if (!isOutBorder(x)) {
-                    switch (mMoveThumb) {
-                        case LEFT:
-                            mThumbLeft.offset(dx, 0);
-                            break;
-
-                        case RIGHT:
-                            mThumbRight.offset(dx, 0);
-                            break;
+                if (mMoveThumb == MoveThumb.INTERSECT) {
+                    if (dx > 0) {
+                        mMoveThumb = MoveThumb.RIGHT;
+                        System.out.println("RIGHT!!!!!");
+                    } else if (dx < 0) {
+                        mMoveThumb = MoveThumb.LEFT;
+                        System.out.println("LEFT!!!!!");
                     }
-                    updateBarCenter();
-                    invalidate();
-
                 }
 
+                switch (mMoveThumb) {
+                    case LEFT:
+                        tempLeftDx = mThumbLeft.left + dx;
+                        if (tempLeftDx < 0) {
+                            dx = dx + Math.abs(tempLeftDx);
+                        }
+
+                        tempRightDx = mThumbLeft.right + dx;
+                        if (tempRightDx > mThumbRight.right) {
+                            dx = dx - (tempRightDx - mThumbRight.right);
+                            mMoveThumb = MoveThumb.RIGHT;
+                        }
+                        mThumbLeft.offset(dx, 0);
+                        updateBarLeft();
+                        break;
+
+                    case RIGHT:
+                        tempLeftDx = mThumbRight.left + dx;
+                        if (tempLeftDx < mThumbLeft.left) {
+                            dx = dx + Math.abs(mThumbLeft.left - tempLeftDx);
+                            mMoveThumb = MoveThumb.LEFT;
+                        }
+
+                        tempRightDx = mThumbRight.right + dx;
+                        if (tempRightDx > getMeasuredWidth()) {
+                            dx = dx - (tempRightDx - getMeasuredWidth());
+                        }
+                        mThumbRight.offset(dx, 0);
+                        updateBarRight();
+
+                        break;
+                }
+                updateBarCenter();
+                invalidate();
                 mDx = x;
+
+                if (mOnComputeProgressListener != null) {
+                    mOnComputeProgressListener.onComputeProgress(computeMin(), computeMax());
+                }
 
                 break;
 
             case MotionEvent.ACTION_CANCEL:
-                Log.d(TAG, "onTouchEvent() called with: event = [ MotionEvent.ACTION_CANCEL ]");
-                mDx = 0;
-                mMoveThumb = MoveThumb.NONE;
-                break;
             case MotionEvent.ACTION_UP:
-                Log.d(TAG, "onTouchEvent() called with: event = [ MotionEvent.ACTION_UP ]");
+                if (action == MotionEvent.ACTION_CANCEL) {
+                    Log.d(TAG, "onTouchEvent() called with: event = [ MotionEvent.ACTION_CANCEL ]");
+                } else {
+                    Log.d(TAG, "onTouchEvent() called with: event = [ MotionEvent.ACTION_UP ]");
+                }
                 mDx = 0;
                 mMoveThumb = MoveThumb.NONE;
+                invalidate();
+                if (mOnComputeProgressListener != null) {
+                    mOnComputeProgressListener.onComputeProgress(computeMin(), computeMax());
+                }
                 break;
         }
 
@@ -163,13 +207,18 @@ public class RangeView extends View {
     }
 
 
-    private void invalidatePosition(int start, int end) {
+    private void updatePosition(int start, int end) {
         updateLeft(start);
         updateRight(end);
         updateBarCenter();
+        updateBarLeft();
+        updateBarRight();
     }
 
     private void updateLeft(int start) {
+
+        if (mThumbLeft == null) mThumbLeft = new Rect();
+
         mThumbLeft.left = start;
         mThumbLeft.top = (mHeight - mThumbSize) / 2;
         mThumbLeft.right = mThumbLeft.left + mThumbSize;
@@ -177,6 +226,9 @@ public class RangeView extends View {
     }
 
     private void updateRight(int end) {
+
+        if (mThumbRight == null) mThumbRight = new Rect();
+
         mThumbRight.left = end - mThumbSize;
         mThumbRight.top = (mHeight - mThumbSize) / 2;
         mThumbRight.right = mThumbRight.left + mThumbSize;
@@ -184,6 +236,9 @@ public class RangeView extends View {
     }
 
     private void updateBarCenter() {
+
+        if (mBarCenter == null) mBarCenter = new Rect();
+
         mBarCenter.left = mThumbLeft.centerX();
         mBarCenter.top = (mHeight - mProgressHeight) / 2;
         mBarCenter.right = mThumbRight.centerX();
@@ -191,11 +246,43 @@ public class RangeView extends View {
     }
 
 
+    private void updateBarLeft() {
+        if (mBarLeft == null) mBarLeft = new Rect();
 
-    private boolean isOutBorder(int x) {
+        mBarLeft.left = mThumbSize / 2;
+        mBarLeft.top = (mHeight - mProgressHeight) / 2;
+        mBarLeft.right = mBarLeft.left + mThumbLeft.left;
+        mBarLeft.bottom = mBarLeft.top + mProgressHeight;
+    }
 
-        return x < mThumbSize / 2 || x > getMeasuredWidth() - mThumbSize / 2;
+    private void updateBarRight() {
+        if (mBarRight == null) mBarRight = new Rect();
 
+        mBarRight.left = mThumbRight.centerX();
+        mBarRight.top = (mHeight - mProgressHeight) / 2;
+        mBarRight.right = getMeasuredWidth() - mThumbSize / 2;
+        mBarRight.bottom = mBarRight.top + mProgressHeight;
+    }
+
+    private int computeMin() {
+        return (int) (mMin + 1.0f * mThumbLeft.left / mBarWidth * (mMax - mMin));
+    }
+
+    private int computeMax() {
+        return (int) (mMin + 1.0f * (mThumbRight.right - mThumbSize) / mBarWidth * (mMax - mMin));
+    }
+
+    public void setOnComputeProgressListener(OnComputeProgressListener listener) {
+        mOnComputeProgressListener = listener;
+    }
+
+    public interface OnComputeProgressListener {
+        void onComputeProgress(int min, int max);
+    }
+
+    public void setProgress(int mMin, int mMax) {
+        this.mMin = mMin;
+        this.mMax = mMax;
     }
 
 }
