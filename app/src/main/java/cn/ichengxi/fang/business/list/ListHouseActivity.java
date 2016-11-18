@@ -18,10 +18,9 @@ package cn.ichengxi.fang.business.list;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.PopupWindowCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -134,6 +133,14 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
 
         mSearchTypePopup.setListener(this);
         mSearchRangePopup.setListener(this);
+
+        mListHouseRv.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard(v);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -141,27 +148,36 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
         switch (v.getId()) {
             case R.id.iv_back:
                 finish();
+
                 break;
 
-            case R.id.search_range:
+            case R.id.search_more:
                 break;
 
             case R.id.search_price:
                 if(!mBackgroundView.isLoading()) {
                     int offset = (int) getResources().getDimension(R.dimen.line_height);
-                    PopupWindowCompat.setOverlapAnchor(mSearchRangePopup, false);
-                    PopupWindowCompat.showAsDropDown(mSearchRangePopup, v, 0, offset, Gravity.BOTTOM);
+                    mSearchRangePopup.showAsDropDown(v, 0, offset);
                 }
                 break;
 
-            case R.id.search_type:
-                mSearchTypePopup.showAsDropDown(v);
+            case R.id.search_range:
+
                 break;
 
-            case R.id.search_more:
+            case R.id.search_type:
+//                mSearchTypePopup.showAtLocation(v, Gravity.BOTTOM, 0,0);
+                if(!mBackgroundView.isLoading()) {
+                    int offset = (int) getResources().getDimension(R.dimen.line_height);;
+                    mSearchTypePopup.showAsDropDown(v, 0, offset);
+
+
+                }
                 break;
         }
+
         super.onClick(v);
+
     }
 
     @Override

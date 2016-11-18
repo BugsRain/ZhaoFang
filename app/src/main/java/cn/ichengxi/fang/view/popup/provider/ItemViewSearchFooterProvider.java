@@ -4,8 +4,10 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.view.RangeView;
 import me.bugsrain.library.adapter.base.Section;
 import me.bugsrain.library.adapter.holder.BaseViewHolder;
 import me.bugsrain.library.adapter.provider.base.ItemViewProvider;
@@ -23,15 +25,26 @@ public class ItemViewSearchFooterProvider extends ItemViewProvider<ItemViewSearc
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position, Section<Object> section) {
-
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position, Section<Object> section) {
+        holder.rangeView.setProgress(2000, 12000);
+        holder.textView.setText(2000 + " - " + 12000);
+        holder.rangeView.setOnComputeProgressListener(new RangeView.OnComputeProgressListener() {
+            @Override
+            public void onComputeProgress(int min, int max) {
+                holder.textView.setText(min + " - " + max);
+            }
+        });
     }
 
 
     public class ViewHolder extends BaseViewHolder {
+        RangeView rangeView;
+        TextView textView;
 
         protected ViewHolder(View itemView, int type) {
             super(itemView, type);
+            rangeView = (RangeView) itemView.findViewById(R.id.rangeView);
+            textView = (TextView) itemView.findViewById(R.id.textView2);
         }
     }
 
