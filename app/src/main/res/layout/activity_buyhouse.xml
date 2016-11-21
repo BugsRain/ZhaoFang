@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
     <include layout="@layout/common_actionbar" />
 
@@ -17,108 +19,110 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/house_publish_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/partition_normal2"
-                android:background="@drawable/item_style">
+                android:background="@drawable/item_style"
+                android:padding="@dimen/partition_normal2">
 
                 <ImageView
                     android:id="@+id/buy_line"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/partition_normal2"
-                    android:src="@mipmap/ico_line_publish"/>
+                    android:src="@mipmap/ico_line_publish" />
 
                 <TextView
                     android:id="@+id/buy_line_title"
-                    android:layout_toRightOf="@id/buy_line"
-                    android:paddingTop="@dimen/partition_small"
-                    android:paddingBottom="@dimen/partition_small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="在线发布"
+                    android:layout_toRightOf="@id/buy_line"
                     android:alpha="0.8"
+                    android:paddingBottom="@dimen/partition_small"
+                    android:paddingTop="@dimen/partition_small"
+                    android:text="在线发布"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize_big"/>
+                    android:textSize="@dimen/textSize_big" />
 
 
                 <TextView
                     android:id="@+id/buy_line_describe"
-                    android:layout_toRightOf="@id/buy_line"
-                    android:layout_below="@id/buy_line_title"
-                    android:alpha="0.6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/buy_line_title"
+                    android:layout_toRightOf="@id/buy_line"
+                    android:alpha="0.6"
                     android:text="在线一键快速发布房源信息"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize_normal"/>
+                    android:textSize="@dimen/textSize_normal" />
 
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ico_arrow_right"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ico_arrow_right" />
 
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_height"
-                android:background="@color/gray_bg"
-                />
+                android:background="@color/gray_bg" />
 
             <RelativeLayout
+                android:id="@+id/house_entrust_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/partition_normal2"
-                android:background="@drawable/item_style">
+                android:background="@drawable/item_style"
+                android:padding="@dimen/partition_normal2">
 
                 <ImageView
                     android:id="@+id/buy_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/partition_normal2"
-                    android:src="@mipmap/ico_phone_entrust"/>
+                    android:src="@mipmap/ico_phone_entrust" />
 
                 <TextView
                     android:id="@+id/buy_phone_title"
-                    android:layout_toRightOf="@id/buy_phone"
-                    android:paddingTop="@dimen/partition_small"
-                    android:paddingBottom="@dimen/partition_small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="电话委托"
+                    android:layout_toRightOf="@id/buy_phone"
                     android:alpha="0.8"
+                    android:paddingBottom="@dimen/partition_small"
+                    android:paddingTop="@dimen/partition_small"
+                    android:text="电话委托"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize_big"/>
+                    android:textSize="@dimen/textSize_big" />
 
 
                 <TextView
                     android:id="@+id/buy_phone_describe"
-                    android:layout_toRightOf="@id/buy_phone"
-                    android:layout_below="@id/buy_phone_title"
-                    android:alpha="0.6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/buy_phone_title"
+                    android:layout_toRightOf="@id/buy_phone"
+                    android:alpha="0.6"
                     android:text="一个电话快速卖房，还可以免费上门拍照"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize_normal"/>
+                    android:textSize="@dimen/textSize_normal" />
 
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ico_arrow_right"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ico_arrow_right" />
 
             </RelativeLayout>
 
-            <android.support.v4.widget.Space
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/partition_normal2" />
+                android:layout_height="@dimen/partition_normal2"
+                android:background="@color/bg" />
 
             <include layout="@layout/include_process" />
 
@@ -127,12 +131,13 @@
     </cn.ichengxi.fang.view.JellyScrollView>
 
     <TextView
+        android:id="@+id/house_call_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/textSize_normal"
-        android:textColor="@color/green1"
+        android:gravity="center"
         android:padding="@dimen/partition_normal2"
         android:text="咨询电话: 020-32294903"
-        android:gravity="center"/>
+        android:textColor="@color/green1"
+        android:textSize="@dimen/textSize_normal" />
 
 </LinearLayout>
