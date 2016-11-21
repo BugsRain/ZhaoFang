@@ -8,48 +8,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@android:color/white"
+        android:orientation="vertical"
         android:paddingBottom="@dimen/partition_large">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/partition_large"
-            android:paddingBottom="@dimen/partition_large"
-            android:gravity="center">
-
-
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <FrameLayout
+                android:id="@+id/home_sale_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:paddingBottom="@dimen/partition_large"
+                android:paddingTop="@dimen/partition_large">
 
-                <Button
+                <TextView
                     style="@style/HomeSaleBuy"
-
                     android:drawableLeft="@mipmap/ico_buy_house"
                     android:drawableStart="@mipmap/ico_buy_house"
                     android:text="卖房" />
             </FrameLayout>
-            
+
             <View
                 android:id="@+id/cut"
                 android:layout_width="@dimen/line_height"
                 android:layout_height="30dp"
                 android:background="@color/bg" />
 
-
-
             <FrameLayout
+                android:id="@+id/home_buy_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:paddingBottom="@dimen/partition_large"
+                android:paddingTop="@dimen/partition_large">
 
-                <Button
-                    android:id="@+id/button"
+                <TextView
                     style="@style/HomeSaleBuy"
                     android:drawableLeft="@mipmap/ico_sale_house"
                     android:drawableStart="@mipmap/ico_sale_house"
@@ -63,10 +61,7 @@
             android:layout_height="@dimen/line_height"
             android:layout_marginLeft="@dimen/partition_big"
             android:layout_marginRight="@dimen/partition_big"
-
-            android:background="@color/bg"
-
-            />
+            android:background="@color/bg" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,6 +81,7 @@
                 android:text="房小蜜" />
 
             <TextView
+                android:id="@+id/home_calc_layout"
                 style="@style/HomeFunction"
                 android:drawableTop="@mipmap/ico_compute"
                 android:text="计算器" />
@@ -96,7 +92,7 @@
         <cn.ichengxi.fang.view.MyBanner
             android:id="@+id/home_banner"
             android:layout_width="match_parent"
-            android:layout_height="130dp"/>
+            android:layout_height="130dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -104,7 +100,6 @@
             android:layout_margin="@dimen/partition_large"
             android:gravity="center"
             android:text="九月份广州行情"
-
             android:textSize="@dimen/textSize_big" />
 
         <LinearLayout

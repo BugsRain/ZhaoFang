@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -12,9 +14,12 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import chengxinet.chengxilibs.widget.MySimpleDraweeView;
 import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.TempActivity;
+import cn.ichengxi.fang.business.buy.BuyHouseActivity;
+import cn.ichengxi.fang.business.calc.CalcActivity;
 import cn.ichengxi.fang.business.list.ListHouseActivity;
 import cn.ichengxi.fang.business.location.LocationActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
@@ -25,6 +30,15 @@ import cn.ichengxi.fang.view.HomeCoordinatorLayout;
  */
 
 public class HomeFragment extends BaseFrameFragment {
+
+    @Bind(R.id.home_sale_layout)
+    FrameLayout mSaleLayout;
+
+    @Bind(R.id.home_buy_layout)
+    FrameLayout mBuyLayout;
+
+    @Bind(R.id.home_calc_layout)
+    TextView mCalcLayout;
 
     private ConvenientBanner<String> mBanner;
 
@@ -39,14 +53,11 @@ public class HomeFragment extends BaseFrameFragment {
     public void initView() {
         super.initView();
 
+        mSaleLayout.setOnClickListener(this);
+        mBuyLayout.setOnClickListener(this);
+        mCalcLayout.setOnClickListener(this);
         findViewByIdToView(R.id.home_search).setOnClickListener(this);
         findViewByIdToView(R.id.home_location).setOnClickListener(this);
-        findViewByIdToView(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity(TempActivity.class);
-            }
-        });
 
 
         mBanner = findViewByIdToView(R.id.home_banner);
@@ -103,10 +114,23 @@ public class HomeFragment extends BaseFrameFragment {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.home_search:
-                openActivity(ListHouseActivity.class);
+
                 break;
+
             case R.id.home_location:
                 openActivity(LocationActivity.class);
+                break;
+
+            case R.id.home_sale_layout:
+                openActivity(ListHouseActivity.class);
+                break;
+
+            case R.id.home_buy_layout:
+                openActivity(BuyHouseActivity.class);
+                break;
+
+            case R.id.home_calc_layout:
+                openActivity(CalcActivity.class);
                 break;
         }
     }
@@ -123,6 +147,7 @@ public class HomeFragment extends BaseFrameFragment {
 
     public class LocalImageHolderView implements Holder<String> {
         private View v;
+
         @Override
         public View createView(Context context) {
 
@@ -136,7 +161,6 @@ public class HomeFragment extends BaseFrameFragment {
             imageView.setImageURI(Uri.parse(data));
         }
     }
-
 
 
 }

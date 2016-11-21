@@ -75,7 +75,6 @@ public class PersonalFragment extends BaseFrameFragment{
                 break;
 
             case R.id.personal_house_txt:
-                openActivity(CalcActivity.class);
                 break;
 
             case R.id.personal_about_txt:

@@ -48,9 +48,11 @@ public class MyRefreshFooter  extends RelativeLayout implements PtrUIHandler {
     public MyRefreshFooter(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mAnimationDrawable = (AnimationDrawable) ContextCompat.getDrawable(context, R.drawable.load);
+//        mAnimationDrawable = (AnimationDrawable) ContextCompat.getDrawable(context, R.drawable.load);
+        mAnimationDrawable = (AnimationDrawable) ContextCompat.getDrawable(context, R.drawable.refresh);
 
-        View view = View.inflate(getContext(), R.layout.footer_load, this);
+//        View view = View.inflate(getContext(), R.layout.footer_load, this);
+        View view = View.inflate(getContext(), R.layout.header_refresh, this);
         mImgView = (ImageView) view.findViewById(R.id.refresh_img);
         mMessageView = (TextView) view.findViewById(R.id.refresh_message);
     }
