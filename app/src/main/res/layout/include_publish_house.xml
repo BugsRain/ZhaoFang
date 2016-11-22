@@ -1,0 +1,298 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:padding="@dimen/partition_normal2"
+            android:text="房源信息"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/textSize_normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal2"
+                android:text="小区"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="end"
+                android:hint="输入小区名称"
+                android:padding="@dimen/partition_normal"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_normal2"
+            android:background="@color/bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal2"
+                android:text="楼层"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="楼层"
+                android:inputType="number"
+                android:padding="@dimen/partition_normal"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="总楼"
+                android:inputType="number"
+                android:padding="@dimen/partition_normal"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal"
+                android:text="楼"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_normal2"
+            android:background="@color/bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal2"
+                android:text="户型"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/partition_normal"
+                android:layout_marginRight="@dimen/partition_normal"
+                android:layout_weight="1"
+                android:drawableEnd="@mipmap/ico_arrow_right"
+                android:drawablePadding="@dimen/partition_normal"
+                android:drawableRight="@mipmap/ico_arrow_right"
+                android:gravity="end|center_vertical"
+                android:text="选择户型"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_normal2"
+            android:background="@color/bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal2"
+                android:text="面积"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="end"
+                android:hint="输入面积"
+                android:inputType="number"
+                android:padding="@dimen/partition_normal"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal"
+                android:text="㎡"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginLeft="@dimen/partition_normal2"
+            android:background="@color/bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal2"
+                android:text="售价"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_big" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="end"
+                android:hint="输入售价"
+                android:inputType="number"
+                android:padding="@dimen/partition_normal"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/textSize_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_normal"
+                android:text="万元"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textSize_normal" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:padding="@dimen/partition_normal2"
+            android:text="房源卖点"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/textSize_normal" />
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="4dp"
+            android:numColumns="4"
+            android:padding="@dimen/partition_normal"
+            android:scrollbars="none"
+            android:verticalSpacing="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:padding="@dimen/partition_normal2"
+            android:text="业主留言"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/textSize_normal" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="start"
+            android:hint="例：房子宽阔装修精致"
+            android:lines="6"
+            android:padding="@dimen/partition_normal"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="@dimen/textSize_big" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/partition_so_large"
+                android:layout_marginRight="@dimen/partition_so_large"
+                android:layout_marginBottom="@dimen/partition_so_large"
+                android:layout_marginTop="@dimen/partition_normal2"
+                android:background="@drawable/btn_green_style"
+                android:text="发布"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize_big" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

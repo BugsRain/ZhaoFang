@@ -2,6 +2,7 @@ package in.srain.cube.views.ptr;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 public class PtrClassicFrameLayout extends PtrFrameLayout {
 

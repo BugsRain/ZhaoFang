@@ -1,4 +1,4 @@
-package cn.ichengxi.fang.business.buy;
+package cn.ichengxi.fang.business.publish;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,14 +8,15 @@ import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 
 /**
  * author：created by Snail.江
- * time: 11/18/2016 17:18
+ * time: 11/21/2016 11:24
  * email：409962004@qq.com
- * TODO:
+ * TODO: 我要卖房
  */
-public class BuyHouseActivity extends BaseFrameActivity {
+public class PublishHouseActivity extends BaseFrameActivity {
+
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_buyhouse);
+        setContentView(R.layout.activity_publish_house);
     }
 
     @Override

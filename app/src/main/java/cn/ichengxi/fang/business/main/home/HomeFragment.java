@@ -17,8 +17,7 @@ import java.util.List;
 import butterknife.Bind;
 import chengxinet.chengxilibs.widget.MySimpleDraweeView;
 import cn.ichengxi.fang.R;
-import cn.ichengxi.fang.TempActivity;
-import cn.ichengxi.fang.business.buy.BuyHouseActivity;
+import cn.ichengxi.fang.business.buy.SaleHouseActivity;
 import cn.ichengxi.fang.business.calc.CalcActivity;
 import cn.ichengxi.fang.business.list.ListHouseActivity;
 import cn.ichengxi.fang.business.location.LocationActivity;
@@ -122,11 +121,11 @@ public class HomeFragment extends BaseFrameFragment {
                 break;
 
             case R.id.home_sale_layout:
-                openActivity(ListHouseActivity.class);
+                openActivity(SaleHouseActivity.class);
                 break;
 
             case R.id.home_buy_layout:
-                openActivity(BuyHouseActivity.class);
+                openActivity(ListHouseActivity.class);
                 break;
 
             case R.id.home_calc_layout:

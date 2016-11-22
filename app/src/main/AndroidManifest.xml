@@ -34,7 +34,8 @@
         <activity android:name=".business.feedback.FeedbackActivity"/>
         <activity android:name=".business.setting.SettingActivity"/>
         <activity android:name=".business.calc.CalcActivity"/>
-        <activity android:name=".business.buy.BuyHouseActivity"/>
+        <activity android:name=".business.buy.SaleHouseActivity"/>
+        <activity android:name=".business.publish.PublishHouseActivity"/>
     </application>
 
 </manifest>
