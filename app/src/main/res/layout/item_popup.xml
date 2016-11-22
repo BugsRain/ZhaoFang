@@ -4,7 +4,7 @@
     android:layout_height="wrap_content">
     <TextView
         android:padding="@dimen/partition_normal2"
-        android:id="@+id/search_item"
+        android:id="@+id/popup_item"
         android:textColor="@color/font1"
         android:textSize="@dimen/textSize_big"
         android:layout_width="match_parent"

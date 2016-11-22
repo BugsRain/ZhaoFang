@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/partition_normal">
+
+        <TextView
+            style="@style/searchMoreTitle"
+            android:text="面积" />
+
+        <cn.ichengxi.fang.view.MyGridView
+            android:id="@+id/popup_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            style="@style/searchMoreTitle"
+            android:text="朝向" />
+
+        <cn.ichengxi.fang.view.MyGridView
+            android:id="@+id/popup_direction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/searchMoreTitle"
+            android:text="物业类型" />
+
+        <cn.ichengxi.fang.view.MyGridView
+            android:id="@+id/popup_property_type"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/searchMoreTitle"
+            android:text="房屋类型" />
+
+        <cn.ichengxi.fang.view.MyGridView
+            android:id="@+id/popup_house_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/searchMoreTitle"
+            android:text="装修" />
+
+        <cn.ichengxi.fang.view.MyGridView
+            android:id="@+id/popup_decoration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/searchMoreTitle"
+            android:text="房龄" />
+
+        <cn.ichengxi.fang.view.MyGridView
+            android:id="@+id/popup_house_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:id="@+id/center"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"/>
+            <Button
+                android:layout_toStartOf="@+id/center"
+                android:layout_toLeftOf="@+id/center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/partition_normal"
+                android:id="@+id/button"
+                android:text="确定"/>
+            <Button
+                android:layout_toEndOf="@+id/center"
+                android:layout_toRightOf="@+id/center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/button2"
+                android:text="重置"/>
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

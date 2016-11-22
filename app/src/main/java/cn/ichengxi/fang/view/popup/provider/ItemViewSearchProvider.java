@@ -37,7 +37,7 @@ public class ItemViewSearchProvider extends ItemViewProvider<ItemViewSearchProvi
 
         protected ViewHolder(View itemView, int type) {
             super(itemView, type);
-            txt = (TextView) itemView.findViewById(R.id.search_item);
+            txt = (TextView) itemView.findViewById(R.id.popup_item);
         }
     }
 

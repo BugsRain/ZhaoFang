@@ -20,10 +20,10 @@ import me.bugsrain.library.adapter.base.Section;
  * Created by quan on 16/11/15.
  */
 
-public class SearchRangePopup extends BasePopup {
+public class RangePopup extends BasePopup {
     private List<String> data;
 
-    public SearchRangePopup(BaseImplCompat compat) {
+    public RangePopup(BaseImplCompat compat) {
         super(compat);
 
         data = new ArrayList<>();
@@ -36,7 +36,7 @@ public class SearchRangePopup extends BasePopup {
         data.add("5000元以上");
 
         Context context = compat.getContext();
-        View contentView = LayoutInflater.from(context).inflate(R.layout.popup_search_type, null, false);
+        View contentView = LayoutInflater.from(context).inflate(R.layout.popup_type, null, false);
         RecyclerView recyclerView = (RecyclerView) contentView.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new MyAdapter(context, data));

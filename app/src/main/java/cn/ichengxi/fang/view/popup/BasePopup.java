@@ -16,12 +16,11 @@ import cn.ichengxi.fang.R;
 
 public class BasePopup extends PopupWindow {
 
-    private BaseImplCompat compat;
     private OnPopupWindowListener listener;
 
     public BasePopup(BaseImplCompat compat){
         super(compat.getContext());
-        this.compat = compat;
+
 
         setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -50,6 +49,8 @@ public class BasePopup extends PopupWindow {
             listener.dismiss(this);
         }
     }
+
+
 
 
     public interface OnPopupWindowListener{

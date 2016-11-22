@@ -18,13 +18,12 @@ import cn.ichengxi.fang.R;
  * Created by quan on 16/11/15.
  */
 
-public class SearchTypePopup extends BasePopup {
+public class TypePopup extends BasePopup {
 
     private List<String> data;
     private Context context;
-    public SearchTypePopup(BaseImplCompat compat) {
+    public TypePopup(BaseImplCompat compat) {
         super(compat);
-        setAnimationStyle(-1);
         context = compat.getContext();
 
         data = new ArrayList<>();
@@ -36,7 +35,7 @@ public class SearchTypePopup extends BasePopup {
         data.add("五房及以上");
 
 
-        View contentView = LayoutInflater.from(context).inflate(R.layout.popup_search_type, null, false);
+        View contentView = LayoutInflater.from(context).inflate(R.layout.popup_type, null, false);
         RecyclerView recyclerView = (RecyclerView) contentView.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new RecyclerView.Adapter<ViewHolder>() {
@@ -64,7 +63,7 @@ public class SearchTypePopup extends BasePopup {
         TextView txt;
         public ViewHolder(View itemView) {
             super(itemView);
-            txt = (TextView) itemView.findViewById(R.id.search_item);
+            txt = (TextView) itemView.findViewById(R.id.popup_item);
         }
     }
 }

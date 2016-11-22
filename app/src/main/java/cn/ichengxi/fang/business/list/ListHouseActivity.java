@@ -15,9 +15,7 @@
  */
 package cn.ichengxi.fang.business.list;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
@@ -33,8 +31,9 @@ import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.BackgroundView;
 import cn.ichengxi.fang.view.MySwipeRefreshLayout;
 import cn.ichengxi.fang.view.popup.BasePopup;
-import cn.ichengxi.fang.view.popup.SearchRangePopup;
-import cn.ichengxi.fang.view.popup.SearchTypePopup;
+import cn.ichengxi.fang.view.popup.MorePopup;
+import cn.ichengxi.fang.view.popup.RangePopup;
+import cn.ichengxi.fang.view.popup.TypePopup;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
@@ -60,9 +59,11 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
 
     private ListHouseAdapter mAdapter;
 
-    private SearchTypePopup mSearchTypePopup;
+    private TypePopup mTypePopup;
 
-    private SearchRangePopup mSearchRangePopup;
+    private RangePopup mRangePopup;
+
+    private MorePopup mMorePopup;
 
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
@@ -83,8 +84,9 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
         mListHouseRv.setAdapter(mAdapter);
         mBackgroundView = findViewByIdToView(R.id.bg_contain);
 
-        mSearchTypePopup = new SearchTypePopup(this);
-        mSearchRangePopup = new SearchRangePopup(this);
+        mTypePopup = new TypePopup(this);
+        mRangePopup = new RangePopup(this);
+        mMorePopup = new MorePopup(this);
     }
 
     @Override
@@ -131,8 +133,8 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
             }
         }, 1000);
 
-        mSearchTypePopup.setListener(this);
-        mSearchRangePopup.setListener(this);
+        mTypePopup.setListener(this);
+        mRangePopup.setListener(this);
 
         mListHouseRv.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -152,12 +154,17 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                 break;
 
             case R.id.search_more:
+                if(!mBackgroundView.isLoading()) {
+                    int offset = (int) getResources().getDimension(R.dimen.line_height);
+                    mMorePopup.showAsDropDown(v, 0, offset);
+                }
+
                 break;
 
             case R.id.search_price:
                 if(!mBackgroundView.isLoading()) {
                     int offset = (int) getResources().getDimension(R.dimen.line_height);
-                    mSearchRangePopup.showAsDropDown(v, 0, offset);
+                    mRangePopup.showAsDropDown(v, 0, offset);
                 }
                 break;
 
@@ -166,10 +173,10 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                 break;
 
             case R.id.search_type:
-//                mSearchTypePopup.showAtLocation(v, Gravity.BOTTOM, 0,0);
+//                mTypePopup.showAtLocation(v, Gravity.BOTTOM, 0,0);
                 if(!mBackgroundView.isLoading()) {
                     int offset = (int) getResources().getDimension(R.dimen.line_height);;
-                    mSearchTypePopup.showAsDropDown(v, 0, offset);
+                    mTypePopup.showAsDropDown(v, 0, offset);
 
 
                 }
@@ -192,13 +199,13 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
 
     @Override
     public void show(PopupWindow window) {
-        mBackgroundView.setBackgroundColor(Color.BLACK);
-        ViewCompat.setAlpha(mListHouseRv, 0.5f);
+//        mBackgroundView.setBackgroundColor(Color.BLACK);
+//        ViewCompat.setAlpha(mListHouseRv, 0.5f);
     }
 
     @Override
     public void dismiss(PopupWindow window) {
-        mBackgroundView.setBackgroundResource(R.color.bg);
-        ViewCompat.setAlpha(mListHouseRv, 1f);
+//        mBackgroundView.setBackgroundResource(R.color.bg);
+//        ViewCompat.setAlpha(mListHouseRv, 1f);
     }
 }
