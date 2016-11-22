@@ -127,7 +127,7 @@
         android:layout_height="match_parent"
         android:background="@color/bg">
 
-        <cn.ichengxi.fang.view.MySwipeRefreshLayout
+        <cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout
             android:id="@+id/swipe_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -139,7 +139,7 @@
             android:layout_height="match_parent"
             android:background="@null" />
 
-        </cn.ichengxi.fang.view.MySwipeRefreshLayout>
+        </cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout>
     </cn.ichengxi.fang.view.BackgroundView>
 
 </LinearLayout>

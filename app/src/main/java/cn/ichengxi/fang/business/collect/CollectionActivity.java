@@ -11,7 +11,7 @@ import cn.ichengxi.fang.R;
 import cn.ichengxi.fang.adapter.CollectionAdapter;
 import cn.ichengxi.fang.adapter.decoration.ItemLine;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
-import cn.ichengxi.fang.view.MySwipeRefreshLayout;
+import cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 

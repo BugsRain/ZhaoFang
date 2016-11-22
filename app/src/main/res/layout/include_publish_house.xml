@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:scrollbars="none">
 
@@ -242,14 +243,12 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/textSize_normal" />
 
-        <GridView
+        <cn.ichengxi.fang.view.flow.TagFlowLayout
+            android:id="@+id/flowLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:horizontalSpacing="4dp"
-            android:numColumns="4"
             android:padding="@dimen/partition_normal"
-            android:scrollbars="none"
-            android:verticalSpacing="4dp" />
+            app:max_select="-1" />
 
         <TextView
             android:layout_width="match_parent"

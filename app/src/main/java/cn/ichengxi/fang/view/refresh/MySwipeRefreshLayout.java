@@ -1,4 +1,4 @@
-package cn.ichengxi.fang.view;
+package cn.ichengxi.fang.view.refresh;
 
 import android.content.Context;
 import android.util.AttributeSet;
