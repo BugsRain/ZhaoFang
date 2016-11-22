@@ -72,7 +72,7 @@ public class RangeView extends View {
         mThumbSize = mProgressHeight * 6;
 
         mPaint = new Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
-        
+
     }
 
     @Override
@@ -80,11 +80,15 @@ public class RangeView extends View {
 
         int width = MeasureSpec.getSize(widthMeasureSpec);
 
-        updatePosition(0, width);
-        mBarWidth = mBarCenter.width();
         setMeasuredDimension(width, mHeight);
     }
 
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        updatePosition(0, w);
+        mBarWidth = mBarCenter.width();
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -99,13 +103,15 @@ public class RangeView extends View {
 
     }
 
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        int x = (int) event.getX();
-        int y = (int) event.getY();
+        final int x = (int) event.getX();
+        final int y = (int) event.getY();
 
-        int action = event.getAction();
+        final int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
 
@@ -235,7 +241,8 @@ public class RangeView extends View {
 
     private void updateBarCenter() {
 
-        if (mBarCenter == null) mBarCenter = new Rect();
+        if (mBarCenter == null)
+            mBarCenter = new Rect();
 
         mBarCenter.left = mThumbLeft.centerX();
         mBarCenter.top = (mHeight - mProgressHeight) / 2;

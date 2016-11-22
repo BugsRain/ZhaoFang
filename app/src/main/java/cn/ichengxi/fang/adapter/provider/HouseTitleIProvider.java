@@ -12,7 +12,7 @@ import me.bugsrain.library.adapter.provider.base.ItemViewDefaultHeaderProvider;
  * Created by quan on 16/11/7.
  */
 
-public class ItemViewHouseTitleIProvider extends ItemViewDefaultHeaderProvider {
+public class HouseTitleIProvider extends ItemViewDefaultHeaderProvider {
 
     @NonNull
     @Override

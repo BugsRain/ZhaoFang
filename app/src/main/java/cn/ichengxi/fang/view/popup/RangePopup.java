@@ -11,8 +11,9 @@ import java.util.List;
 
 import chengxinet.chengxilibs.global.BaseImplCompat;
 import cn.ichengxi.fang.R;
-import cn.ichengxi.fang.view.popup.provider.ItemViewSearchFooterProvider;
-import cn.ichengxi.fang.view.popup.provider.ItemViewSearchProvider;
+import cn.ichengxi.fang.adapter.decoration.ItemLine2;
+import cn.ichengxi.fang.view.popup.provider.PriceRangeFooterProvider;
+import cn.ichengxi.fang.view.popup.provider.PriceProvider;
 import me.bugsrain.library.adapter.base.BaseRecyclerAdapter;
 import me.bugsrain.library.adapter.base.Section;
 
@@ -25,7 +26,6 @@ public class RangePopup extends BasePopup {
 
     public RangePopup(BaseImplCompat compat) {
         super(compat);
-
         data = new ArrayList<>();
         data.add("不限");
         data.add("1000以下");
@@ -38,6 +38,7 @@ public class RangePopup extends BasePopup {
         Context context = compat.getContext();
         View contentView = LayoutInflater.from(context).inflate(R.layout.popup_type, null, false);
         RecyclerView recyclerView = (RecyclerView) contentView.findViewById(R.id.list);
+        recyclerView.addItemDecoration(new ItemLine2(recyclerView.getContext(), R.drawable.item_line_location));
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new MyAdapter(context, data));
 
@@ -55,13 +56,12 @@ public class RangePopup extends BasePopup {
         protected void sectionInit(Section section, Object data) {
             switch (section.getType()) {
                 case 0:
-                    section.setData(data, false);
-                    section.setItemViewProvider(ItemViewSearchProvider.class);
+                    section.setItemViewProvider(PriceProvider.class);
                     break;
 
                 case 1:
-                    section.setData(data, true);
-                    section.setItemViewProvider(ItemViewSearchFooterProvider.class);
+                    section.setDefaultSingle(true);
+                    section.setItemViewProvider(PriceRangeFooterProvider.class);
                     break;
             }
         }
@@ -69,7 +69,7 @@ public class RangePopup extends BasePopup {
         @Override
         public String initSectionFooterLeftContent(Section section) {
             if(section.getType() == 0){
-                section.setFooterProvider(ItemViewSearchFooterProvider.class);
+                section.setFooterProvider(PriceRangeFooterProvider.class);
                 return "footer";
             }
             return super.initSectionHeaderLeftContent(section);

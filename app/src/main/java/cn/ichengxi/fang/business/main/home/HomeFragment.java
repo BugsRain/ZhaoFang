@@ -21,6 +21,7 @@ import cn.ichengxi.fang.business.buy.SaleHouseActivity;
 import cn.ichengxi.fang.business.calc.CalcActivity;
 import cn.ichengxi.fang.business.list.ListHouseActivity;
 import cn.ichengxi.fang.business.location.LocationActivity;
+import cn.ichengxi.fang.business.search.SearchActivity;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 import cn.ichengxi.fang.view.HomeCoordinatorLayout;
 
@@ -113,7 +114,7 @@ public class HomeFragment extends BaseFrameFragment {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.home_search:
-
+                openActivity(SearchActivity.class);
                 break;
 
             case R.id.home_location:

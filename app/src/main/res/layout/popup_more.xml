@@ -9,7 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/partition_normal">
+        android:paddingBottom="@dimen/partition_so_so_large"
+        android:paddingLeft="@dimen/partition_normal"
+        android:paddingRight="@dimen/partition_normal"
+        android:paddingTop="@dimen/partition_normal">
 
         <TextView
             style="@style/searchMoreTitle"
@@ -20,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <View style="@style/line" />
 
         <TextView
             style="@style/searchMoreTitle"
@@ -29,6 +33,8 @@
             android:id="@+id/popup_direction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <View style="@style/line" />
 
         <TextView
             style="@style/searchMoreTitle"
@@ -40,6 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <View style="@style/line" />
+
         <TextView
             style="@style/searchMoreTitle"
             android:text="房屋类型" />
@@ -49,6 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <View style="@style/line" />
+
         <TextView
             style="@style/searchMoreTitle"
             android:text="装修" />
@@ -57,6 +67,8 @@
             android:id="@+id/popup_decoration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <View style="@style/line" />
 
         <TextView
             style="@style/searchMoreTitle"
@@ -70,28 +82,31 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <View
                 android:id="@+id/center"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true" />
+
             <Button
-                android:layout_toStartOf="@+id/center"
-                android:layout_toLeftOf="@+id/center"
+                android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="@dimen/partition_normal"
-                android:id="@+id/button"
-                android:text="确定"/>
+                android:layout_toLeftOf="@+id/center"
+                android:layout_toStartOf="@+id/center"
+                android:text="确定" />
+
             <Button
-                android:layout_toEndOf="@+id/center"
-                android:layout_toRightOf="@+id/center"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:id="@+id/button2"
-                android:text="重置"/>
+                android:layout_toEndOf="@+id/center"
+                android:layout_toRightOf="@+id/center"
+                android:text="重置" />
         </RelativeLayout>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

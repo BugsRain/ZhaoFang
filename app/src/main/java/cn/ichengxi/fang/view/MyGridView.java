@@ -86,27 +86,28 @@ public class MyGridView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        int row = 0;
-        int column = -1;
-        for (int i = 0; i < getChildCount(); i++) {
-            TextView view = (TextView) getChildAt(i);
+        if(changed) {
+            int row = 0;
+            int column = -1;
+            for (int i = 0; i < getChildCount(); i++) {
+                TextView view = (TextView) getChildAt(i);
 
-            if (i != 0 && i % 4 == 0) {
-                row++;
-                column = 0;
-            } else {
-                column++;
+                if (i != 0 && i % 4 == 0) {
+                    row++;
+                    column = 0;
+                } else {
+                    column++;
+                }
+                int left = column * (mItemWidth + mMarginWidth);
+                int top = row * (mItemHeight + mMarginHeight);
+                view.layout(left, top, left + mItemWidth, top + mItemHeight);
+                view.setGravity(Gravity.CENTER);
+                mLayoutParams.width = mItemWidth;
+                mLayoutParams.height = mItemHeight;
+                view.setLayoutParams(mLayoutParams);
+
             }
-            int left = column * (mItemWidth + mMarginWidth);
-            int top = row * (mItemHeight + mMarginHeight);
-            view.layout(left, top, left + mItemWidth, top + mItemHeight);
-            view.setGravity(Gravity.CENTER);
-            mLayoutParams.width = mItemWidth;
-            mLayoutParams.height = mItemHeight;
-            view.setLayoutParams(mLayoutParams);
-
         }
-
     }
 
     @Override
