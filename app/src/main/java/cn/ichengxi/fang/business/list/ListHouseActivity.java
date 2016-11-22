@@ -29,7 +29,7 @@ import cn.ichengxi.fang.adapter.ListHouseAdapter;
 import cn.ichengxi.fang.adapter.decoration.ItemLine;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.BackgroundView;
-import cn.ichengxi.fang.view.MySwipeRefreshLayout;
+import cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout;
 import cn.ichengxi.fang.view.popup.BasePopup;
 import cn.ichengxi.fang.view.popup.MorePopup;
 import cn.ichengxi.fang.view.popup.RangePopup;

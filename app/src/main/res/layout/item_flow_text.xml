@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_flow"
+    android:textSize="@dimen/textSize_normal"
+    android:paddingTop="@dimen/partition_small"
+    android:paddingBottom="@dimen/partition_small"
+    android:paddingLeft="@dimen/partition_normal2"
+    android:paddingRight="@dimen/partition_normal2"
+    android:layout_margin="@dimen/partition_small"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />

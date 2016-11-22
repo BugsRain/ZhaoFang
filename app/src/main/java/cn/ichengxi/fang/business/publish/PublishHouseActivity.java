@@ -1,10 +1,27 @@
 package cn.ichengxi.fang.business.publish;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import butterknife.Bind;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.adapter.HouseTagAdapter;
+import cn.ichengxi.fang.entity.HouseTag;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
+import cn.ichengxi.fang.view.flow.FlowLayout;
+import cn.ichengxi.fang.view.flow.TagAdapter;
+import cn.ichengxi.fang.view.flow.TagFlowLayout;
 
 /**
  * author：created by Snail.江
@@ -13,6 +30,9 @@ import cn.ichengxi.fang.frame.base.BaseFrameActivity;
  * TODO: 我要卖房
  */
 public class PublishHouseActivity extends BaseFrameActivity {
+
+    @Bind(R.id.flowLayout)
+    TagFlowLayout mFlowLayout;
 
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
@@ -23,7 +43,20 @@ public class PublishHouseActivity extends BaseFrameActivity {
     public void initView() {
         super.initView();
         setTitle("我要卖房");
-        setFunctionView(getLeft(),null,R.mipmap.ico_back);
+        setFunctionView(getLeft(), null, R.mipmap.ico_back);
+
+        String[] mVals = new String[]
+                {"学位", "地铁口", "电梯", "满二", "免个税", "精装修",
+                        "Android", "Weclome", "Button ImageView"};
+        final String[] mColor = new String[]
+                {"#FF6A51", "#B8857B", "#1A70D0", "#51CA76", "#B945E9", "#FF4040",
+                        "#224040", "#CC226E", "#A68833"};
+        List<HouseTag> mData = new ArrayList<>();
+        for(int i =0;i<mVals.length;i++) {
+            mData.add(new HouseTag(mVals[i],mColor[i]));
+        }
+        HouseTagAdapter mAdapter = new HouseTagAdapter(this,mData);
+        mFlowLayout.setAdapter(mAdapter);
     }
 
     @Override

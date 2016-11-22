@@ -6,7 +6,7 @@
 
     <include layout="@layout/common_actionbar" />
 
-    <cn.ichengxi.fang.view.MySwipeRefreshLayout
+    <cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout
         android:id="@+id/collection_refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,6 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </cn.ichengxi.fang.view.MySwipeRefreshLayout>
+    </cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout>
 
 </LinearLayout>
