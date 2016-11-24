@@ -13,10 +13,12 @@ import android.view.View;
  */
 public class ItemLine extends RecyclerView.ItemDecoration {
     private Drawable mDrawable;
+    protected int padding;
 
     public ItemLine(Context context, int resId) {
         //在这里我们传入作为Divider的Drawable对象
         mDrawable = ContextCompat.getDrawable(context, resId);
+        padding = 0;
     }
 
     @Override
@@ -30,19 +32,23 @@ public class ItemLine extends RecyclerView.ItemDecoration {
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDrawOver(c, parent, state);
 
-        final int left = parent.getPaddingLeft();
-        final int right = parent.getWidth() - parent.getPaddingRight();
+        final int left = parent.getPaddingLeft() + padding;
+        final int right = parent.getWidth() - parent.getPaddingRight() - padding;
 
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            final View child = parent.getChildAt(i);
-            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
-                    .getLayoutParams();
-            //以下计算主要用来确定绘制的位置
-            final int top = child.getBottom() + params.bottomMargin;
-            final int bottom = top + mDrawable.getIntrinsicHeight();
-            mDrawable.setBounds(left, top, right, bottom);
-            mDrawable.draw(c);
+
+            if (i != childCount - 1) {
+
+                final View child = parent.getChildAt(i);
+                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
+                        .getLayoutParams();
+                //以下计算主要用来确定绘制的位置
+                final int top = child.getBottom() + params.bottomMargin;
+                final int bottom = top + mDrawable.getIntrinsicHeight();
+                mDrawable.setBounds(left, top, right, bottom);
+                mDrawable.draw(c);
+            }
         }
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/green1"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/home_search_bg"
+            android:drawableLeft="@mipmap/ico_search"
+            android:drawablePadding="@dimen/partition_normal"
+            android:paddingLeft="@dimen/partition_normal2"
+            android:paddingRight="@dimen/partition_normal2"
+            android:layout_gravity="center_vertical"
+            android:hint="搜索小区、地段"
+            android:textColorHint="@color/grey2"
+            android:textSize="@dimen/textSize_big"
+            android:textColor="@color/grey1"
+            android:id="@+id/search_content"
+            android:layout_marginLeft="@dimen/partition_normal"
+            android:layout_marginStart="@dimen/partition_normal"/>
+
+        <TextView
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="取消"
+            android:gravity="center"
+            android:textSize="@dimen/textSize_big"
+            android:padding="@dimen/partition_normal"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+    <cn.ichengxi.fang.view.BaseRecyclerView
+        android:id="@+id/search_record"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

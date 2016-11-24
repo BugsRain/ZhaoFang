@@ -1,5 +1,6 @@
 package me.bugsrain.library.adapter.base;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import java.util.List;
@@ -35,6 +36,10 @@ public class Section<T> {
     private String footerLeftContent;
 
     private int footerLeftImageId = -1;
+
+    private boolean defaultSingle;
+
+    private Context context;
 
     public String getFooterLeftContent() {
         return footerLeftContent;
@@ -191,9 +196,10 @@ public class Section<T> {
     }
 
     public void release() {
-        if (data != null) data = null;
-        if (preSection != null) preSection = null;
-        if (itemViewProvider != null) itemViewProvider = null;
+        data = null;
+        preSection = null;
+        itemViewProvider = null;
+        context = null;
     }
 
     public boolean isHasHeader() {
@@ -210,5 +216,21 @@ public class Section<T> {
             setFooterProvider(ItemViewDefaultFooterProvider.class);
         }
         return b;
+    }
+
+    public boolean isDefaultSingle() {
+        return defaultSingle;
+    }
+
+    public void setDefaultSingle(boolean mDefaultSingle) {
+        this.defaultSingle = mDefaultSingle;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 }

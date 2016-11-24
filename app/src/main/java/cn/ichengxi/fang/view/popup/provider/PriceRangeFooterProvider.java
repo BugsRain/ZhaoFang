@@ -16,12 +16,12 @@ import me.bugsrain.library.adapter.provider.base.ItemViewProvider;
  * Created by quan on 16/11/15.
  */
 
-public class ItemViewSearchFooterProvider extends ItemViewProvider<ItemViewSearchFooterProvider.ViewHolder, Object> {
+public class PriceRangeFooterProvider extends ItemViewProvider<PriceRangeFooterProvider.ViewHolder, Object> {
 
     @NonNull
     @Override
-    public ItemViewSearchFooterProvider.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent, int type) {
-        return new ItemViewSearchFooterProvider.ViewHolder(inflater.inflate(R.layout.item_popup_footer, parent, false), type);
+    public PriceRangeFooterProvider.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent, int type) {
+        return new PriceRangeFooterProvider.ViewHolder(inflater.inflate(R.layout.item_popup_footer, parent, false), type);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class ItemViewSearchFooterProvider extends ItemViewProvider<ItemViewSearc
     }
 
 
-    public class ViewHolder extends BaseViewHolder {
+    protected class ViewHolder extends BaseViewHolder {
         RangeView rangeView;
         TextView textView;
 

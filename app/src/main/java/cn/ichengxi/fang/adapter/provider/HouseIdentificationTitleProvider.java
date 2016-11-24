@@ -17,7 +17,7 @@ import me.bugsrain.library.adapter.provider.base.ItemViewProvider;
  * Created by quan on 16/11/7.
  */
 
-public class ItemViewHouseIdentificationTitleProvider extends ItemViewProvider<ItemViewHouseIdentificationTitleProvider.ViewHolder, Object> {
+public class HouseIdentificationTitleProvider extends ItemViewProvider<HouseIdentificationTitleProvider.ViewHolder, Object> {
 
 
     @NonNull
@@ -30,7 +30,7 @@ public class ItemViewHouseIdentificationTitleProvider extends ItemViewProvider<I
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i, Section<Object> section) {
     }
 
-    public class ViewHolder extends BaseViewHolder {
+    protected class ViewHolder extends BaseViewHolder {
 
         ViewHolder(View itemView, int type) {
             super(itemView, type);

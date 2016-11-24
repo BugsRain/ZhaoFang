@@ -176,16 +176,16 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseViewH
 
     @Override
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
-//        mContext = null;
+        mContext = null;
 //        mView = null;
-//        mInflater = null;
-//        if (mSections != null) {
-//            for (Section section : mSections) {
-//                if (section != null) section.release();
-//            }
-//            mSections.clear();
-//            mSections = null;
-//        }
+        mInflater = null;
+        if (mSections != null) {
+            for (Section section : mSections) {
+                if (section != null) section.release();
+            }
+            mSections.clear();
+            mSections = null;
+        }
         super.onDetachedFromRecyclerView(recyclerView);
     }
 

@@ -37,6 +37,7 @@
         <activity android:name=".business.buy.SaleHouseActivity"/>
         <activity android:name=".business.publish.PublishHouseActivity"/>
         <activity android:name=".business.report.ReportActivity"/>
+        <activity android:name=".business.search.SearchActivity"/>
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@ import java.util.List;
 
 import chengxinet.chengxilibs.global.BaseImplCompat;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.adapter.decoration.ItemLine2;
 
 /**
  * Created by quan on 16/11/15.
@@ -37,6 +38,7 @@ public class TypePopup extends BasePopup {
 
         View contentView = LayoutInflater.from(context).inflate(R.layout.popup_type, null, false);
         RecyclerView recyclerView = (RecyclerView) contentView.findViewById(R.id.list);
+        recyclerView.addItemDecoration(new ItemLine2(recyclerView.getContext(), R.drawable.item_line_location));
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new RecyclerView.Adapter<ViewHolder>() {
 

@@ -14,13 +14,13 @@ import me.bugsrain.library.adapter.provider.base.ItemViewProvider;
  * Created by quan on 16/11/7.
  */
 
-public class ItemViewHouseHeaderProvider extends ItemViewProvider<ItemViewHouseHeaderProvider.ViewHolder, Object> {
+public class HouseHostProvider extends ItemViewProvider<HouseHostProvider.ViewHolder, Object> {
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(layoutInflater.inflate(R.layout.common_house_header, viewGroup, false), i);
+        return new ViewHolder(layoutInflater.inflate(R.layout.common_host, viewGroup, false), i);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ItemViewHouseHeaderProvider extends ItemViewProvider<ItemViewHouseH
 
     }
 
-    public class ViewHolder extends BaseViewHolder {
+    protected class ViewHolder extends BaseViewHolder {
 
         ViewHolder(View itemView, int type) {
             super(itemView, type);

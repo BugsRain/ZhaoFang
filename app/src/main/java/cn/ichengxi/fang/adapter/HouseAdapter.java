@@ -1,12 +1,12 @@
 package cn.ichengxi.fang.adapter;
 
 import chengxinet.chengxilibs.global.BaseImplCompat;
-import cn.ichengxi.fang.adapter.provider.ItemViewHouseHeaderProvider;
-import cn.ichengxi.fang.adapter.provider.ItemViewHouseHostProvider;
-import cn.ichengxi.fang.adapter.provider.ItemViewHouseIdentificationTitleProvider;
-import cn.ichengxi.fang.adapter.provider.ItemViewHouseMapProvider;
-import cn.ichengxi.fang.adapter.provider.ItemViewHouseRecommendProvider;
-import cn.ichengxi.fang.adapter.provider.ItemViewHouseTitleIProvider;
+import cn.ichengxi.fang.adapter.provider.HouseHeaderProvider;
+import cn.ichengxi.fang.adapter.provider.HouseHostProvider;
+import cn.ichengxi.fang.adapter.provider.HouseIdentificationTitleProvider;
+import cn.ichengxi.fang.adapter.provider.HouseMapProvider;
+import cn.ichengxi.fang.adapter.provider.HouseRecommendProvider;
+import cn.ichengxi.fang.adapter.provider.HouseTitleIProvider;
 import me.bugsrain.library.adapter.base.BaseRecyclerAdapter;
 import me.bugsrain.library.adapter.base.Section;
 
@@ -25,10 +25,10 @@ public class HouseAdapter extends BaseRecyclerAdapter {
     @Override
     public String initSectionHeaderLeftContent(Section section) {
         if (section.getType() == 3) {
-            section.setHeaderProvider(ItemViewHouseTitleIProvider.class);
+            section.setHeaderProvider(HouseTitleIProvider.class);
             return "更多推荐";
         } else if (section.getType() == 1) {
-            section.setHeaderProvider(ItemViewHouseIdentificationTitleProvider.class);
+            section.setHeaderProvider(HouseIdentificationTitleProvider.class);
             return "房源已认证";
         }
         return super.initSectionHeaderLeftContent(section);
@@ -38,22 +38,20 @@ public class HouseAdapter extends BaseRecyclerAdapter {
     protected void sectionInit(Section section, Object o) {
         switch (section.getType()) {
             case 0:
-                section.setData(o, true);
-                section.setItemViewProvider(ItemViewHouseHeaderProvider.class);
+                section.setDefaultSingle(true);
+                section.setItemViewProvider(HouseHeaderProvider.class);
                 break;
 
             case 1:
-                section.setData(o, false);
-                section.setItemViewProvider(ItemViewHouseHostProvider.class);
+                section.setItemViewProvider(HouseHostProvider.class);
                 break;
             case 2:
-                section.setData(o, true);
-                section.setItemViewProvider(ItemViewHouseMapProvider.class);
+                section.setDefaultSingle(true);
+                section.setItemViewProvider(HouseMapProvider.class);
                 break;
 
             case 3:
-                section.setData(o, false);
-                section.setItemViewProvider(ItemViewHouseRecommendProvider.class);
+                section.setItemViewProvider(HouseRecommendProvider.class);
                 break;
 
         }
