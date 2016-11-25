@@ -2,11 +2,9 @@ package cn.ichengxi.fang.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -41,6 +39,7 @@ public class HouseTagAdapter extends TagAdapter<HouseTag> {
     @Override
     public View getView(View convertView, int position, final HouseTag houseTag) {
         TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.item_flow_text, null);
+
         textView.setText(houseTag.getName());
         textView.setTextColor(Color.parseColor(houseTag.getColor()));
 
@@ -55,13 +54,6 @@ public class HouseTagAdapter extends TagAdapter<HouseTag> {
 //                    GradientDrawable drawable = new GradientDrawable();
 //                    drawable.setCornerRadius(5);
 //                    drawable.setColor(Color.parseColor(houseTag.getColor()));
-//                    v.setBackgroundDrawable(drawable);
-//                    ((TextView) v).setTextColor(Color.parseColor("#ffffff"));
-//                } else if (event.getAction() == MotionEvent.ACTION_UP ||
-//                        event.getAction() == MotionEvent.ACTION_MOVE) {
-//                    GradientDrawable drawable = new GradientDrawable();
-//                    drawable.setCornerRadius(5);
-//                    drawable.setStroke(1, Color.parseColor(houseTag.getColor()));
 //                    v.setBackgroundDrawable(drawable);
 //                    ((TextView) v).setTextColor(Color.parseColor("#ffffff"));
 //                }
