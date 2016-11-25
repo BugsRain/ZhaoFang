@@ -39,6 +39,7 @@
                 android:textColor="@color/grey1" />
 
             <TextView
+                android:id="@+id/house_online"
                 style="@style/HouseDetailBottomTab"
                 android:layout_width="0dp"
                 android:layout_weight="1"
