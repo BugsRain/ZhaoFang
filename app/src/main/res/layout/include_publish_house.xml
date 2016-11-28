@@ -127,8 +127,10 @@
             android:background="@color/bg" />
 
         <LinearLayout
+            android:id="@+id/house_type_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/item_style"
             android:orientation="horizontal">
 
             <TextView
@@ -140,6 +142,7 @@
                 android:textSize="@dimen/textSize_big" />
 
             <TextView
+                android:id="@+id/house_type_txt"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="@dimen/partition_normal"

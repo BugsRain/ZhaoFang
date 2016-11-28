@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/partition_normal2"
+            android:text="取消"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize_normal" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/partition_normal2"
+            android:text="选择户型"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize_big" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/partition_normal2"
+            android:text="确定"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/textSize_normal" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height_normal"
+        android:background="@color/bg" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/partition_normal"
+        android:layout_marginBottom="@dimen/partition_normal"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <cn.ichengxi.fang.view.wheel.LoopView
+                android:id="@+id/loopView1"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/partition_normal2"
+                android:layout_marginRight="@dimen/partition_normal2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="房"
+                android:textColor="@color/text_120"
+                android:textSize="@dimen/textSize_large" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <cn.ichengxi.fang.view.wheel.LoopView
+                android:id="@+id/loopView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/partition_normal2"
+                android:layout_marginRight="@dimen/partition_normal2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="厅"
+                android:textColor="@color/text_120"
+                android:textSize="@dimen/textSize_large" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <cn.ichengxi.fang.view.wheel.LoopView
+                android:id="@+id/loopView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/partition_normal2"
+                android:layout_marginRight="@dimen/partition_normal2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卫"
+                android:textColor="@color/text_120"
+                android:textSize="@dimen/textSize_large" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
