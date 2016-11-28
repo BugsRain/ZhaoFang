@@ -27,66 +27,45 @@
                 android:textSize="@dimen/textSize_normal" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/item_style"
-                android:padding="@dimen/partition_normal2"
-                android:text="房源已售或不存在"
-                android:textColor="@color/colorPrimary"
-                android:drawableRight="@mipmap/ico_hook"
-                android:textSize="@dimen/textSize_big" />
+                android:id="@+id/report_reason1"
+                style="@style/reportStyle"
+                android:text="房源已售或不存在" />
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_height" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/item_style"
-                android:padding="@dimen/partition_normal2"
-                android:text="房源图片不真实"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
+                android:id="@+id/report_reason2"
+                style="@style/reportStyle"
+                android:text="房源图片不真实" />
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_height" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/item_style"
-                android:padding="@dimen/partition_normal2"
-                android:text="对方是中介"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
+                android:id="@+id/report_reason3"
+                style="@style/reportStyle"
+                android:text="对方是中介" />
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_height" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/item_style"
-                android:padding="@dimen/partition_normal2"
-                android:text="价格不真实"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
+                android:id="@+id/report_reason4"
+                style="@style/reportStyle"
+                android:text="价格不真实" />
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_height" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/item_style"
-                android:padding="@dimen/partition_normal2"
-                android:text="其他"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/textSize_big" />
+                android:id="@+id/report_reason5"
+                style="@style/reportStyle"
+                android:text="其他" />
 
             <TextView
                 android:layout_width="match_parent"

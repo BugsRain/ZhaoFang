@@ -98,6 +98,14 @@
         <item name="android:layout_marginBottom">@dimen/partition_normal</item>
     </style>
 
+    <style name="reportStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/partition_normal2</item>
+        <item name="android:background">@drawable/item_style</item>
+        <item name="android:textSize">@dimen/textSize_big</item>
+        <item name="android:textColor">#333333</item>
+    </style>
 
     <style name="searchMoreItem" parent="searchMore">
         <item name="android:layout_weight">1</item>

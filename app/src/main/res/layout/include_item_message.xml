@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_message_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/item_style"
+    android:padding="@dimen/partition_normal2">
+
+
+    <chengxinet.chengxilibs.widget.MySimpleDraweeView
+        android:id="@+id/item_message_avatar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        fresco:roundAsCircle="true" />
+
+    <TextView
+        android:id="@+id/item_message_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/partition_normal"
+        android:layout_marginStart="@dimen/partition_normal"
+        android:layout_toEndOf="@id/item_message_avatar"
+        android:layout_toRightOf="@id/item_message_avatar"
+        android:text="房产顾问"
+        android:textColor="#333333"
+        android:textSize="@dimen/textSize_big" />
+
+
+    <TextView
+        android:id="@+id/item_message_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_message_name"
+        android:layout_marginLeft="@dimen/partition_normal"
+        android:layout_marginStart="@dimen/partition_normal"
+        android:layout_marginTop="@dimen/partition_normal"
+        android:layout_toEndOf="@id/item_message_avatar"
+        android:layout_toRightOf="@id/item_message_avatar"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="为您实施提供房地产投资顾问相关信息，实时掌握第一资讯行情"
+        android:textColor="#666666"
+        android:textSize="@dimen/textSize_normal" />
+
+    <TextView
+        android:id="@+id/item_message_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_message_name"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="11-9 12:56"
+        android:textColor="#cccccc"
+        android:textSize="@dimen/textSize_small" />
+</RelativeLayout>

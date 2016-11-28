@@ -50,4 +50,5 @@ dependencies {
     compile project(path: ':ptr-lib')
     compile 'com.bigkoo:convenientbanner:2.0.5'
     compile project(path: ':MultipleSectionLibrary')
+    compile project(path: ':PhotoUploadView')
 }

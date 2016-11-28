@@ -5,7 +5,10 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 
+
 import chengxinet.chengxilibs.global.ChengXiApplication;
+import upload.constant.PictureLibrary;
+import upload.utils.StorageUtils;
 
 /**
  * Created by quan on 16/8/25.
@@ -19,9 +22,11 @@ public class MyApplication extends ChengXiApplication {
 
     @Override
     public void init() {
-        mMyApplication = this;;
+        mMyApplication = this;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
         mStatusBarHeight = getResources().getDimensionPixelSize(resourceId);
+        String cache = StorageUtils.getOwnCacheDirectory(this, "Zhanfang/photo").getAbsolutePath();
+        PictureLibrary.init(this, cache+"/");
     }
 
     @Override

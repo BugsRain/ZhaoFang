@@ -10,9 +10,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <upload.view.PictureUploadView
+            android:id="@+id/pictureUploadView"
+            android:numColumns="4"
+            android:layout_margin="@dimen/partition_normal"
+            android:verticalSpacing="1dp"
+            android:horizontalSpacing="2dp"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="wrap_content"
+            android:scrollbars="none"/>
 
         <TextView
             android:layout_width="match_parent"

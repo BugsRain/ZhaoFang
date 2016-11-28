@@ -2,13 +2,18 @@ package cn.ichengxi.fang.business.main.Message;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import butterknife.Bind;
 import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
+import cn.ichengxi.fang.adapter.MessageAdapter;
+import cn.ichengxi.fang.adapter.decoration.ItemLine2;
 import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 
 /**
@@ -17,6 +22,11 @@ import cn.ichengxi.fang.frame.base.BaseFrameFragment;
 
 public class MessageFragment extends BaseFrameFragment {
 
+    @Bind(R.id.recyclerView)
+    RecyclerView mRecyclerView;
+
+    private MessageAdapter mAdapter;
+    private LinearLayoutManager mLayoutManager;
 
     @Override
     public void onSetView(Bundle savedInstanceState) {
@@ -41,6 +51,11 @@ public class MessageFragment extends BaseFrameFragment {
         setTitle("消息");
         mContainer = findViewByIdToView(R.id.message_contain);
 
+        mAdapter = new MessageAdapter(this);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.addItemDecoration(new ItemLine2(getActivity(), R.drawable.item_line_location));
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
