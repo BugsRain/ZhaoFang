@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    android:layout_marginLeft="@dimen/partition_normal"
+    android:layout_marginRight="@dimen/partition_normal"
+    app:cardElevation="1dp">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/popup_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ico_close_black"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+        <chengxinet.chengxilibs.widget.MySimpleDraweeView
+            android:id="@+id/popup_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            fresco:roundAsCircle="true"
+            android:src="@color/bg"
+            android:layout_below="@+id/popup_close"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/popup_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:layout_below="@+id/popup_avatar"
+            android:layout_marginTop="@dimen/partition_normal2"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/font1"/>
+
+        <View
+            android:id="@+id/popup_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/bg"
+            android:layout_below="@+id/popup_describe"
+            android:layout_marginTop="@dimen/partition_small"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/popup_line"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_big"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/partition_big"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/popup_describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="如果当PopupWindow是在屏幕中间或者从下方弹出时,这是一种很好的实现方式,但是如果我想"
+            android:textColor="@color/font1"
+
+            android:padding="@dimen/partition_big"
+            android:layout_below="@+id/popup_name"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -24,7 +24,6 @@ public class BasePopup extends PopupWindow {
 
         setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-
         setOutsideTouchable(true);
         setFocusable(true);
         setAnimationStyle(R.style.popupWindow_anim_style);

@@ -15,7 +15,9 @@
  */
 package cn.ichengxi.fang.business.list;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
@@ -29,18 +31,18 @@ import cn.ichengxi.fang.adapter.ListHouseAdapter;
 import cn.ichengxi.fang.adapter.decoration.ItemLine;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.BackgroundView;
-import cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout;
 import cn.ichengxi.fang.view.popup.BasePopup;
 import cn.ichengxi.fang.view.popup.MorePopup;
 import cn.ichengxi.fang.view.popup.RangePopup;
 import cn.ichengxi.fang.view.popup.TypePopup;
+import cn.ichengxi.fang.view.refresh.MySwipeRefreshLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * Created by Jun on 2016/11/7.
  */
-public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, ListHouseModel> implements  BasePopup.OnPopupWindowListener {
+public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, ListHouseModel> implements BasePopup.OnPopupWindowListener {
     @Bind(R.id.list_house_rv)
     RecyclerView mListHouseRv;
     @Bind(R.id.swipe_layout)
@@ -154,7 +156,7 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                 break;
 
             case R.id.search_more:
-                if(!mBackgroundView.isLoading()) {
+                if (!mBackgroundView.isLoading()) {
                     int offset = (int) getResources().getDimension(R.dimen.line_height);
                     mMorePopup.showAsDropDown(v, 0, offset);
                 }
@@ -162,7 +164,7 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
                 break;
 
             case R.id.search_price:
-                if(!mBackgroundView.isLoading()) {
+                if (!mBackgroundView.isLoading()) {
                     int offset = (int) getResources().getDimension(R.dimen.line_height);
                     mRangePopup.showAsDropDown(v, 0, offset);
                 }
@@ -174,8 +176,9 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
 
             case R.id.search_type:
 //                mTypePopup.showAtLocation(v, Gravity.BOTTOM, 0,0);
-                if(!mBackgroundView.isLoading()) {
-                    int offset = (int) getResources().getDimension(R.dimen.line_height);;
+                if (!mBackgroundView.isLoading()) {
+                    int offset = (int) getResources().getDimension(R.dimen.line_height);
+                    ;
                     mTypePopup.showAsDropDown(v, 0, offset);
 
 
@@ -199,13 +202,25 @@ public class ListHouseActivity extends BaseFrameActivity<ListHousePresenter, Lis
 
     @Override
     public void show(PopupWindow window) {
-//        mBackgroundView.setBackgroundColor(Color.BLACK);
-//        ViewCompat.setAlpha(mListHouseRv, 0.5f);
+        mBackgroundView.post(new Runnable() {
+            @Override
+            public void run() {
+                mBackgroundView.setBackgroundColor(Color.BLACK);
+            }
+        });
+        mBackgroundView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ViewCompat.setAlpha(mListHouseRv, 0.8f);
+            }
+        }, 50);
     }
 
     @Override
     public void dismiss(PopupWindow window) {
-//        mBackgroundView.setBackgroundResource(R.color.bg);
-//        ViewCompat.setAlpha(mListHouseRv, 1f);
+
+        mBackgroundView.setBackgroundResource(R.color.bg);
+        ViewCompat.setAlpha(mListHouseRv, 1f);
+
     }
 }

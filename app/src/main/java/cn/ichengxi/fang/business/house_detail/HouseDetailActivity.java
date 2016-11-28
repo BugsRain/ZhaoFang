@@ -6,16 +6,20 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import chengxinet.chengxilibs.utils.MyLog;
 import cn.ichengxi.fang.MyApplication;
 import cn.ichengxi.fang.R;
@@ -23,17 +27,29 @@ import cn.ichengxi.fang.adapter.HouseAdapter;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.BackgroundView;
 import cn.ichengxi.fang.view.BaseRecyclerView;
+import cn.ichengxi.fang.view.popup.BasePopup;
+import cn.ichengxi.fang.view.popup.UserPopup;
 
 /**
  * Created by quan on 16/11/7.
  */
 
-public class HouseDetailActivity extends BaseFrameActivity {
+public class HouseDetailActivity extends BaseFrameActivity implements BasePopup.OnPopupWindowListener{
+
+    @Bind(R.id.house_online)
+    TextView mHouseOnline;
+
+    @Bind(R.id.house_content)
+    BaseRecyclerView mContentView;
+
+    @Bind(R.id.bg_contain)
+    BackgroundView mBackgroundView;
+
+    private View mStateBar;
+
+    private UserPopup mUserPopup;
 
     private HouseAdapter mAdapter;
-    private BaseRecyclerView mContentView;
-    private BackgroundView mBackgroundView;
-    private View mStateBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +67,7 @@ public class HouseDetailActivity extends BaseFrameActivity {
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
 
-        if(MyApplication.isMoreKitkat()) {
+        if (MyApplication.isMoreKitkat()) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.activity_house_detail, null);
             mStateBar = new View(this);
             mStateBar.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, MyApplication.getStatusBarHeight()));
@@ -63,7 +79,7 @@ public class HouseDetailActivity extends BaseFrameActivity {
             p.setMargins(0, MyApplication.getStatusBarHeight(), 0, 0);
             actionBar.setLayoutParams(p);
             setContentView(viewGroup);
-        }else{
+        } else {
             setContentView(R.layout.activity_house_detail);
         }
     }
@@ -80,15 +96,14 @@ public class HouseDetailActivity extends BaseFrameActivity {
             list.add(i);
         }
 
-        mAdapter = new HouseAdapter(this, new Object(), list.subList(0,3) ,new Object(),list);
+        mUserPopup = new UserPopup(this);
 
-        mContentView = findViewByIdToView(R.id.house_content);
+        mAdapter = new HouseAdapter(this, new Object(), list.subList(0, 3), new Object(), list);
 
         mContentView.setLayoutManager(new LinearLayoutManager(this));
 
         mContentView.setAdapter(mAdapter);
 
-        mBackgroundView = findViewByIdToView(R.id.bg_contain);
         mBackgroundView.loading();
 
         mBackgroundView.postDelayed(new Runnable() {
@@ -103,6 +118,9 @@ public class HouseDetailActivity extends BaseFrameActivity {
     @Override
     public void initListener() {
         super.initListener();
+
+        mHouseOnline.setOnClickListener(this);
+        mUserPopup.setListener(this);
         mContentView.setCallBack(new BaseRecyclerView.OnScrollYChangeCallBack() {
             @Override
             public void onScrollYChange(int d) {
@@ -117,9 +135,23 @@ public class HouseDetailActivity extends BaseFrameActivity {
                         ", mContentView.getChildAt(0).getMeasuredHeight() / 10 = " +
                         (mContentView.getChildAt(0).getMeasuredHeight() / 10));
                 ViewCompat.setAlpha(getActionBarBg(), p);
-                if(mStateBar != null)ViewCompat.setAlpha(mStateBar, p);
+                if (mStateBar != null) ViewCompat.setAlpha(mStateBar, p);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.actionBar_left_txt:
+                finish();
+                break;
+
+            case R.id.house_online:
+                mUserPopup.showAtLocation(v, Gravity.CENTER, 0, 0);
+                break;
+        }
     }
 
     @Override
@@ -130,5 +162,27 @@ public class HouseDetailActivity extends BaseFrameActivity {
     @Override
     public void onRequestEnd() {
 
+    }
+
+    @Override
+    public void show(PopupWindow window) {
+        mBackgroundView.post(new Runnable() {
+            @Override
+            public void run() {
+                mBackgroundView.setBackgroundColor(Color.BLACK);
+            }
+        });
+        mBackgroundView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ViewCompat.setAlpha(mContentView, 0.8f);
+            }
+        }, 50);
+    }
+
+    @Override
+    public void dismiss(PopupWindow window) {
+        mBackgroundView.setBackgroundColor(Color.WHITE);
+        ViewCompat.setAlpha(mContentView, 1f);
     }
 }
