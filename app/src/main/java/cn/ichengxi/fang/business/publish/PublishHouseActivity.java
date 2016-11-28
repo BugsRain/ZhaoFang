@@ -2,7 +2,10 @@ package cn.ichengxi.fang.business.publish;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +18,7 @@ import cn.ichengxi.fang.adapter.HouseTagAdapter;
 import cn.ichengxi.fang.entity.HouseTag;
 import cn.ichengxi.fang.frame.base.BaseFrameActivity;
 import cn.ichengxi.fang.view.flow.TagFlowLayout;
+import cn.ichengxi.fang.view.popup.HousePopup;
 import upload.utils.UploadPicHelper;
 import upload.view.PictureUploadView;
 
@@ -32,7 +36,14 @@ public class PublishHouseActivity extends BaseFrameActivity implements PictureUp
     @Bind(R.id.pictureUploadView)
     PictureUploadView mPictureUploadView;
 
+    @Bind(R.id.house_type_layout)
+    LinearLayout mHouseTypeLayout;
+
+    @Bind(R.id.house_type_txt)
+    TextView mHouseTypeTxt;
+
     private Map<String, String> mUploadMap, mLocalMap;
+    private HousePopup mHousePopup;
 
     @Override
     protected void onViewCreate(Bundle savedInstanceState) {
@@ -44,6 +55,7 @@ public class PublishHouseActivity extends BaseFrameActivity implements PictureUp
         super.initData();
         mUploadMap = new HashMap<>();
         mLocalMap = new HashMap<>();
+        mHousePopup = new HousePopup(this);
     }
 
     @Override
@@ -62,6 +74,7 @@ public class PublishHouseActivity extends BaseFrameActivity implements PictureUp
         HouseTagAdapter mAdapter = new HouseTagAdapter(this, mData);
         mFlowLayout.setAdapter(mAdapter);
 
+        mHouseTypeLayout.setOnClickListener(this);
         mPictureUploadView = (PictureUploadView) findViewById(R.id.pictureUploadView);
         mPictureUploadView.init(this, UploadPicHelper.UPLOAD, 3, false);
         mPictureUploadView.setShowMethod(PictureUploadView.POPUPWINDOW);
@@ -74,6 +87,11 @@ public class PublishHouseActivity extends BaseFrameActivity implements PictureUp
         switch (v.getId()) {
             case R.id.actionBar_left_txt:
                 finish();
+                break;
+
+            case R.id.house_type_layout:
+                mHousePopup.showAtLocation(v,Gravity.BOTTOM,0,0);
+//                mHouseTypeTxt.setText();
                 break;
         }
     }
